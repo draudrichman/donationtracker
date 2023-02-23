@@ -1,8 +1,8 @@
-module com.start {
+module start {
     requires javafx.controls;
     requires javafx.fxml;
 
 
-    opens com.start to javafx.fxml;
-    exports com.start;
+    opens start to javafx.fxml;
+    exports start;
 }
