@@ -115,24 +115,4 @@ public class Main_Controller {
         stage.show();
     }
 
-    //Log Out Menu bar Button From Donation_Details Page.
-    public void backToLoginPageFromD_D(ActionEvent actionEvent) throws IOException {
-
-        root = FXMLLoader.load(getClass().getResource("login.fxml"));
-        stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    //Help & Support Menu bar Button From Donation_Details Page.
-    public void goToHelpAndSupport(ActionEvent actionEvent) throws IOException {
-
-        root = FXMLLoader.load(getClass().getResource("help_and_support.fxml"));
-        stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
 }
