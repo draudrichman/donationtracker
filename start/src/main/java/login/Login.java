@@ -7,18 +7,17 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class donation_confirmation extends Application {
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
+public class Login extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(login.class.getResource("donation_confirmation.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1080, 720);
-        stage.setTitle("Donation Confirmation");
+        stage.setTitle("Log In");
         stage.setScene(scene);
         stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch();
     }
 }

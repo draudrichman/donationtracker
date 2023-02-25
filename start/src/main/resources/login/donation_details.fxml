@@ -9,8 +9,7 @@
 <?import javafx.scene.shape.Box?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Main_Controller">
    <children>
       <Label alignment="CENTER" layoutX="446.0" layoutY="13.0" prefHeight="103.0" prefWidth="228.0" text="GivingTree" textAlignment="CENTER" textFill="#15a85c">
          <font>
@@ -53,6 +52,6 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="635.0" layoutY="328.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="367.0" text="Donate Now" />
+      <Button layoutX="635.0" layoutY="328.0" mnemonicParsing="false" onAction="#goToDonationPayment" prefHeight="53.0" prefWidth="367.0" text="Donate Now" />
    </children>
 </AnchorPane>

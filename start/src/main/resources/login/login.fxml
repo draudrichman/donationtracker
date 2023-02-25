@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.m_controller">
+<AnchorPane fx:id="anchorPane" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Main_Controller">
    <children>
       <Label alignment="CENTER" layoutX="419.0" layoutY="8.0" prefHeight="103.0" prefWidth="228.0" text="GivingTree" textAlignment="CENTER" textFill="#15a85c">
          <font>
@@ -26,8 +26,9 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Button layoutX="426.0" layoutY="384.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" text="Log In" />
-      <Button layoutX="426.0" layoutY="419.0" mnemonicParsing="false" text="Reset Password" />
-      <Button layoutX="540.0" layoutY="419.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Sign Up" />
+      <Button layoutX="426.0" layoutY="384.0" mnemonicParsing="false" onAction="#logIn" prefHeight="25.0" prefWidth="214.0" text="Log In" />
+      <Button layoutX="426.0" layoutY="419.0" mnemonicParsing="false" onAction="#goToResetPassword" prefHeight="25.0" prefWidth="99.0" text="Reset Password" />
+      <Button layoutX="541.0" layoutY="419.0" mnemonicParsing="false" onAction="#goToSignUp" prefHeight="25.0" prefWidth="99.0" text="Sign Up" />
+      <Button layoutX="506.0" layoutY="455.0" mnemonicParsing="false" onAction="#exitFromLogin" prefHeight="25.0" prefWidth="52.0" text="Exit" />
    </children>
 </AnchorPane>

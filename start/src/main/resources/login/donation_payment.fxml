@@ -11,8 +11,7 @@
 <?import javafx.scene.shape.Box?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.m_controller">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Main_Controller">
    <children>
       <MenuBar layoutY="99.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="1080.0">
          <menus>
@@ -85,7 +84,7 @@
             <Font size="15.0" />
          </font>
       </RadioButton>
-      <Button layoutX="620.0" layoutY="488.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="367.0" text="Confirm Payment" />
-      <Button layoutX="479.0" layoutY="149.0" mnemonicParsing="false" text="Return to Campaign" />
+      <Button layoutX="620.0" layoutY="488.0" mnemonicParsing="false" onAction="#goToDonationConfirmation" prefHeight="25.0" prefWidth="367.0" text="Confirm Payment" />
+      <Button layoutX="479.0" layoutY="149.0" mnemonicParsing="false" onAction="#goBackToDonationDetails" text="Return to Campaign" />
    </children>
 </AnchorPane>

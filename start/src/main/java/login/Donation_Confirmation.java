@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class resetpassword extends Application {
+public class Donation_Confirmation extends Application {
 
     public static void main(String[] args) {
         launch(args);
@@ -15,9 +15,9 @@ public class resetpassword extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(login.class.getResource("resetpassword.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("donation_confirmation.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1080, 720);
-        stage.setTitle("Reset Password");
+        stage.setTitle("Donation Confirmation");
         stage.setScene(scene);
         stage.show();
     }
