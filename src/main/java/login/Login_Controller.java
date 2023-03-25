@@ -65,7 +65,6 @@ public class Login_Controller {
         String url = "jdbc:mysql://localhost:3306/donation_tracker";
         String user = "saad";
         String pass = "123@saad";
-        String hello = "";
 
         try {
             //Class.forName(driver);
