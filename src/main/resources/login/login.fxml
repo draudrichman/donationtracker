@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Login_Controller">
+   <children>
+      <Label alignment="CENTER" layoutX="425.0" layoutY="15.0" prefHeight="103.0" prefWidth="228.0" text="GivingTree" textAlignment="CENTER" textFill="#15a85c">
+         <font>
+            <Font name="System Bold" size="43.0" />
+         </font>
+      </Label>
+      <TextField fx:id="UserName" layoutX="365.0" layoutY="217.0" prefHeight="30.0" prefWidth="350.0" />
+      <Label layoutX="365.0" layoutY="187.0" text="Username :">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="LogIn" layoutX="465.0" layoutY="367.0" mnemonicParsing="false" onAction="#logIn" prefHeight="30.0" prefWidth="150.0" text="Log In" />
+      <PasswordField fx:id="Password" layoutX="365.0" layoutY="307.0" prefHeight="30.0" prefWidth="350.0" />
+      <Label layoutX="365.0" layoutY="277.0" text="Password :">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="Reset_Password" layoutX="465.0" layoutY="555.0" mnemonicParsing="false" onAction="#resetPassword" prefHeight="30.0" prefWidth="150.0" text="Reset Password" />
+      <Button fx:id="SignUp" layoutX="465.0" layoutY="467.0" mnemonicParsing="false" onAction="#signUp" prefHeight="30.0" prefWidth="150.0" text="Sign Up" />
+      <Button fx:id="Exit" layoutX="465.0" layoutY="621.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="150.0" text="Exit" />
+      <Label layoutX="418.0" layoutY="437.0" text="Don't have an account? Sign up now!" underline="true">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="398.0" layoutY="525.0" text="Forgot your password? Reset old password!" underline="true">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
