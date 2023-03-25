@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.m_controller">
+    <children>
+        <Label alignment="CENTER" layoutX="446.0" layoutY="-1.0" prefHeight="103.0" prefWidth="228.0" text="GivingTree" textAlignment="CENTER" textFill="#15a85c">
+            <font>
+                <Font name="System Bold" size="43.0" />
+            </font>
+        </Label>
+        <MenuBar layoutX="1.0" layoutY="99.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="1080.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Home" />
+                <Menu mnemonicParsing="false" text="Campaigns">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Explore" />
+                        <MenuItem mnemonicParsing="false" text="Your Campaigns" />
+                        <MenuItem mnemonicParsing="false" text="Campaigns you donated to" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Profile" />
+                <Menu mnemonicParsing="false" text="Help &amp; Support" />
+                <Menu mnemonicParsing="false" text="Log Out" />
+            </menus>
+        </MenuBar>
+        <Label layoutX="375.0" layoutY="150.0" prefHeight="138.0" prefWidth="331.0" text="Thank you so much for your donation! Your generosity means the world to us and will help make a real difference in the lives of those we serve." wrapText="true">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="375.0" layoutY="298.0" text="Donation Details:">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="375.0" layoutY="328.0" text="Amount Donated: ৳50">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="375.0" layoutY="358.0" text="Campaign Name: XYZ Nonprofit">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="375.0" layoutY="388.0" text="Date/Time Processed: February 23, 2023 10:30 AM">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="375.0" layoutY="426.0" prefHeight="90.0" prefWidth="443.0" text="Thank you for your donation! Your confirmation number is: 12345. Please keep this number for your records." wrapText="true">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
