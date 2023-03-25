@@ -65,8 +65,8 @@ public class SignUp_Controller {
         ResultSet resultName = null;
         ResultSet resultEmail = null;
 
-        //String driver = "com.mysql.jdbc.Driver";
-        //String pass = "487@SaaD";
+        ///String driver = "com.mysql.jdbc.Driver";
+        ///String pass = "487@SaaD";
         //String user = "root";
         String url = "jdbc:mysql://localhost:3306/donation_tracker";
         String user = "saad";
