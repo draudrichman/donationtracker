@@ -32,6 +32,9 @@ public class SignUp_Controller {
     AnchorPane anchorPane;
 
     @FXML
+    Label usernameLabel, nameLabel, emailLabel, passLabel, confirmPassLabel;
+
+    @FXML
     TextField UserName, Name, Email;
 
     @FXML
@@ -42,6 +45,12 @@ public class SignUp_Controller {
 
     //Variables to contain user information.
     String username, name, email, password, confirmed_password;
+
+    //Variables to visualize the validation of the fields.
+    String successMessage = String.format("-fx-text-fill: GREEN;");
+    String errorMessage = String.format("-fx-text-fill: RED;");
+    String errorStyle = String.format("-fx-border-color: RED; -fx-border-width: 2; -fx-border-radius: 5;");
+    String successStyle = String.format("-fx-border-color: #A9A9A9; -fx-border-width: 2; -fx-border-radius: 5;");
 
     //Methods For the Buttons.
 
@@ -91,7 +100,7 @@ public class SignUp_Controller {
             resultEmail = psCheckUserExist.executeQuery();
 
             //Checks if the username is already taken or not. Returns true if username is taken.
-            if(resultName.isBeforeFirst()){
+            if (resultName.isBeforeFirst()) {
 
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText("You can't use this username!");
@@ -99,7 +108,7 @@ public class SignUp_Controller {
                 alert.show();
             }
             //Checks if the email is already taken or not. Returns true if email is taken.
-            else if(resultEmail.isBeforeFirst()){
+            else if (resultEmail.isBeforeFirst()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText("You can't use this email!");
                 alert.setContentText("Email is already taken! Choose another email.");
@@ -108,13 +117,12 @@ public class SignUp_Controller {
             //If the username & email is unique inserts the data into the signup table.
             else {
 
-                if(!confirmed_password.equals(password)){
+                if (!confirmed_password.equals(password)) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText("Wrong Password!");
                     alert.setContentText("Use the same password in the confirm password field!");
                     alert.show();
-                }
-                else {
+                } else {
                     psInsertValue = connection.prepareStatement("INSERT INTO signup (username, name, email, password, reset_code) VALUES(?, ?, ?, ?, ?)");
                     psInsertValue.setString(1, username);
                     psInsertValue.setString(2, name);
@@ -123,59 +131,57 @@ public class SignUp_Controller {
                     psInsertValue.setString(5, Integer.toString(contributor.getReset_code()));
                     psInsertValue.executeUpdate();
 
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setHeaderText("Signup Successful!");
+                    alert.setContentText("Your account has been created successfully!");
+                    alert.show();
+
                     //Proceeds to the next scene.
                     root = FXMLLoader.load(getClass().getResource("donation_details.fxml"));
-                    stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
+                    stage = (Stage) ((Node) (actionEvent.getSource())).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setTitle("Donation Details");
                     stage.setScene(scene);
                     stage.show();
                 }
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
 
             //Closing all the connections to the database.
-            if(resultName != null){
+            if (resultName != null) {
                 try {
                     resultName.close();
-                }
-                catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            if(resultEmail != null){
+            if (resultEmail != null) {
                 try {
                     resultEmail.close();
-                }
-                catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            if(psCheckUserExist != null){
+            if (psCheckUserExist != null) {
                 try {
                     psCheckUserExist.close();
-                }
-                catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            if(psInsertValue != null){
+            if (psInsertValue != null) {
                 try {
                     psInsertValue.close();
-                }
-                catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            if(connection != null){
+            if (connection != null) {
                 try {
                     connection.close();
-                }
-                catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
