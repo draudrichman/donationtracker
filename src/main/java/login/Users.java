@@ -4,8 +4,10 @@ import java.util.ArrayList;
 
 public class Users {
 
+    private int user_id;
     private int reset_code;
     private String username, name, email, password, user_type;
+    private String phone, address, aboutMe;
     private double balance;
 
     //Variables to store campaign details in which the Contributors are contributing.
@@ -65,6 +67,38 @@ public class Users {
         this.password = password;
     }
 
+    public String getUser_type() {
+        return user_type;
+    }
+
+    public void setUser_type(String user_type) {
+        this.user_type = user_type;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getAboutMe() {
+        return aboutMe;
+    }
+
+    public void setAboutMe(String aboutMe) {
+        this.aboutMe = aboutMe;
+    }
+
     public double getBalance() {
         return balance;
     }
@@ -73,11 +107,4 @@ public class Users {
         this.balance = balance;
     }
 
-    public String getUser_type() {
-        return user_type;
-    }
-
-    public void setUser_type(String user_type) {
-        this.user_type = user_type;
-    }
 }
