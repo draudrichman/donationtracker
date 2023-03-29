@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Help_and_Support_Controller">
+<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Help_and_Support_Controller">
    <children>
       <MenuBar layoutY="115.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="1080.0">
         <menus>
@@ -20,8 +20,14 @@
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Profile" />
-            <Menu mnemonicParsing="false" text="Help &amp; Support" />
-            <Menu mnemonicParsing="false" text="Log Out" />
+            <Menu mnemonicParsing="false" text="Help &amp; Support">
+               <items>
+                  <MenuItem fx:id="HelpAndSupport" mnemonicParsing="false" text="Help &amp; Support" />
+               </items></Menu>
+            <Menu mnemonicParsing="false" text="Log Out">
+               <items>
+                  <MenuItem fx:id="LogOut" mnemonicParsing="false" onAction="#logout" text="Log Out" />
+               </items></Menu>
         </menus>
       </MenuBar>
       <Label alignment="CENTER" layoutX="425.0" layoutY="15.0" prefHeight="103.0" prefWidth="228.0" text="GivingTree" textAlignment="CENTER" textFill="#15a85c">

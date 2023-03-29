@@ -5,10 +5,11 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Main_Controller">
+<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Donation_Confirmation_Controller">
    <children>
       <Label alignment="CENTER" layoutX="425.0" layoutY="15.0" prefHeight="103.0" prefWidth="228.0" text="GivingTree" textAlignment="CENTER" textFill="#15a85c">
          <font>
@@ -21,13 +22,21 @@
             <Menu mnemonicParsing="false" text="Campaigns">
                <items>
                   <MenuItem mnemonicParsing="false" text="Explore" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem mnemonicParsing="false" text="Your Campaigns" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem mnemonicParsing="false" text="Campaigns you donated to" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Profile" />
-            <Menu mnemonicParsing="false" text="Help &amp; Support" />
-            <Menu mnemonicParsing="false" text="Log Out" />
+            <Menu mnemonicParsing="false" text="Help &amp; Support">
+               <items>
+                  <MenuItem fx:id="HelpAndSupport" mnemonicParsing="false" onAction="#goToHelpAndSupport" text="Help &amp; Support" />
+               </items></Menu>
+            <Menu mnemonicParsing="false" text="Log Out">
+               <items>
+                  <MenuItem fx:id="LogOut" mnemonicParsing="false" onAction="#logout" text="Log Out" />
+               </items></Menu>
          </menus>
       </MenuBar>
       <Label layoutX="374.0" layoutY="167.0" prefHeight="138.0" prefWidth="331.0" text="Thank you so much for your donation! Your generosity means the world to us and will help make a real difference in the lives of those we serve." wrapText="true">

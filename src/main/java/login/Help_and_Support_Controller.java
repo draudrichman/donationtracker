@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -32,20 +33,30 @@ public class Help_and_Support_Controller implements Initializable {
     AnchorPane anchorPane;
 
     @FXML
-    //Button LogOut;
+    MenuItem LogOut, HelpAndSupport;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        /*LogOut.setOnAction(event -> {
+            try {
+                backToLoginPage();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });*/
     }
 
-    //Method 1: Take backs to the Login Page.
-    public void backToLoginPage(ActionEvent actionEvent) throws IOException {
+    //All the methods for Buttons and Menu bar.
 
-        root = FXMLLoader.load(getClass().getResource("login.fxml"));
-        stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
+    //Method 1: Logs out from the user account.
+    public void logout() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("login.fxml"));
+        root = loader.load();
         scene = new Scene(root);
-        stage.setTitle("Log In");
+        stage = (Stage)anchorPane.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }

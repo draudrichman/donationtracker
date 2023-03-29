@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Box?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Main_Controller">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Donation_Details_Controller">
    <children>
       <Label alignment="CENTER" layoutX="425.0" layoutY="15.0" prefHeight="103.0" prefWidth="228.0" text="GivingTree" textAlignment="CENTER" textFill="#15a85c">
          <font>
@@ -27,8 +27,14 @@
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Profile" />
-            <Menu mnemonicParsing="false" text="Help &amp; Support" />
-            <Menu mnemonicParsing="false" text="Log Out" />
+            <Menu mnemonicParsing="false" text="Help &amp; Support">
+               <items>
+                  <MenuItem fx:id="HelpAndSupport" mnemonicParsing="false" onAction="#goToHelpAndSupport" text="Help &amp; Support" />
+               </items></Menu>
+            <Menu mnemonicParsing="false" text="Log Out">
+               <items>
+                  <MenuItem fx:id="LogOut" mnemonicParsing="false" onAction="#logout" text="Log Out" />
+               </items></Menu>
          </menus>
       </MenuBar>
       <Box depth="100" drawMode="LINE" height="200.0" layoutX="325.0" layoutY="355.0" width="400.0" />
@@ -52,6 +58,6 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="713.0" layoutY="357.0" mnemonicParsing="false" onAction="#goToDonationPayment" prefHeight="53.0" prefWidth="200.0" text="Donate Now" />
+      <Button layoutX="713.0" layoutY="357.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="200.0" text="Donate Now" />
    </children>
 </AnchorPane>
