@@ -67,86 +67,85 @@ public class Reset_Password_Controller {
         String user = "saad";
         String pass = "123@saad";
 
-        try {
-            Class.forName(driver);
+        if (username.equals("") || reset_code.equals("") || new_password.equals("")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Empty text fields!");
+            alert.setContentText("Please fill up all the information!");
+            alert.show();
+        } else {
+            try {
+                Class.forName(driver);
 
-            //Establishing the database connection.
-            connection = DriverManager.getConnection(url, user, pass);
+                //Establishing the database connection.
+                connection = DriverManager.getConnection(url, user, pass);
 
-            //Storing the password in the resultPassword variable.
-            preparedStatement = connection.prepareStatement("SELECT reset_code FROM signup WHERE username = ?");
-            preparedStatement.setString(1, username);
-            resultSet = preparedStatement.executeQuery();
+                //Storing the password in the resultPassword variable.
+                preparedStatement = connection.prepareStatement("SELECT reset_code FROM signup WHERE username = ?");
+                preparedStatement.setString(1, username);
+                resultSet = preparedStatement.executeQuery();
 
-            //Checks if the user exist or not. Returns false if the user does not exist.
-            if(!resultSet.isBeforeFirst()){
+                //Checks if the user exist or not. Returns false if the user does not exist.
+                if (!resultSet.isBeforeFirst()) {
 
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("User not Found!");
-                alert.setContentText("This user does not exist! Use another username.");
-                alert.show();
-            }
-            else{
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText("User not Found!");
+                    alert.setContentText("This user does not exist! Use another username.");
+                    alert.show();
+                } else {
 
-                while(resultSet.next()){
-                    String retrievedResetCode = resultSet.getString("reset_code");
+                    while (resultSet.next()) {
+                        String retrievedResetCode = resultSet.getString("reset_code");
 
-                    if(retrievedResetCode.equals(reset_code)){
+                        if (retrievedResetCode.equals(reset_code)) {
 
-                        psInsertValue = connection.prepareStatement("UPDATE signup SET password = ? WHERE username = ?");
-                        psInsertValue.setString(1, new_password);
-                        psInsertValue.setString(2, username);
-                        psInsertValue.executeUpdate();
+                            psInsertValue = connection.prepareStatement("UPDATE signup SET password = ? WHERE username = ?");
+                            psInsertValue.setString(1, new_password);
+                            psInsertValue.setString(2, username);
+                            psInsertValue.executeUpdate();
 
-                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                        alert.setHeaderText("Password Changed!");
-                        alert.setContentText("Your Password has been changed successfully!");
-                        alert.show();
+                            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                            alert.setHeaderText("Password Changed!");
+                            alert.setContentText("Your Password has been changed successfully!");
+                            alert.show();
+                        } else {
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setHeaderText("Wrong Reset Code!");
+                            alert.setContentText("Provided Reset Code for the username is incorrect!");
+                            alert.show();
+                        }
                     }
-                    else{
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setHeaderText("Wrong Reset Code!");
-                        alert.setContentText("Provided Reset Code for the username is incorrect!");
-                        alert.show();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                //Closing all the connections to the database.
+                if (resultSet != null) {
+                    try {
+                        resultSet.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
-            }
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-        finally{
-            //Closing all the connections to the database.
-            if(resultSet != null){
-                try {
-                    resultSet.close();
+                if (preparedStatement != null) {
+                    try {
+                        preparedStatement.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-                catch (Exception e){
-                    e.printStackTrace();
+                if (psInsertValue != null) {
+                    try {
+                        psInsertValue.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-            if(preparedStatement != null){
-                try {
-                    preparedStatement.close();
-                }
-                catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-            if(psInsertValue != null){
-                try {
-                    psInsertValue.close();
-                }
-                catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-            if(connection != null){
-                try {
-                    connection.close();
-                }
-                catch (Exception e){
-                    e.printStackTrace();
+                if (connection != null) {
+                    try {
+                        connection.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }

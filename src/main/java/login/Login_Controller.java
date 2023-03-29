@@ -66,74 +66,75 @@ public class Login_Controller {
         String user = "saad";
         String pass = "123@saad";
 
-        try {
-            //Class.forName(driver);
-
-            //Establishing the database connection.
-            connection = DriverManager.getConnection(url, user, pass);
-
-            //Storing the password in the resultPassword variable.
-            preparedStatement = connection.prepareStatement("SELECT password FROM signup WHERE username = ?");
-            preparedStatement.setString(1, username);
-            resultSet = preparedStatement.executeQuery();
-
-            //Checks if the user exist or not. Returns false if the user does not exist.
-            if(!resultSet.isBeforeFirst()){
-
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("User not Found!");
-                alert.setContentText("This user does not exist! Use another username.");
-                alert.show();
-            }
-            else{
-
-                while(resultSet.next()){
-                    String retrievedPassword = resultSet.getString("password");
-
-                    if(retrievedPassword.equals(password)){
-                        root = FXMLLoader.load(getClass().getResource("donation_details.fxml"));
-                        stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
-                        scene = new Scene(root);
-                        stage.setTitle("Donation Details");
-                        stage.setScene(scene);
-                        stage.show();
-                    }
-                    else{
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setHeaderText("Wrong Password!");
-                        alert.setContentText("Provided password for the username is incorrect!");
-                        alert.show();
-                    }
-                }
-            }
+        if (username.equals("") || password.equals("")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Empty text fields!");
+            alert.setContentText("Please fill up all the information!");
+            alert.show();
         }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-        finally{
-            //Closing all the connections to the database.
-            if(resultSet != null){
-                try {
-                    resultSet.close();
+        else {
+            try {
+                //Class.forName(driver);
+
+                //Establishing the database connection.
+                connection = DriverManager.getConnection(url, user, pass);
+
+                //Storing the password in the resultPassword variable.
+                preparedStatement = connection.prepareStatement("SELECT password FROM signup WHERE username = ?");
+                preparedStatement.setString(1, username);
+                resultSet = preparedStatement.executeQuery();
+
+                //Checks if the user exist or not. Returns false if the user does not exist.
+                if (!resultSet.isBeforeFirst()) {
+
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText("User not Found!");
+                    alert.setContentText("This user does not exist! Use another username.");
+                    alert.show();
+                } else {
+
+                    while (resultSet.next()) {
+                        String retrievedPassword = resultSet.getString("password");
+
+                        if (retrievedPassword.equals(password)) {
+                            root = FXMLLoader.load(getClass().getResource("donation_details.fxml"));
+                            stage = (Stage) ((Node) (actionEvent.getSource())).getScene().getWindow();
+                            scene = new Scene(root);
+                            stage.setTitle("Donation Details");
+                            stage.setScene(scene);
+                            stage.show();
+                        } else {
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setHeaderText("Wrong Password!");
+                            alert.setContentText("Provided password for the username is incorrect!");
+                            alert.show();
+                        }
+                    }
                 }
-                catch (Exception e){
-                    e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                //Closing all the connections to the database.
+                if (resultSet != null) {
+                    try {
+                        resultSet.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-            if(preparedStatement != null){
-                try {
-                    preparedStatement.close();
+                if (preparedStatement != null) {
+                    try {
+                        preparedStatement.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-                catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-            if(connection != null){
-                try {
-                    connection.close();
-                }
-                catch (Exception e){
-                    e.printStackTrace();
+                if (connection != null) {
+                    try {
+                        connection.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }

@@ -32,7 +32,7 @@ public class SignUp_Controller {
     AnchorPane anchorPane;
 
     @FXML
-    Label usernameLabel, nameLabel, emailLabel, passLabel, confirmPassLabel;
+    RadioButton fundraiserRb, contributorRb;
 
     @FXML
     TextField UserName, Name, Email;
@@ -64,8 +64,21 @@ public class SignUp_Controller {
         password = Password.getText();
         confirmed_password = Confirm_Password.getText();
 
-        //Creating a new Contributor.
-        Contributor contributor = new Contributor(username, name, email, password);
+        //Creating a new Contributor/Fundraiser.
+        Users newUser = null;
+
+        if(fundraiserRb.isSelected()){
+            newUser = new FundRaiser(username, name, email, password);
+        }
+        else if(contributorRb.isSelected()){
+            newUser = new Contributor(username, name, email, password);
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("User type not selected!");
+            alert.setContentText("Please select the type of newUser you want to signup as!");
+            alert.show();
+        }
 
         //Variables for the connection to a database.
         Connection connection = null;
@@ -73,116 +86,130 @@ public class SignUp_Controller {
         PreparedStatement psCheckUserExist = null;
         ResultSet resultName = null;
         ResultSet resultEmail = null;
+        ResultSet resultUserId = null;
 
         ///String driver = "com.mysql.jdbc.Driver";
         ///String pass = "487@SaaD";
-        //String user = "root";
+        //String newUser = "root";
         String url = "jdbc:mysql://localhost:3306/donation_tracker";
         String user = "saad";
         String pass = "123@saad";
 
-        //Storing user information into a database.
-        try {
+        if (username.equals("") || name.equals("") || email.equals("") || password.equals("") || confirmed_password.equals("")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Empty text fields!");
+            alert.setContentText("Please fill up all the information!");
+            alert.show();
+        }
+        else {
 
-            //Class.forName(driver);
+            //Storing newUser information into a database.
+            try {
 
-            //Establishing the database connection.
-            connection = DriverManager.getConnection(url, user, pass);
+                //Class.forName(driver);
 
-            //Storing the user info of given username in the resultName variable.
-            psCheckUserExist = connection.prepareStatement("SELECT * FROM signup WHERE username = ?");
-            psCheckUserExist.setString(1, username);
-            resultName = psCheckUserExist.executeQuery();
+                //Establishing the database connection.
+                connection = DriverManager.getConnection(url, user, pass);
 
-            //Storing the user info of given email in the resultEmail variable.
-            psCheckUserExist = connection.prepareStatement("SELECT * FROM signup WHERE email = ?");
-            psCheckUserExist.setString(1, email);
-            resultEmail = psCheckUserExist.executeQuery();
+                //Storing the newUser info of given username in the resultName variable.
+                psCheckUserExist = connection.prepareStatement("SELECT * FROM signup WHERE username = ?");
+                psCheckUserExist.setString(1, username);
+                resultName = psCheckUserExist.executeQuery();
 
-            //Checks if the username is already taken or not. Returns true if username is taken.
-            if (resultName.isBeforeFirst()) {
+                //Storing the newUser info of given email in the resultEmail variable.
+                psCheckUserExist = connection.prepareStatement("SELECT * FROM signup WHERE email = ?");
+                psCheckUserExist.setString(1, email);
+                resultEmail = psCheckUserExist.executeQuery();
 
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("You can't use this username!");
-                alert.setContentText("Username is already taken! Choose a new username.");
-                alert.show();
-            }
-            //Checks if the email is already taken or not. Returns true if email is taken.
-            else if (resultEmail.isBeforeFirst()) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("You can't use this email!");
-                alert.setContentText("Email is already taken! Choose another email.");
-                alert.show();
-            }
-            //If the username & email is unique inserts the data into the signup table.
-            else {
+                //Checks if the username is already taken or not. Returns true if username is taken.
+                if (resultName.isBeforeFirst()) {
 
-                if (!confirmed_password.equals(password)) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setHeaderText("Wrong Password!");
-                    alert.setContentText("Use the same password in the confirm password field!");
+                    alert.setHeaderText("You can't use this username!");
+                    alert.setContentText("Username is already taken! Choose a new username.");
                     alert.show();
-                } else {
-                    psInsertValue = connection.prepareStatement("INSERT INTO signup (username, name, email, password, reset_code) VALUES(?, ?, ?, ?, ?)");
-                    psInsertValue.setString(1, username);
-                    psInsertValue.setString(2, name);
-                    psInsertValue.setString(3, email);
-                    psInsertValue.setString(4, password);
-                    psInsertValue.setString(5, Integer.toString(contributor.getReset_code()));
-                    psInsertValue.executeUpdate();
-
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setHeaderText("Signup Successful!");
-                    alert.setContentText("Your account has been created successfully!");
+                }
+                //Checks if the email is already taken or not. Returns true if email is taken.
+                else if (resultEmail.isBeforeFirst()) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText("You can't use this email!");
+                    alert.setContentText("Email is already taken! Choose another email.");
                     alert.show();
+                }
+                //If the username & email is unique inserts the data into the signup table.
+                else {
 
-                    //Proceeds to the next scene.
-                    root = FXMLLoader.load(getClass().getResource("donation_details.fxml"));
-                    stage = (Stage) ((Node) (actionEvent.getSource())).getScene().getWindow();
-                    scene = new Scene(root);
-                    stage.setTitle("Donation Details");
-                    stage.setScene(scene);
-                    stage.show();
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
+                    if (!confirmed_password.equals(password)) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setHeaderText("Wrong Password!");
+                        alert.setContentText("Use the same password in the confirm password field!");
+                        alert.show();
+                    }
+                    else {
+                        psInsertValue = connection.prepareStatement("INSERT INTO signup (username, name, email, password, reset_code, user_type) VALUES(?, ?, ?, ?, ?, ?)");
+                        psInsertValue.setString(1, username);
+                        psInsertValue.setString(2, name);
+                        psInsertValue.setString(3, email);
+                        psInsertValue.setString(4, password);
+                        psInsertValue.setString(5, Integer.toString(newUser.getReset_code()));
+                        psInsertValue.setString(6, newUser.getUser_type());
+                        psInsertValue.executeUpdate();
 
-            //Closing all the connections to the database.
-            if (resultName != null) {
-                try {
-                    resultName.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                        alert.setHeaderText("Signup Successful!");
+                        alert.setContentText("Your account has been created successfully!");
+                        alert.show();
+
+                        //Proceeds to the next scene.
+                        root = FXMLLoader.load(getClass().getResource("donation_details.fxml"));
+                        stage = (Stage) ((Node) (actionEvent.getSource())).getScene().getWindow();
+                        scene = new Scene(root);
+                        stage.setTitle("Donation Details");
+                        stage.setScene(scene);
+                        stage.show();
+                    }
                 }
             }
-            if (resultEmail != null) {
-                try {
-                    resultEmail.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            catch (Exception e) {
+                e.printStackTrace();
             }
-            if (psCheckUserExist != null) {
-                try {
-                    psCheckUserExist.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
+            finally {
+
+                //Closing all the connections to the database.
+                if (resultName != null) {
+                    try {
+                        resultName.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-            if (psInsertValue != null) {
-                try {
-                    psInsertValue.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
+                if (resultEmail != null) {
+                    try {
+                        resultEmail.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
+                if (psCheckUserExist != null) {
+                    try {
+                        psCheckUserExist.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (psInsertValue != null) {
+                    try {
+                        psInsertValue.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (connection != null) {
+                    try {
+                        connection.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }

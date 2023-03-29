@@ -16,7 +16,7 @@ public class Donation_Confirmation extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("donation_confirmation.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1080, 720);
+        Scene scene = new Scene(fxmlLoader.load(), 1080, 768);
         stage.setTitle("Donation Confirmation");
         stage.setScene(scene);
         stage.show();

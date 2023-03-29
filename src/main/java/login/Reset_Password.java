@@ -16,7 +16,7 @@ public class Reset_Password extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("reset_password.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1080, 720);
+        Scene scene = new Scene(fxmlLoader.load(), 1080, 768);
         stage.setTitle("Reset Password");
         stage.setScene(scene);
         stage.show();

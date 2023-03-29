@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Help_and_Support_Controller">
+<AnchorPane prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Help_and_Support_Controller">
    <children>
       <MenuBar layoutY="115.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="1080.0">
         <menus>
@@ -21,10 +21,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Profile" />
             <Menu mnemonicParsing="false" text="Help &amp; Support" />
-            <Menu mnemonicParsing="false" text="Log Out">
-               <items>
-                  <MenuItem fx:id="LogOut" mnemonicParsing="false" text="Log Out" />
-               </items></Menu>
+            <Menu mnemonicParsing="false" text="Log Out" />
         </menus>
       </MenuBar>
       <Label alignment="CENTER" layoutX="425.0" layoutY="15.0" prefHeight="103.0" prefWidth="228.0" text="GivingTree" textAlignment="CENTER" textFill="#15a85c">
@@ -32,22 +29,22 @@
             <Font name="System Bold" size="43.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="451.0" layoutY="155.0" prefHeight="54.0" prefWidth="178.0" text="Help &amp; Support">
+      <Label alignment="CENTER" layoutX="449.0" layoutY="198.0" prefHeight="54.0" prefWidth="178.0" text="Help &amp; Support">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="169.0" layoutY="215.0" prefHeight="218.0" prefWidth="742.0" text="To create a new donation campaign, navigate to the &quot;Create Donation&quot; in the menu. Here, you can add a title and description for your campaign, as well as upload an image to represent your cause. You'll also need to set a fundraising goal for your campaign, so that donors can see how much progress has been made towards your goal. Once you've entered all of the necessary information, click &quot;Create&quot; to launch your campaign. From there, you can share the link to your campaign with friends and family, and donors can make contributions directly through the program. Be sure to keep your donors updated on your progress, using the &quot;Donation Updates&quot; feature, and thank them for their support!" textAlignment="JUSTIFY" wrapText="true">
+      <Label layoutX="167.0" layoutY="265.0" prefHeight="218.0" prefWidth="742.0" text="To create a new donation campaign, navigate to the &quot;Create Donation&quot; in the menu. Here, you can add a title and description for your campaign, as well as upload an image to represent your cause. You'll also need to set a fundraising goal for your campaign, so that donors can see how much progress has been made towards your goal. Once you've entered all of the necessary information, click &quot;Create&quot; to launch your campaign. From there, you can share the link to your campaign with friends and family, and donors can make contributions directly through the program. Be sure to keep your donors updated on your progress, using the &quot;Donation Updates&quot; feature, and thank them for their support!" textAlignment="JUSTIFY" wrapText="true">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="409.0" layoutY="475.0" prefHeight="70.0" prefWidth="263.0" text="Still can't find what you need?">
+      <Label alignment="CENTER" layoutX="409.0" layoutY="514.0" prefHeight="70.0" prefWidth="263.0" text="Still can't find what you need?">
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="503.0" layoutY="535.0" text="Contact us:">
+      <Label layoutX="502.0" layoutY="584.0" text="Contact us:">
          <font>
             <Font size="15.0" />
          </font>
