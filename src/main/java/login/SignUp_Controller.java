@@ -15,6 +15,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Objects;
 
 public class SignUp_Controller {
 
@@ -47,10 +48,10 @@ public class SignUp_Controller {
     String username, name, email, password, confirmed_password;
 
     //Variables to visualize the validation of the fields.
-    String successMessage = String.format("-fx-text-fill: GREEN;");
-    String errorMessage = String.format("-fx-text-fill: RED;");
-    String errorStyle = String.format("-fx-border-color: RED; -fx-border-width: 2; -fx-border-radius: 5;");
-    String successStyle = String.format("-fx-border-color: #A9A9A9; -fx-border-width: 2; -fx-border-radius: 5;");
+    String successMessage = "-fx-text-fill: GREEN;";
+    String errorMessage = "-fx-text-fill: RED;";
+    String errorStyle = "-fx-border-color: RED; -fx-border-width: 2; -fx-border-radius: 5;";
+    String successStyle = "-fx-border-color: #A9A9A9; -fx-border-width: 2; -fx-border-radius: 5;";
 
     //Methods For the Buttons.
 
@@ -88,12 +89,10 @@ public class SignUp_Controller {
         ResultSet resultEmail = null;
         ResultSet resultUserId = null;
 
-        ///String driver = "com.mysql.jdbc.Driver";
-        ///String pass = "487@SaaD";
-        //String newUser = "root";
+
         String url = "jdbc:mysql://localhost:3306/donation_tracker";
-        String user = "saad";
-        String pass = "123@saad";
+        String user = "root";
+        String pass = "112358abc";
 
         if (username.equals("") || name.equals("") || email.equals("") || password.equals("") || confirmed_password.equals("")) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -112,12 +111,12 @@ public class SignUp_Controller {
                 connection = DriverManager.getConnection(url, user, pass);
 
                 //Storing the newUser info of given username in the resultName variable.
-                psCheckUserExist = connection.prepareStatement("SELECT * FROM signup WHERE username = ?");
+                psCheckUserExist = connection.prepareStatement("SELECT * FROM userdetails WHERE userName = ?");
                 psCheckUserExist.setString(1, username);
                 resultName = psCheckUserExist.executeQuery();
 
                 //Storing the newUser info of given email in the resultEmail variable.
-                psCheckUserExist = connection.prepareStatement("SELECT * FROM signup WHERE email = ?");
+                psCheckUserExist = connection.prepareStatement("SELECT * FROM userdetails WHERE email = ?");
                 psCheckUserExist.setString(1, email);
                 resultEmail = psCheckUserExist.executeQuery();
 
@@ -146,11 +145,12 @@ public class SignUp_Controller {
                         alert.show();
                     }
                     else {
-                        psInsertValue = connection.prepareStatement("INSERT INTO signup (username, name, email, password, reset_code, user_type) VALUES(?, ?, ?, ?, ?, ?)");
+                        psInsertValue = connection.prepareStatement("INSERT INTO userdetails (userName, fullName, email, password, resetCode, userType) VALUES(?, ?, ?, ?, ?, ?)");
                         psInsertValue.setString(1, username);
                         psInsertValue.setString(2, name);
                         psInsertValue.setString(3, email);
                         psInsertValue.setString(4, password);
+                        assert newUser != null;
                         psInsertValue.setString(5, Integer.toString(newUser.getReset_code()));
                         psInsertValue.setString(6, newUser.getUser_type());
                         psInsertValue.executeUpdate();
@@ -160,11 +160,11 @@ public class SignUp_Controller {
                         alert.setContentText("Your account has been created successfully!");
                         alert.show();
 
-                        //Proceeds to the next scene.
-                        root = FXMLLoader.load(getClass().getResource("homepage.fxml"));
-                        stage = (Stage) ((Node) (actionEvent.getSource())).getScene().getWindow();
+                        //Proceeds to the login scene.
+                        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));
+                        stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
                         scene = new Scene(root);
-                        stage.setTitle("Donation Details");
+                        stage.setTitle("Log In");
                         stage.setScene(scene);
                         stage.show();
                     }
@@ -218,7 +218,7 @@ public class SignUp_Controller {
     //Method 2: Take backs to the Login Page.
     public void backToLoginPage(ActionEvent actionEvent) throws IOException {
 
-        root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));
         stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Log In");

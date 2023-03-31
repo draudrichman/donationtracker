@@ -6,60 +6,51 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.SignUp_Controller">
+<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" styleClass="backgroundColor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.SignUp_Controller">
    <children>
-      <Label alignment="CENTER" layoutX="425.0" layoutY="15.0" prefHeight="103.0" prefWidth="228.0" text="GivingTree" textAlignment="CENTER" textFill="#15a85c">
-         <font>
-            <Font name="System Bold" size="43.0" />
-         </font>
-      </Label>
-      <TextField fx:id="UserName" layoutX="365.0" layoutY="170.0" prefHeight="30.0" prefWidth="350.0" />
-      <Label layoutX="365.0" layoutY="140.0" text="Username :">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Button fx:id="Login" layoutX="440.0" layoutY="695.0" mnemonicParsing="false" onAction="#backToLoginPage" prefHeight="30.0" prefWidth="200.0" text="Go Back To Login Page" />
-      <Button fx:id="SignUp" layoutX="440.0" layoutY="640.0" mnemonicParsing="false" onAction="#signUp" prefHeight="30.0" prefWidth="200.0" text="Sign Up" />
-      <TextField fx:id="Name" layoutX="365.0" layoutY="260.0" prefHeight="30.0" prefWidth="350.0" />
-      <Label layoutX="365.0" layoutY="230.0" text="Name :">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="Email" layoutX="365.0" layoutY="350.0" prefHeight="30.0" prefWidth="350.0" />
-      <Label layoutX="365.0" layoutY="320.0" text="Email :">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="365.0" layoutY="410.0" text="Password :">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="365.0" layoutY="500.0" text="Confirm Password :">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <PasswordField fx:id="Password" layoutX="365.0" layoutY="440.0" prefHeight="30.0" prefWidth="350.0" />
-      <PasswordField fx:id="Confirm_Password" layoutX="365.0" layoutY="530.0" prefHeight="30.0" prefWidth="350.0" />
-      <RadioButton fx:id="fundraiserRb" layoutX="395.0" layoutY="580.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Fundraiser">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-         <toggleGroup>
-            <ToggleGroup fx:id="Group1" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="contributorRb" layoutX="580.0" layoutY="580.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Contributor" toggleGroup="$Group1">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </RadioButton>
+      <VBox layoutX="340.0" layoutY="227.0" maxHeight="500.0" maxWidth="400.0" minHeight="500.0" minWidth="400.0" prefHeight="500.0" prefWidth="400.0">
+         <children>
+            <AnchorPane maxHeight="500.0" maxWidth="400.0" minHeight="500.0" minWidth="400.0" prefHeight="500.0" prefWidth="400.0" style="-fx-background-radius: 15px;" styleClass="backgroundColor" stylesheets="@styles.css">
+               <children>
+                  <TextField fx:id="UserName" layoutX="75.0" layoutY="94.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Username" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;" />
+                  <TextField fx:id="Name" layoutX="75.0" layoutY="142.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Full Name" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;" />
+                  <TextField fx:id="Email" layoutX="75.0" layoutY="190.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Email" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;" />
+                  <PasswordField fx:id="Password" layoutX="75.0" layoutY="238.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Password" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;" />
+                  <PasswordField fx:id="Confirm_Password" layoutX="75.0" layoutY="286.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Confirm Password" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;" />
+                  <RadioButton fx:id="fundraiserRb" layoutX="94.0" layoutY="327.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Fundraiser" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Group1" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="contributorRb" layoutX="224.0" layoutY="327.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Donor" textFill="WHITE" toggleGroup="$Group1">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <Button fx:id="SignUp" layoutX="75.0" layoutY="360.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" mnemonicParsing="false" onAction="#signUp" prefHeight="40.0" prefWidth="250.0" text="Sign Up" />
+                  <Button fx:id="Login" layoutX="75.0" layoutY="416.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" mnemonicParsing="false" onAction="#backToLoginPage" prefHeight="40.0" prefWidth="250.0" text="Log In" />
+                  <Label layoutX="128.0" layoutY="18.0" text="Sign Up" textFill="#00563b">
+                     <font>
+                        <Font name="Dubai Bold" size="43.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <ImageView fitHeight="276.0" fitWidth="276.0" layoutX="402.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@givingtreelogo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

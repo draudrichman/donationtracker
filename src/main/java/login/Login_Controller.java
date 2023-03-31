@@ -18,6 +18,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Objects;
 
 public class Login_Controller {
 
@@ -63,8 +64,8 @@ public class Login_Controller {
 
         //String driver = "com.mysql.jdbc.Driver";
         String url = "jdbc:mysql://localhost:3306/donation_tracker";
-        String user = "saad";
-        String pass = "123@saad";
+        String user = "root";
+        String pass = "112358abc";
 
         if (username.equals("") || password.equals("")) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -80,7 +81,7 @@ public class Login_Controller {
                 connection = DriverManager.getConnection(url, user, pass);
 
                 //Storing the password in the resultPassword variable.
-                preparedStatement = connection.prepareStatement("SELECT password FROM signup WHERE username = ?");
+                preparedStatement = connection.prepareStatement("SELECT password FROM userdetails WHERE username = ?");
                 preparedStatement.setString(1, username);
                 resultSet = preparedStatement.executeQuery();
 
@@ -89,7 +90,7 @@ public class Login_Controller {
 
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText("User not Found!");
-                    alert.setContentText("This user does not exist! Use another username.");
+                    alert.setContentText("Well, this is awkward. Did you forget your password or did your cat walk across your keyboard?");
                     alert.show();
                 } else {
 
@@ -97,7 +98,7 @@ public class Login_Controller {
                         String retrievedPassword = resultSet.getString("password");
 
                         if (retrievedPassword.equals(password)) {
-                            root = FXMLLoader.load(getClass().getResource("homepage.fxml"));
+                            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("homepage.fxml")));
                             stage = (Stage) ((Node) (actionEvent.getSource())).getScene().getWindow();
                             scene = new Scene(root);
                             stage.setTitle("Donation Details");
@@ -143,7 +144,7 @@ public class Login_Controller {
     //Method 2: Takes to the SignUp page.
     public void signUp(ActionEvent actionEvent) throws IOException {
 
-        root = FXMLLoader.load(getClass().getResource("signup.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("signup.fxml")));
         stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Sign Up");
@@ -154,7 +155,7 @@ public class Login_Controller {
     //Method 3: Takes to the Reset_Password page.
     public void resetPassword(ActionEvent actionEvent) throws IOException {
 
-        root = FXMLLoader.load(getClass().getResource("reset_password.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("reset_password.fxml")));
         stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Reset Password");
@@ -163,9 +164,9 @@ public class Login_Controller {
     }
 
     //Method 4: Exits the program.
-    public void exit(ActionEvent actionEvent) throws IOException {
-
-        stage = (Stage) anchorPane.getScene().getWindow();
-        stage.close();
-    }
+//    public void exit(ActionEvent actionEvent) throws IOException {
+//
+//        stage = (Stage) anchorPane.getScene().getWindow();
+//        stage.close();
+//    }
 }
