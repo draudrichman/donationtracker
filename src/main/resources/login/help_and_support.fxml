@@ -4,32 +4,12 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Help_and_Support_Controller">
    <children>
-      <MenuBar layoutY="115.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="1080.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="Home" />
-          <Menu mnemonicParsing="false" text="Campaigns">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Explore" />
-                  <MenuItem mnemonicParsing="false" text="Your Campaigns" />
-                  <MenuItem mnemonicParsing="false" text="Campaigns you donated to" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Profile" />
-            <Menu mnemonicParsing="false" text="Help &amp; Support">
-               <items>
-                  <MenuItem fx:id="HelpAndSupport" mnemonicParsing="false" text="Help &amp; Support" />
-               </items></Menu>
-            <Menu mnemonicParsing="false" text="Log Out">
-               <items>
-                  <MenuItem fx:id="LogOut" mnemonicParsing="false" onAction="#logout" text="Log Out" />
-               </items></Menu>
-        </menus>
-      </MenuBar>
       <Label alignment="CENTER" layoutX="425.0" layoutY="15.0" prefHeight="103.0" prefWidth="228.0" text="GivingTree" textAlignment="CENTER" textFill="#15a85c">
          <font>
             <Font name="System Bold" size="43.0" />
@@ -55,5 +35,45 @@
             <Font size="15.0" />
          </font>
       </Label>
+      <MenuBar layoutY="115.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="1080.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Home">
+               <items>
+                  <MenuItem fx:id="Home" mnemonicParsing="false" onAction="#goToHome" text="Home" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Campaigns">
+               <items>
+                  <MenuItem fx:id="Explore" mnemonicParsing="false" text="Explore" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="YourCampaign" mnemonicParsing="false" text="Your Campaigns" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="DonatedCampaign" mnemonicParsing="false" text="Campaigns you donated to" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Profile">
+               <items>
+                  <MenuItem fx:id="MyProfile" mnemonicParsing="false" onAction="#goToProfile" text="My Profile" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="UpdateProfile" mnemonicParsing="false" onAction="#goToUpdateProfile" text="Update Profile" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help &amp; Support">
+               <items>
+                  <MenuItem fx:id="HelpAndSupport" mnemonicParsing="false" text="Help &amp; Support" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Log Out">
+               <items>
+                  <MenuItem fx:id="LogOut" mnemonicParsing="false" onAction="#logout" text="Log Out" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Exit">
+               <items>
+                  <MenuItem fx:id="Exit" mnemonicParsing="false" onAction="#exit" text="Exit" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
    </children>
 </AnchorPane>

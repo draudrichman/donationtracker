@@ -97,7 +97,7 @@ public class Login_Controller {
                         String retrievedPassword = resultSet.getString("password");
 
                         if (retrievedPassword.equals(password)) {
-                            root = FXMLLoader.load(getClass().getResource("donation_details.fxml"));
+                            root = FXMLLoader.load(getClass().getResource("homepage.fxml"));
                             stage = (Stage) ((Node) (actionEvent.getSource())).getScene().getWindow();
                             scene = new Scene(root);
                             stage.setTitle("Donation Details");

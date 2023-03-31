@@ -2,36 +2,27 @@ package login;
 
 public class Campaign {
 
-    private String name, id, category, title ,description;
+    private int id;
+    private String title, category, description;
     private double goal_amount, current_amount;
     private boolean status;
 
     //Constructor for the Campaign class.
-    public Campaign(String name, String id, String category, String title, String description, double goal_amount){
+    public Campaign(String title, String category, String description, double goal_amount){
 
-        this.name = name;
-        this.id = id;
-        this.category = category;
         this.title = title;
+        this.category = category;
         this.description = description;
         this.goal_amount = goal_amount;
         this.status = true;
     }
 
     //Getter and Setter methods.
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

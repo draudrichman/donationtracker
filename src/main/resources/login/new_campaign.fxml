@@ -5,53 +5,56 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Donation_Confirmation_Controller">
+<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.New_Campaign_Controller">
    <children>
       <Label alignment="CENTER" layoutX="425.0" layoutY="15.0" prefHeight="103.0" prefWidth="228.0" text="GivingTree" textAlignment="CENTER" textFill="#15a85c">
          <font>
             <Font name="System Bold" size="43.0" />
          </font>
       </Label>
-      <Label layoutX="374.0" layoutY="167.0" prefHeight="138.0" prefWidth="331.0" text="Thank you so much for your donation! Your generosity means the world to us and will help make a real difference in the lives of those we serve." wrapText="true">
+      <TextField fx:id="CampaignTitle" layoutX="290.0" layoutY="180.0" prefHeight="30.0" prefWidth="500.0" />
+      <Label layoutX="290.0" layoutY="155.0" text="Camaign title:">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="320.0" layoutY="355.0" text="Donation Details:">
+      <Label layoutX="290.0" layoutY="225.0" text="Campaign Category:">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="320.0" layoutY="385.0" text="Amount Donated: ৳50">
+      <TextField fx:id="GoalAmount" layoutX="290.0" layoutY="320.0" prefHeight="30.0" prefWidth="500.0" />
+      <Label layoutX="290.0" layoutY="295.0" text="Goal Amount:">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="320.0" layoutY="415.0" text="Campaign Name: XYZ Nonprofit">
+      <Label layoutX="290.0" layoutY="365.0" text="Campaign Description:">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="320.0" layoutY="445.0" text="Date/Time Processed: February 23, 2023 10:30 AM">
+      <Label layoutX="290.0" layoutY="555.0" text="Confirm Password :">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="320.0" layoutY="480.0" prefHeight="90.0" prefWidth="443.0" text="Thank you for your donation! Your confirmation number is: 12345. Please keep this number for your records." wrapText="true">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Button layoutX="439.0" layoutY="620.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="Print Details" />
+      <PasswordField fx:id="CampaignDescription" layoutX="290.0" layoutY="390.0" prefHeight="150.0" prefWidth="500.0" />
+      <PasswordField fx:id="Confirm_Password" layoutX="290.0" layoutY="580.0" prefHeight="30.0" prefWidth="500.0" />
+      <Button fx:id="CreateNewCampaign" layoutX="439.0" layoutY="640.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="Create New Campaign" />
+      <Button fx:id="GoBackToHome" layoutX="439.0" layoutY="690.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="30.0" prefWidth="200.0" text="Go back to Home" />
+      <TextField fx:id="CampaignTitle1" layoutX="290.0" layoutY="250.0" prefHeight="30.0" prefWidth="500.0" />
       <MenuBar layoutY="115.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="1080.0">
          <menus>
             <Menu mnemonicParsing="false" text="Home">
                <items>
-                  <MenuItem fx:id="Home" mnemonicParsing="false" onAction="#goToHome" text="Home" />
+                  <MenuItem fx:id="Home" mnemonicParsing="false" text="Home" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Campaigns">

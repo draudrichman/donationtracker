@@ -29,7 +29,7 @@ public class Donation_Confirmation_Controller implements Initializable {
     AnchorPane anchorPane;
 
     @FXML
-    MenuItem LogOut, HelpAndSupport;
+    MenuItem Home, Explore, YourCampaign, DonatedCampaign, MyProfile, UpdateProfile, HelpAndSupport, LogOut, Exit;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -38,7 +38,43 @@ public class Donation_Confirmation_Controller implements Initializable {
 
     //All the methods for Buttons and Menu bar.
 
-    //Method 1: Takes to the Help & Support Page.
+    //Method 1: Takes to the Profile Page.
+    public void goToHome() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("homepage.fxml"));
+        root = loader.load();
+        scene = new Scene(root);
+        stage = (Stage)anchorPane.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    //Method 2: Takes to the Profile Page.
+    public void goToProfile() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("profile.fxml"));
+        root = loader.load();
+        scene = new Scene(root);
+        stage = (Stage)anchorPane.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    //Method 3: Takes to the Update Profile Page.
+    public void goToUpdateProfile() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("update_profile.fxml"));
+        root = loader.load();
+        scene = new Scene(root);
+        stage = (Stage)anchorPane.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    //Method 4: Takes to the Help & Support Page.
     public void goToHelpAndSupport() throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
@@ -50,7 +86,7 @@ public class Donation_Confirmation_Controller implements Initializable {
         stage.show();
     }
 
-    //Method 2: Logs out from the user account.
+    //Method 5: Logs out from the user account.
     public void logout() throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
@@ -60,5 +96,12 @@ public class Donation_Confirmation_Controller implements Initializable {
         stage = (Stage)anchorPane.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+
+    //Method 6: Exits the Program.
+    public void exit() throws IOException {
+
+        stage = (Stage) anchorPane.getScene().getWindow();
+        stage.close();
     }
 }

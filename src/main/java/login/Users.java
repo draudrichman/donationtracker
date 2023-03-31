@@ -26,7 +26,21 @@ public class Users {
         this.reset_code = (int)(Math.random()*(9999-1000+1)+1000);
     }
 
+    //Method 1: Adds a new campaign to the user.
+    public void newCampaign(Campaign c){
+        this.campaigns.add(c);
+        this.campaignCount++;
+    }
+
     //Getter and setter methods.
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
     public int getReset_code() {
         return reset_code;
     }

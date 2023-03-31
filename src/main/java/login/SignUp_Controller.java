@@ -161,7 +161,7 @@ public class SignUp_Controller {
                         alert.show();
 
                         //Proceeds to the next scene.
-                        root = FXMLLoader.load(getClass().getResource("donation_details.fxml"));
+                        root = FXMLLoader.load(getClass().getResource("homepage.fxml"));
                         stage = (Stage) ((Node) (actionEvent.getSource())).getScene().getWindow();
                         scene = new Scene(root);
                         stage.setTitle("Donation Details");
