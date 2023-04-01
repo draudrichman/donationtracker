@@ -162,14 +162,13 @@ public class New_Campaign_Controller implements Initializable {
         else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Category not selected!");
-            alert.setContentText("Please select the type of newUser you want to signup as!");
+            alert.setContentText("");
             alert.show();
         }
 
         //Variables for the connection to a database.
         Connection connection = null;
         PreparedStatement psInsertValue = null;
-
 
         String url = "jdbc:mysql://localhost:3306/donation_tracker";
         String user = "saad";
@@ -184,21 +183,21 @@ public class New_Campaign_Controller implements Initializable {
         else {
 
 
-                connection = DriverManager.getConnection(url, user, pass);
+            connection = DriverManager.getConnection(url, user, pass);
 
-                psInsertValue = connection.prepareStatement("INSERT INTO campaign (title, description, goalAmount, currentAmount, status, category) VALUES(?, ?, ?, ?, ?, ?)");
-                psInsertValue.setString(1, campaign_name);
-                psInsertValue.setString(2, description);
-                psInsertValue.setDouble(3, Double.parseDouble(goal_amount));
-                psInsertValue.setDouble(4, 0);
-                psInsertValue.setString(5, status);
-                psInsertValue.setString(6, category);
-                psInsertValue.executeUpdate();
+            psInsertValue = connection.prepareStatement("INSERT INTO campaign (title, description, goalAmount, currentAmount, status, category) VALUES(?, ?, ?, ?, ?, ?)");
+            psInsertValue.setString(1, campaign_name);
+            psInsertValue.setString(2, description);
+            psInsertValue.setDouble(3, Double.parseDouble(goal_amount));
+            psInsertValue.setDouble(4, 0);
+            psInsertValue.setString(5, status);
+            psInsertValue.setString(6, category);
+            psInsertValue.executeUpdate();
 
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setHeaderText("Signup Successful!");
-                alert.setContentText("Your account has been created successfully!");
-                alert.show();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText("Campaign Create Successful!");
+            alert.setContentText("Your campaign has been created successfully!");
+            alert.show();
         }
 
     }
