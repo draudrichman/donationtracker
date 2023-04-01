@@ -60,5 +60,9 @@
     -fx-border-width: 2px;
 }
 
+.text-field:focused {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0);
+}
+
 
 

@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class DiscoverCampaignController {
@@ -27,6 +29,9 @@ public class DiscoverCampaignController {
 
     @FXML
     MenuItem Home, Explore, YourCampaign, DonatedCampaign, MyProfile, UpdateProfile, HelpAndSupport, LogOut, Exit;
+
+    public DiscoverCampaignController() throws SQLException {
+    }
 
 
     //All the methods for Buttons and Menu bar.
@@ -97,4 +102,32 @@ public class DiscoverCampaignController {
         stage = (Stage) anchorPane.getScene().getWindow();
         stage.close();
     }
+
+
+    ArrayList<Campaign> campaigns = new ArrayList<>();
+
+    String url = "jdbc:mysql://localhost:3306/donation_tracker";
+    String user = "root";
+    String pass = "112358abc";
+    Connection connection = DriverManager.getConnection(url, user, pass);
+    Statement statement = connection.createStatement();
+    ResultSet resultSet = statement.executeQuery("SELECT * FROM campaign");
+
+    processRes
+
+    private void processResultSet(ResultSet resultSet) throws SQLException {
+        while (resultSet.next()) {
+            int id = resultSet.getInt("id");
+            String name = resultSet.getString("name");
+            String category = resultSet.getString("category");
+            double goalAmount = resultSet.getDouble("goalAmount");
+            double currentAmount = resultSet.getDouble("currentAmount");
+            String description = resultSet.getString("description");
+            String status = resultSet.getString("status");
+
+            Campaign campaign = new Campaign(id, name, category, goalAmount, currentAmount, description, status);
+            campaigns.add(campaign);
+        }
+    }
+
 }

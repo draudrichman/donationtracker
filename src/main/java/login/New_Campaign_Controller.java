@@ -1,8 +1,10 @@
 package login;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -11,6 +13,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class New_Campaign_Controller implements Initializable {
@@ -26,22 +30,57 @@ public class New_Campaign_Controller implements Initializable {
     Parent root;
 
     @FXML
+    RadioButton other;
+
+    @FXML
+    RadioButton Emergencies;
+    @FXML
+    RadioButton Funeral;
+    @FXML
+    RadioButton ArtandCulture;
+    @FXML
+    RadioButton Sports;
+    @FXML
+    RadioButton Environment;
+    @FXML
+    RadioButton Hunger;
+    @FXML
+    RadioButton Community;
+    @FXML
+    RadioButton Medical;
+    @FXML
+    RadioButton Disaster;
+    @FXML
+    RadioButton AnimalWelfare;
+
+    @FXML
+    RadioButton Education;
+
+    @FXML
     AnchorPane anchorPane;
 
     @FXML
     MenuItem Home, Explore, YourCampaign, DonatedCampaign, MyProfile, UpdateProfile, HelpAndSupport, LogOut, Exit;
 
     @FXML
-    TextField CampaignTitle, Category, GoalAmount, CampaignDescription;
+    TextField campaignTitle;
 
     @FXML
-    PasswordField Confirm_Password;
+    TextField goalAmount;
 
     @FXML
-    Button CreateNewCampaign, GoBackToHome;
+    TextArea campaignDescription;
+
+//    @FXML
+//    PasswordField Confirm_Password;
+
+    @FXML
+    Button createCampaign;
 
     //Variables to contain campaign information.
-    String campaign_name, goal_amount, confirmed_password;
+    String campaign_name, description, category, status;
+
+    String goal_amount, current_amount;
 
     //Methods for the buttons.
 
@@ -50,6 +89,123 @@ public class New_Campaign_Controller implements Initializable {
 
 
     }
+
+
+
+
+    public void createCampaign(ActionEvent actionEvent) throws IOException, SQLException {
+
+        //Extracting text from the Text fields.
+        campaign_name = campaignTitle.getText();
+        goal_amount = goalAmount.getText();
+        description = campaignDescription.getText();
+//        current_amount = "0";
+        status = "Active";
+
+        ToggleGroup toggleGroup = new ToggleGroup();
+        other.setToggleGroup(toggleGroup);
+        Emergencies.setToggleGroup(toggleGroup);
+        Funeral.setToggleGroup(toggleGroup);
+        ArtandCulture.setToggleGroup(toggleGroup);
+        Sports.setToggleGroup(toggleGroup);
+        Environment.setToggleGroup(toggleGroup);
+        Hunger.setToggleGroup(toggleGroup);
+        Community.setToggleGroup(toggleGroup);
+        Medical.setToggleGroup(toggleGroup);
+        Disaster.setToggleGroup(toggleGroup);
+        AnimalWelfare.setToggleGroup(toggleGroup);
+        Education.setToggleGroup(toggleGroup);
+
+
+        if (toggleGroup.getSelectedToggle() == null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Category not selected!");
+            alert.setContentText("Please select the type of newUser you want to signup as!");
+            alert.show();
+        }
+        else if(other.isSelected()){
+            category = other.getText();
+        }
+        else if(AnimalWelfare.isSelected()){
+            category = AnimalWelfare.getText();
+        }
+        else if(Hunger.isSelected()){
+            category = Hunger.getText();
+        }
+        else if(Education.isSelected()){
+            category = Education.getText();
+        }
+        else if(Emergencies.isSelected()){
+            category = Emergencies.getText();
+        }
+        else if(Environment.isSelected()){
+            category = Environment.getText();
+        }
+        else if(ArtandCulture.isSelected()){
+            category = ArtandCulture.getText();
+        }
+        else if(Funeral.isSelected()){
+            category = Funeral.getText();
+        }
+        else if(Sports.isSelected()){
+            category = Sports.getText();
+        }
+        else if(Community.isSelected()){
+            category = Community.getText();
+        }
+        else if(Disaster.isSelected()){
+            category = Disaster.getText();
+        }
+        else if(Medical.isSelected()){
+            category = Medical.getText();
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Category not selected!");
+            alert.setContentText("Please select the type of newUser you want to signup as!");
+            alert.show();
+        }
+
+        //Variables for the connection to a database.
+        Connection connection = null;
+        PreparedStatement psInsertValue = null;
+
+
+        String url = "jdbc:mysql://localhost:3306/donation_tracker";
+        String user = "root";
+        String pass = "112358abc";
+
+        if (campaign_name.equals("") || goal_amount.equals("") || description.equals("") || category.equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Empty fields!");
+            alert.setContentText("Please fill up all the information");
+            alert.show();
+        }
+        else {
+
+
+                connection = DriverManager.getConnection(url, user, pass);
+
+                psInsertValue = connection.prepareStatement("INSERT INTO campaign (title, description, goalAmount, currentAmount, status, category) VALUES(?, ?, ?, ?, ?, ?)");
+                psInsertValue.setString(1, campaign_name);
+                psInsertValue.setString(2, description);
+                psInsertValue.setDouble(3, Double.parseDouble(goal_amount));
+                psInsertValue.setDouble(4, 0);
+                psInsertValue.setString(5, status);
+                psInsertValue.setString(6, category);
+                psInsertValue.executeUpdate();
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText("Signup Successful!");
+                alert.setContentText("Your account has been created successfully!");
+                alert.show();
+        }
+
+    }
+
+
+
+
 
     //All the methods for Buttons and Menu bar.
 

@@ -36,7 +36,7 @@
       </VBox>
       <ImageView fitHeight="312.0" fitWidth="336.0" layoutX="384.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@givingtreelogo.png" />
+            <Image url="@imagefiles/givingtreelogo.png" />
          </image>
       </ImageView>
    </children>

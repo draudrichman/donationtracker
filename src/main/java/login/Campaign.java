@@ -2,38 +2,26 @@ package login;
 
 public class Campaign {
 
-    private int id;
-    private String title, category, description;
-    private double goal_amount, current_amount;
-    private boolean status;
+    private int campaignID;
+    private String title;
+    private String category;
+    private double goalAmount;
+    private double currentAmount;
+    private String description;
+    private String status;
 
     //Constructor for the Campaign class.
-    public Campaign(String title, String category, String description, double goal_amount){
-
+    public Campaign(int campaignID, String title, String category, double goalAmount, double currentAmount, String description, String status) {
+        this.campaignID = campaignID;
         this.title = title;
         this.category = category;
+        this.goalAmount = goalAmount;
+        this.currentAmount = currentAmount;
         this.description = description;
-        this.goal_amount = goal_amount;
-        this.status = true;
+        this.status = status;
     }
 
     //Getter and Setter methods.
-    public int getId() {
-        return id;
-    }
-
-//    public void setId(int id) {
-//        this.id = id;
-//    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -50,27 +38,35 @@ public class Campaign {
         this.description = description;
     }
 
-    public double getGoal_amount() {
-        return goal_amount;
+    public double getGoalAmount() {
+        return goalAmount;
     }
 
-    public void setGoal_amount(double goal_amount) {
-        this.goal_amount = goal_amount;
+    public void setGoalAmount(double goalAmount) {
+        this.goalAmount = goalAmount;
     }
 
-    public double getCurrent_amount() {
-        return current_amount;
+    public double getCurrentAmount() {
+        return currentAmount;
     }
 
-    public void setCurrent_amount(double current_amount) {
-        this.current_amount = current_amount;
+    public void setCurrentAmount(double currentAmount) {
+        this.currentAmount = currentAmount;
     }
 
-    public boolean isStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

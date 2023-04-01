@@ -37,7 +37,7 @@
                      </font>
                   </RadioButton>
                   <Button fx:id="SignUp" layoutX="75.0" layoutY="373.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" mnemonicParsing="false" onAction="#signUp" prefHeight="40.0" prefWidth="250.0" text="Sign Up" />
-                  <Button fx:id="Login" layoutX="75.0" layoutY="422.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" mnemonicParsing="false" onAction="#backToLoginPage" prefHeight="40.0" prefWidth="250.0" text="Log In" />
+                  <Button fx:id="Login" layoutX="75.0" layoutY="422.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" mnemonicParsing="false" onAction="#backToLoginPage" prefHeight="40.0" prefWidth="250.0" stylesheets="@styles.css" text="Log In" />
                   <Label layoutX="128.0" layoutY="18.0" text="Sign Up" textFill="#00563b">
                      <font>
                         <Font name="Dubai Bold" size="43.0" />
@@ -49,7 +49,7 @@
       </VBox>
       <ImageView fitHeight="276.0" fitWidth="276.0" layoutX="402.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@givingtreelogo.png" />
+            <Image url="@imagefiles/givingtreelogo.png" />
          </image>
       </ImageView>
    </children>
