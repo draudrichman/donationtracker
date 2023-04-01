@@ -64,8 +64,8 @@ public class Login_Controller {
 
         //String driver = "com.mysql.jdbc.Driver";
         String url = "jdbc:mysql://localhost:3306/donation_tracker";
-        String user = "root";
-        String pass = "112358abc";
+        String user = "saad";
+        String pass = "123@saad";
 
         if (username.equals("") || password.equals("")) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -164,9 +164,9 @@ public class Login_Controller {
     }
 
     //Method 4: Exits the program.
-//    public void exit(ActionEvent actionEvent) throws IOException {
-//
-//        stage = (Stage) anchorPane.getScene().getWindow();
-//        stage.close();
-//    }
+    /*public void exit(ActionEvent actionEvent) throws IOException {
+
+        stage = (Stage) anchorPane.getScene().getWindow();
+        stage.close();
+    }*/
 }

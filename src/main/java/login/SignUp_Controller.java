@@ -91,8 +91,8 @@ public class SignUp_Controller {
 
 
         String url = "jdbc:mysql://localhost:3306/donation_tracker";
-        String user = "root";
-        String pass = "112358abc";
+        String user = "saad";
+        String pass = "123@saad";
 
         if (username.equals("") || name.equals("") || email.equals("") || password.equals("") || confirmed_password.equals("")) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -150,7 +150,6 @@ public class SignUp_Controller {
                         psInsertValue.setString(2, name);
                         psInsertValue.setString(3, email);
                         psInsertValue.setString(4, password);
-                        assert newUser != null;
                         psInsertValue.setString(5, Integer.toString(newUser.getReset_code()));
                         psInsertValue.setString(6, newUser.getUser_type());
                         psInsertValue.executeUpdate();

@@ -172,8 +172,8 @@ public class New_Campaign_Controller implements Initializable {
 
 
         String url = "jdbc:mysql://localhost:3306/donation_tracker";
-        String user = "root";
-        String pass = "112358abc";
+        String user = "saad";
+        String pass = "123@saad";
 
         if (campaign_name.equals("") || goal_amount.equals("") || description.equals("") || category.equals("")){
             Alert alert = new Alert(Alert.AlertType.ERROR);

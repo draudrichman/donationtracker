@@ -25,7 +25,7 @@
          <menus>
             <Menu mnemonicParsing="false" text="Home">
                <items>
-                  <MenuItem fx:id="Home" mnemonicParsing="false" text="Home" />
+                  <MenuItem fx:id="Home" mnemonicParsing="false" onAction="#goToHome" text="Home" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Campaigns">
