@@ -1,8 +1,10 @@
 package login;
 
+import javafx.scene.image.Image;
+
 import java.util.ArrayList;
 
-public class Users {
+public class User {
 
     private int user_id;
     private int reset_code;
@@ -10,14 +12,16 @@ public class Users {
     private String phone, address, aboutMe;
     private double balance;
 
+    Image profilePicture;
+
     //Variables to store campaign details in which the Contributors are contributing.
     //And campaign details that the Fundraiser is starting.
 
     ArrayList<Campaign> campaigns;
     private int campaignCount;
 
-    //Constructors for the Users class.
-    Users(String username, String name, String email, String password){
+    //Constructors for the User class.
+    User(String username, String name, String email, String password){
 
         this.username = username;
         this.name = name;

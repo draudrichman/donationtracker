@@ -1,5 +1,7 @@
 package login;
 
+import javafx.scene.image.Image;
+
 public class Campaign {
 
     private int campaignID;
@@ -9,6 +11,8 @@ public class Campaign {
     private double currentAmount;
     private String description;
     private String status;
+
+    Image campaignImage;
 
     //Constructor for the Campaign class.
     public Campaign(int campaignID, String title, String category, double goalAmount, double currentAmount, String description, String status) {

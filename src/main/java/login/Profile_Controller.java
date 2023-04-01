@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -35,7 +36,10 @@ public class Profile_Controller implements Initializable {
     MenuItem Home, Explore, YourCampaign, DonatedCampaign, MyProfile, UpdateProfile, HelpAndSupport, LogOut, Exit;
 
     @FXML
-    Button NewCampaign;
+    Button ProfilePicture, NewCampaign, AddMoney;
+
+    @FXML
+    Label userIdLabel, balanceLabel, usernameLabel, nameLabel, emailLabel, roleLabel, phoneLabel, addressLabel, campaignLabel, aboutMeLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -43,6 +47,10 @@ public class Profile_Controller implements Initializable {
     }
 
     //All the methods for Buttons and Menu bar.
+
+    public void addProfilePicture(){
+
+    }
 
     //Method 1: Takes to the Home Page.
     public void goToHome() throws IOException {

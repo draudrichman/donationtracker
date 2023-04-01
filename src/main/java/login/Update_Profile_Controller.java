@@ -1,16 +1,22 @@
 package login;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.EventObject;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Update_Profile_Controller implements Initializable {
@@ -31,6 +37,15 @@ public class Update_Profile_Controller implements Initializable {
     @FXML
     MenuItem Home, Explore, YourCampaign, DonatedCampaign, MyProfile, UpdateProfile, HelpAndSupport, LogOut, Exit;
 
+    @FXML
+    TextField Name, Email, Phone, Address, OrgName, New_Password, Old_Password;
+
+    @FXML
+    Button Update;
+
+    //Variables to contain user information.
+    String name, email, phone, address, orgName, new_password, old_password;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -38,7 +53,20 @@ public class Update_Profile_Controller implements Initializable {
 
     //All the methods for Buttons and Menu bar.
 
-    //Method 1: Takes to the Home Page.
+    //Method 1: Updates the user profile.
+    public void updateProfile(ActionEvent actionEvent) throws IOException {
+
+
+
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("homepage.fxml")));
+        stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Log In");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    //Method 2: Takes to the Home Page.
     public void goToHome() throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
@@ -50,7 +78,7 @@ public class Update_Profile_Controller implements Initializable {
         stage.show();
     }
 
-    //Method 2: Takes to the Profile Page.
+    //Method 3: Takes to the Profile Page.
     public void goToProfile() throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
@@ -62,7 +90,7 @@ public class Update_Profile_Controller implements Initializable {
         stage.show();
     }
 
-    //Method 3: Takes to the Help & Support Page.
+    //Method 4: Takes to the Help & Support Page.
     public void goToHelpAndSupport() throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
@@ -74,7 +102,7 @@ public class Update_Profile_Controller implements Initializable {
         stage.show();
     }
 
-    //Method 4: Logs out from the user account.
+    //Method 5: Logs out from the user account.
     public void logout() throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
@@ -86,11 +114,10 @@ public class Update_Profile_Controller implements Initializable {
         stage.show();
     }
 
-    //Method 5: Exits the Program.
+    //Method 6: Exits the Program.
     public void exit() throws IOException {
 
         stage = (Stage) anchorPane.getScene().getWindow();
         stage.close();
     }
-
 }

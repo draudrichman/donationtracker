@@ -25,7 +25,7 @@
          <menus>
             <Menu mnemonicParsing="false" text="Home">
                <items>
-                  <MenuItem fx:id="Home" mnemonicParsing="false" onAction="#goToHome" text="Home" />
+                  <MenuItem fx:id="Home" mnemonicParsing="false" text="Home" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Campaigns">
@@ -70,21 +70,21 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <RadioButton fx:id="AnimalWelfare" layoutX="283.0" layoutY="84.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="114.0" stylesheets="@styles.css" text="Animal Wellfare">
+                  <RadioButton fx:id="AnimalWelfare" layoutX="283.0" layoutY="84.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="114.0" stylesheets="@css/styles.css" text="Animal Wellfare">
                      <toggleGroup>
                         <ToggleGroup fx:id="campCat" />
                      </toggleGroup></RadioButton>
-                  <RadioButton fx:id="Community" layoutX="283.0" layoutY="129.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="95.0" stylesheets="@styles.css" text="Community" toggleGroup="$campCat" />
-                  <RadioButton fx:id="Education" layoutX="410.0" layoutY="84.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="81.0" stylesheets="@styles.css" text="Education" toggleGroup="$campCat" />
-                  <RadioButton fx:id="Hunger" layoutX="388.0" layoutY="129.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" stylesheets="@styles.css" text="Hunger &amp; Poverty" toggleGroup="$campCat" />
-                  <RadioButton fx:id="Environment" layoutX="527.0" layoutY="129.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" stylesheets="@styles.css" text="Environment" toggleGroup="$campCat" />
-                  <RadioButton fx:id="Disaster" layoutX="507.0" layoutY="84.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="104.0" stylesheets="@styles.css" text="Disaster Relief" toggleGroup="$campCat" />
-                  <RadioButton fx:id="Medical" layoutX="628.0" layoutY="84.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="72.0" stylesheets="@styles.css" text="Medical" toggleGroup="$campCat" />
-                  <RadioButton fx:id="ArtandCulture" layoutX="283.0" layoutY="174.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" stylesheets="@styles.css" text="Art &amp; Culture" toggleGroup="$campCat" />
-                  <RadioButton fx:id="Emergencies" layoutX="543.0" layoutY="174.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="95.0" stylesheets="@styles.css" text="Emergencies" toggleGroup="$campCat" />
-                  <RadioButton fx:id="Funeral" layoutX="394.0" layoutY="174.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="135.0" stylesheets="@styles.css" text="Funeral &amp; Memorial" toggleGroup="$campCat" />
-                  <RadioButton fx:id="Sports" layoutX="641.0" layoutY="129.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="64.0" stylesheets="@styles.css" text="Sports" toggleGroup="$campCat" />
-                  <RadioButton fx:id="other" layoutX="651.0" layoutY="174.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="64.0" stylesheets="@styles.css" text="Other" toggleGroup="$campCat" />
+                  <RadioButton fx:id="Community" layoutX="283.0" layoutY="129.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="95.0" stylesheets="@css/styles.css" text="Community" toggleGroup="$campCat" />
+                  <RadioButton fx:id="Education" layoutX="410.0" layoutY="84.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="81.0" stylesheets="@css/styles.css" text="Education" toggleGroup="$campCat" />
+                  <RadioButton fx:id="Hunger" layoutX="388.0" layoutY="129.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" stylesheets="@css/styles.css" text="Hunger &amp; Poverty" toggleGroup="$campCat" />
+                  <RadioButton fx:id="Environment" layoutX="527.0" layoutY="129.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" stylesheets="@css/styles.css" text="Environment" toggleGroup="$campCat" />
+                  <RadioButton fx:id="Disaster" layoutX="507.0" layoutY="84.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="104.0" stylesheets="@css/styles.css" text="Disaster Relief" toggleGroup="$campCat" />
+                  <RadioButton fx:id="Medical" layoutX="628.0" layoutY="84.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="72.0" stylesheets="@css/styles.css" text="Medical" toggleGroup="$campCat" />
+                  <RadioButton fx:id="ArtandCulture" layoutX="283.0" layoutY="174.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" stylesheets="@css/styles.css" text="Art &amp; Culture" toggleGroup="$campCat" />
+                  <RadioButton fx:id="Emergencies" layoutX="543.0" layoutY="174.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="95.0" stylesheets="@css/styles.css" text="Emergencies" toggleGroup="$campCat" />
+                  <RadioButton fx:id="Funeral" layoutX="394.0" layoutY="174.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="135.0" stylesheets="@css/styles.css" text="Funeral &amp; Memorial" toggleGroup="$campCat" />
+                  <RadioButton fx:id="Sports" layoutX="641.0" layoutY="129.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="64.0" stylesheets="@css/styles.css" text="Sports" toggleGroup="$campCat" />
+                  <RadioButton fx:id="other" layoutX="651.0" layoutY="174.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="64.0" stylesheets="@css/styles.css" text="Other" toggleGroup="$campCat" />
                   <TextField fx:id="campaignTitle" layoutX="283.0" layoutY="263.0" prefHeight="36.0" prefWidth="431.0" />
                   <Label layoutX="283.0" layoutY="226.0" text="Give your campaign a title">
                      <font>

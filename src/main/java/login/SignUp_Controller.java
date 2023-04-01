@@ -47,12 +47,6 @@ public class SignUp_Controller {
     //Variables to contain user information.
     String username, name, email, password, confirmed_password;
 
-    //Variables to visualize the validation of the fields.
-    String successMessage = "-fx-text-fill: GREEN;";
-    String errorMessage = "-fx-text-fill: RED;";
-    String errorStyle = "-fx-border-color: RED; -fx-border-width: 2; -fx-border-radius: 5;";
-    String successStyle = "-fx-border-color: #A9A9A9; -fx-border-width: 2; -fx-border-radius: 5;";
-
     //Methods For the Buttons.
 
     //Method 1: Makes a new user by signing them up.
@@ -66,18 +60,18 @@ public class SignUp_Controller {
         confirmed_password = Confirm_Password.getText();
 
         //Creating a new Contributor/Fundraiser.
-        Users newUser = null;
+        User newUser = new User(username, name, email, password);
 
         if(fundraiserRB.isSelected()){
-            newUser = new FundRaiser(username, name, email, password);
+            newUser.setUser_type("FundRaiser");
         }
         else if(donorRB.isSelected()){
-            newUser = new Contributor(username, name, email, password);
+            newUser.setUser_type("Contributor");
         }
         else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("User type not selected!");
-            alert.setContentText("Please select the type of newUser you want to signup as!");
+            alert.setContentText("Please select the type of User you want to signup as!");
             alert.show();
         }
 
@@ -87,8 +81,6 @@ public class SignUp_Controller {
         PreparedStatement psCheckUserExist = null;
         ResultSet resultName = null;
         ResultSet resultEmail = null;
-        ResultSet resultUserId = null;
-
 
         String url = "jdbc:mysql://localhost:3306/donation_tracker";
         String user = "saad";
@@ -104,8 +96,6 @@ public class SignUp_Controller {
 
             //Storing newUser information into a database.
             try {
-
-                //Class.forName(driver);
 
                 //Establishing the database connection.
                 connection = DriverManager.getConnection(url, user, pass);
@@ -145,6 +135,7 @@ public class SignUp_Controller {
                         alert.show();
                     }
                     else {
+
                         psInsertValue = connection.prepareStatement("INSERT INTO userdetails (userName, fullName, email, password, resetCode, userType) VALUES(?, ?, ?, ?, ?, ?)");
                         psInsertValue.setString(1, username);
                         psInsertValue.setString(2, name);
