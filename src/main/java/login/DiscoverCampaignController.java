@@ -1,10 +1,15 @@
 package login;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -12,6 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class DiscoverCampaignController {
@@ -30,7 +36,22 @@ public class DiscoverCampaignController {
     @FXML
     MenuItem Home, Explore, YourCampaign, DonatedCampaign, MyProfile, UpdateProfile, HelpAndSupport, LogOut, Exit;
 
+    @FXML
+    private TableView<Campaign> campaignTable;
+    @FXML
+    private TableColumn<Campaign, String> titleColumn;
+    @FXML
+    private TableColumn<Campaign, String> categoryColumn;
+    @FXML
+    private TableColumn<Campaign, Double> goalAmountColumn;
+    @FXML
+    private TableColumn<Campaign, Double> currentAmountColumn;
+
+    @FXML
+    Button backButton;
+
     public DiscoverCampaignController() throws SQLException {
+
     }
 
 
@@ -103,31 +124,91 @@ public class DiscoverCampaignController {
         stage.close();
     }
 
+    public void back(ActionEvent actionEvent) throws IOException{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("homepage.fxml"));
+        root = loader.load();
+        scene = new Scene(root);
+        stage = (Stage)anchorPane.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 
-    ArrayList<Campaign> campaigns = new ArrayList<>();
-
-    String url = "jdbc:mysql://localhost:3306/donation_tracker";
-    String user = "root";
-    String pass = "112358abc";
-    Connection connection = DriverManager.getConnection(url, user, pass);
-    Statement statement = connection.createStatement();
-    ResultSet resultSet = statement.executeQuery("SELECT * FROM campaign");
+    public void load(ActionEvent actionEvent) throws IOException {
 
 
+        //Variables for the connection to a database.
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
 
-    private void processResultSet(ResultSet resultSet) throws SQLException {
-        while (resultSet.next()) {
-            int id = resultSet.getInt("id");
-            String name = resultSet.getString("name");
-            String category = resultSet.getString("category");
-            double goalAmount = resultSet.getDouble("goalAmount");
-            double currentAmount = resultSet.getDouble("currentAmount");
-            String description = resultSet.getString("description");
-            String status = resultSet.getString("status");
+        //String driver = "com.mysql.jdbc.Driver";
+        String url = "jdbc:mysql://localhost:3306/donation_tracker";
+        String user = "root";
+        String pass = "112358abc";
 
-            Campaign campaign = new Campaign(id, name, category, goalAmount, currentAmount, description, status);
-            campaigns.add(campaign);
+        ArrayList<Campaign> campaigns = null;
+        try {
+            //Establishing the database connection.
+            connection = DriverManager.getConnection(url, user, pass);
+
+            //Storing the password in the resultPassword variable.
+            preparedStatement = connection.prepareStatement("SELECT * FROM campaign");
+            resultSet = preparedStatement.executeQuery();
+
+            campaigns = new ArrayList<>();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("campaignID");
+                String name = resultSet.getString("title");
+                String description = resultSet.getString("description");
+                double goalAmount = resultSet.getDouble("goalAmount");
+                double currentAmount = resultSet.getDouble("currentAmount");
+                String status = resultSet.getString("status");
+                String category = resultSet.getString("category");
+
+                Campaign campaign = new Campaign(id, name, description, goalAmount, currentAmount, status, category);
+                campaigns.add(campaign);
+            }
+//            for (Campaign campaign : campaigns) {
+//                System.out.println(campaign.toString());
+//            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            //Closing all the connections to the database.
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
+        assert campaigns != null;
+        ObservableList<Campaign> campaignList = FXCollections.observableArrayList(campaigns);
+
+        titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
+        categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
+        goalAmountColumn.setCellValueFactory(new PropertyValueFactory<>("goalAmount"));
+        currentAmountColumn.setCellValueFactory(new PropertyValueFactory<>("currentAmount"));
+
+        campaignTable.setItems(campaignList);
+
     }
 
 }

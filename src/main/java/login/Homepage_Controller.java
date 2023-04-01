@@ -97,7 +97,7 @@ public class Homepage_Controller implements Initializable {
     public void explore() throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("campaignDetails.fxml"));
+        loader.setLocation(getClass().getResource("discovercampaigns.fxml"));
         root = loader.load();
         scene = new Scene(root);
         stage = (Stage)anchorPane.getScene().getWindow();
