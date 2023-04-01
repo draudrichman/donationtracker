@@ -1,0 +1,64 @@
+.button {
+    -fx-pref-width: 60%;
+    -fx-pref-height: 40px;
+    -fx-alignment: center;
+    -fx-text-fill: #00563B;
+    -fx-background-color: #E3FDF5;
+    -fx-font-size: 1em;
+    -fx-font-weight: bold;
+    -fx-margin-top: 20px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.button:pressed {
+    -fx-background-color: #FFE6FA;
+    -fx-background-radius: 5px;
+}
+
+
+.backgroundColor {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #00C9FF 0%, #92FE9D 100%);
+}
+
+.backgroundColor2 {
+    -fx-background-color: linear-gradient(from 0% 50% to 100% 50%, #e3ffe7, #d9e7ff);
+}
+
+.linear-grad1{
+    -fx-background-color: linear-gradient(from 0% 100% to 100% 0%, #E3FDF5 50%, #FFE6FA 50%);
+}
+
+.linear-grad2{
+    -fx-background-color: linear-gradient(from 0% 100% to 100% 0%, #E3FDF5 0%, #FFE6FA 100%);
+}
+
+.radio-button > .radio {
+  -fx-background-color: transparent;
+  -fx-background-insets: 0;
+  -fx-background-radius: 0px;
+  -fx-padding: 0.0em; /* 4 8 4 8 */
+}
+.radio-button:selected > .radio > .dot {
+  -fx-background-color: transparent;
+}
+.radio-button:selected {
+    -fx-border-color: #00563b;
+    -fx-border-width: 2px;
+    -fx-text-fill: #00563b;
+}
+
+.radio-button {
+    -fx-border-color: white;
+    -fx-border-radius: 10px;
+    -fx-border-width: 2px;
+}
+
+
+
