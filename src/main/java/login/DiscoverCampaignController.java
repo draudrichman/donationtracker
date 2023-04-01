@@ -113,7 +113,7 @@ public class DiscoverCampaignController {
     Statement statement = connection.createStatement();
     ResultSet resultSet = statement.executeQuery("SELECT * FROM campaign");
 
-    processRes
+
 
     private void processResultSet(ResultSet resultSet) throws SQLException {
         while (resultSet.next()) {
