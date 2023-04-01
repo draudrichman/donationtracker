@@ -23,7 +23,7 @@ public class Main_Controller {
     //Log In Button From Login Page.
     public void logIn(ActionEvent actionEvent) throws IOException {
 
-        root = FXMLLoader.load(getClass().getResource("donation_details.fxml"));
+        root = FXMLLoader.load(getClass().getResource("campaignDetails.fxml"));
         stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Donation Details");
@@ -63,7 +63,7 @@ public class Main_Controller {
     //Sign Up Button From SignUp Page.
     public void signUp(ActionEvent actionEvent) throws IOException {
 
-        root = FXMLLoader.load(getClass().getResource("donation_details.fxml"));
+        root = FXMLLoader.load(getClass().getResource("campaignDetails.fxml"));
         stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Donation Details");
@@ -107,7 +107,7 @@ public class Main_Controller {
     //Return to Campaign Button From Donation_Payment Page.
     public void goBackToDonationDetails(ActionEvent actionEvent) throws IOException {
 
-        root = FXMLLoader.load(getClass().getResource("donation_details.fxml"));
+        root = FXMLLoader.load(getClass().getResource("campaignDetails.fxml"));
         stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Donation Details");

@@ -7,7 +7,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Donation_Details extends Application {
+import static javafx.application.Application.launch;
+
+public class DiscoverCampaigns extends Application {
 
     public static void main(String[] args) {
         launch(args);
@@ -15,9 +17,9 @@ public class Donation_Details extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("donation_details.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("discovercampaigns.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1080, 768);
-        stage.setTitle("Donation Details");
+        stage.setTitle("Discover Campaigns");
         stage.setScene(scene);
         stage.show();
     }

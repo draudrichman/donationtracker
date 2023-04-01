@@ -23,7 +23,7 @@
                   <TextField fx:id="Email" layoutX="75.0" layoutY="190.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Email" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;" />
                   <PasswordField fx:id="Password" layoutX="75.0" layoutY="238.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Password" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;" />
                   <PasswordField fx:id="Confirm_Password" layoutX="75.0" layoutY="286.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Confirm Password" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;" />
-                  <RadioButton fx:id="fundraiserRb" layoutX="94.0" layoutY="327.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Fundraiser" textFill="WHITE">
+                  <RadioButton fx:id="fundraiserRB" layoutX="75.0" layoutY="335.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" stylesheets="@styles.css" text="  Fundraiser" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -31,13 +31,13 @@
                         <ToggleGroup fx:id="Group1" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="contributorRb" layoutX="224.0" layoutY="327.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Donor" textFill="WHITE" toggleGroup="$Group1">
+                  <RadioButton fx:id="donorRB" layoutX="205.0" layoutY="335.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="     Donor" textAlignment="CENTER" textFill="WHITE" toggleGroup="$Group1">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </RadioButton>
-                  <Button fx:id="SignUp" layoutX="75.0" layoutY="360.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" mnemonicParsing="false" onAction="#signUp" prefHeight="40.0" prefWidth="250.0" text="Sign Up" />
-                  <Button fx:id="Login" layoutX="75.0" layoutY="416.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" mnemonicParsing="false" onAction="#backToLoginPage" prefHeight="40.0" prefWidth="250.0" text="Log In" />
+                  <Button fx:id="SignUp" layoutX="75.0" layoutY="373.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" mnemonicParsing="false" onAction="#signUp" prefHeight="40.0" prefWidth="250.0" text="Sign Up" />
+                  <Button fx:id="Login" layoutX="75.0" layoutY="422.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" mnemonicParsing="false" onAction="#backToLoginPage" prefHeight="40.0" prefWidth="250.0" text="Log In" />
                   <Label layoutX="128.0" layoutY="18.0" text="Sign Up" textFill="#00563b">
                      <font>
                         <Font name="Dubai Bold" size="43.0" />

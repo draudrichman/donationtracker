@@ -33,7 +33,7 @@ public class SignUp_Controller {
     AnchorPane anchorPane;
 
     @FXML
-    RadioButton fundraiserRb, contributorRb;
+    RadioButton fundraiserRB, donorRB;
 
     @FXML
     TextField UserName, Name, Email;
@@ -68,10 +68,10 @@ public class SignUp_Controller {
         //Creating a new Contributor/Fundraiser.
         Users newUser = null;
 
-        if(fundraiserRb.isSelected()){
+        if(fundraiserRB.isSelected()){
             newUser = new FundRaiser(username, name, email, password);
         }
-        else if(contributorRb.isSelected()){
+        else if(donorRB.isSelected()){
             newUser = new Contributor(username, name, email, password);
         }
         else {

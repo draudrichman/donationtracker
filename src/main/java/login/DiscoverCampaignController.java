@@ -1,13 +1,9 @@
 package login;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -16,9 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Donation_Details_Controller implements Initializable {
-
-    //Fx components for the fx:id.
+public class DiscoverCampaignController {
     @FXML
     Stage stage;
 
@@ -34,13 +28,6 @@ public class Donation_Details_Controller implements Initializable {
     @FXML
     MenuItem Home, Explore, YourCampaign, DonatedCampaign, MyProfile, UpdateProfile, HelpAndSupport, LogOut, Exit;
 
-    @FXML
-    Button DonationPayment;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
 
     //All the methods for Buttons and Menu bar.
 
@@ -110,16 +97,4 @@ public class Donation_Details_Controller implements Initializable {
         stage = (Stage) anchorPane.getScene().getWindow();
         stage.close();
     }
-
-    //Method 7: Takes to the Donation Payment Page.
-    public void goToDonationPayment(ActionEvent actionEvent) throws IOException {
-
-        root = FXMLLoader.load(getClass().getResource("donation_payment.fxml"));
-        stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setTitle("Donation Payment");
-        stage.setScene(scene);
-        stage.show();
-    }
-
 }

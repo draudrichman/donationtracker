@@ -5,51 +5,21 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.New_Campaign_Controller">
+<AnchorPane fx:id="anchorPane" maxHeight="720.0" maxWidth="1080.0" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.New_Campaign_Controller">
    <children>
       <Label alignment="CENTER" layoutX="425.0" layoutY="15.0" prefHeight="103.0" prefWidth="228.0" text="GivingTree" textAlignment="CENTER" textFill="#15a85c">
          <font>
             <Font name="System Bold" size="43.0" />
          </font>
       </Label>
-      <TextField fx:id="CampaignTitle" layoutX="290.0" layoutY="180.0" prefHeight="30.0" prefWidth="500.0" />
-      <Label layoutX="290.0" layoutY="155.0" text="Camaign title:">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="290.0" layoutY="225.0" text="Campaign Category:">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="GoalAmount" layoutX="290.0" layoutY="320.0" prefHeight="30.0" prefWidth="500.0" />
-      <Label layoutX="290.0" layoutY="295.0" text="Goal Amount:">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="290.0" layoutY="365.0" text="Campaign Description:">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="290.0" layoutY="555.0" text="Confirm Password :">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <PasswordField fx:id="CampaignDescription" layoutX="290.0" layoutY="390.0" prefHeight="150.0" prefWidth="500.0" />
-      <PasswordField fx:id="Confirm_Password" layoutX="290.0" layoutY="580.0" prefHeight="30.0" prefWidth="500.0" />
-      <Button fx:id="CreateNewCampaign" layoutX="439.0" layoutY="640.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="Create New Campaign" />
-      <Button fx:id="GoBackToHome" layoutX="439.0" layoutY="690.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="30.0" prefWidth="200.0" text="Go back to Home" />
-      <TextField fx:id="CampaignTitle1" layoutX="290.0" layoutY="250.0" prefHeight="30.0" prefWidth="500.0" />
       <MenuBar layoutY="115.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="1080.0">
          <menus>
             <Menu mnemonicParsing="false" text="Home">
@@ -90,5 +60,52 @@
             </Menu>
          </menus>
       </MenuBar>
+      <ScrollPane layoutY="143.0" prefHeight="580.0" prefWidth="1080.0">
+         <content>
+            <AnchorPane prefHeight="992.0" prefWidth="1065.0">
+               <children>
+                  <Label layoutX="283.0" layoutY="34.0" text="What best describes your campaign?">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <RadioButton layoutX="283.0" layoutY="84.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="114.0" stylesheets="@styles.css" text="Animal Wellfare" />
+                  <RadioButton layoutX="283.0" layoutY="129.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="95.0" stylesheets="@styles.css" text="Community" />
+                  <RadioButton layoutX="410.0" layoutY="84.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="81.0" stylesheets="@styles.css" text="Education" />
+                  <RadioButton layoutX="388.0" layoutY="129.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" stylesheets="@styles.css" text="Hunger &amp; Poverty" />
+                  <RadioButton layoutX="527.0" layoutY="129.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" stylesheets="@styles.css" text="Environment" />
+                  <RadioButton layoutX="507.0" layoutY="84.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="104.0" stylesheets="@styles.css" text="Disaster Relief" />
+                  <RadioButton layoutX="628.0" layoutY="84.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="72.0" stylesheets="@styles.css" text="Medical" />
+                  <RadioButton layoutX="283.0" layoutY="174.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" stylesheets="@styles.css" text="Art &amp; Culture" />
+                  <RadioButton layoutX="543.0" layoutY="174.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="95.0" stylesheets="@styles.css" text="Emergencies" />
+                  <RadioButton layoutX="394.0" layoutY="174.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="135.0" stylesheets="@styles.css" text="Funeral &amp; Memorial" />
+                  <RadioButton layoutX="641.0" layoutY="129.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="64.0" stylesheets="@styles.css" text="Sports" />
+                  <TextField layoutX="283.0" layoutY="263.0" prefHeight="36.0" prefWidth="431.0" />
+                  <Label layoutX="283.0" layoutY="226.0" text="Give your campaign a title">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="283.0" layoutY="413.0" text="Tell Your Story">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextArea layoutX="284.0" layoutY="456.0" prefHeight="249.0" prefWidth="431.0" />
+                  <TextField layoutX="283.0" layoutY="354.0" prefHeight="36.0" prefWidth="431.0" text="৳">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="283.0" layoutY="318.0" text="Your starting goal">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="578.0" layoutY="802.0" mnemonicParsing="false" text="Complete fundraiser" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
