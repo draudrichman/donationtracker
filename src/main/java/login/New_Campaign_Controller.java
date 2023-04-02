@@ -199,6 +199,14 @@ public class New_Campaign_Controller implements Initializable {
                 alert.setHeaderText("Signup Successful!");
                 alert.setContentText("Your account has been created successfully!");
                 alert.show();
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("homepage.fxml"));
+            root = loader.load();
+            scene = new Scene(root);
+            stage = (Stage)anchorPane.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
         }
 
     }

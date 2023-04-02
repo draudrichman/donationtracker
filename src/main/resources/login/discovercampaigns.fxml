@@ -9,7 +9,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="720.0" maxWidth="1080.0" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.DiscoverCampaignController">
+<AnchorPane fx:id="anchorPane" maxHeight="720.0" maxWidth="1080.0" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.DiscoverCampaignController">
    <children>
       <Button mnemonicParsing="false" onAction="#load" text="Refresh" />
       <TableView fx:id="campaignTable" layoutX="235.0" layoutY="171.0" prefHeight="423.0" prefWidth="845.0">
@@ -60,6 +60,6 @@
             </Menu>
          </menus>
       </MenuBar>
-      <Button fx:id="backButton" layoutX="56.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <Button layoutX="56.0" mnemonicParsing="false" onAction="#back" text="Back" />
    </children>
 </AnchorPane>
