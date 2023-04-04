@@ -162,7 +162,7 @@ public class New_Campaign_Controller implements Initializable {
         else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Category not selected!");
-            alert.setContentText("");
+            alert.setContentText("Please select the type of newUser you want to signup as!");
             alert.show();
         }
 
@@ -170,9 +170,10 @@ public class New_Campaign_Controller implements Initializable {
         Connection connection = null;
         PreparedStatement psInsertValue = null;
 
+
         String url = "jdbc:mysql://localhost:3306/donation_tracker";
-        String user = "saad";
-        String pass = "123@saad";
+        String user = "root";
+        String pass = "112358abc";
 
         if (campaign_name.equals("") || goal_amount.equals("") || description.equals("") || category.equals("")){
             Alert alert = new Alert(Alert.AlertType.ERROR);

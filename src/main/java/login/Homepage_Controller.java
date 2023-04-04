@@ -1,8 +1,10 @@
 package login;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
@@ -97,11 +99,22 @@ public class Homepage_Controller implements Initializable {
     public void explore() throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("campaignDetails.fxml"));
+        loader.setLocation(getClass().getResource("discovercampaigns.fxml"));
         root = loader.load();
         scene = new Scene(root);
         stage = (Stage)anchorPane.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
+
+    public void goToNewCampaign(ActionEvent actionEvent) throws IOException {
+
+        root = FXMLLoader.load(getClass().getResource("new_campaign.fxml"));
+        stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Log In");
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }

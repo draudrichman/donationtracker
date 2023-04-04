@@ -15,7 +15,7 @@ public class Campaign {
     Image campaignImage;
 
     //Constructor for the Campaign class.
-    public Campaign(int campaignID, String title, String category, double goalAmount, double currentAmount, String description, String status) {
+    public Campaign(int campaignID, String title, String description, double goalAmount, double currentAmount, String status, String category) {
         this.campaignID = campaignID;
         this.title = title;
         this.category = category;
