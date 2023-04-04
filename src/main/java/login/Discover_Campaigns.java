@@ -9,7 +9,7 @@ import java.io.IOException;
 
 import static javafx.application.Application.launch;
 
-public class DiscoverCampaigns extends Application {
+public class Discover_Campaigns extends Application {
 
     public static void main(String[] args) {
         launch(args);
