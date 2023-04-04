@@ -15,7 +15,7 @@ public class Campaign_Details extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("campaignDetails.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("campaign_details.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1080, 768);
         stage.setTitle("Campaign Details");
         stage.setScene(scene);

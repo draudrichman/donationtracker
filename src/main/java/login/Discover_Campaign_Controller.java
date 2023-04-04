@@ -5,7 +5,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -14,13 +13,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.ResourceBundle;
 
-public class DiscoverCampaignController {
+public class Discover_Campaign_Controller {
     @FXML
     Stage stage;
 
@@ -50,7 +46,7 @@ public class DiscoverCampaignController {
     @FXML
     Button backButton;
 
-    public DiscoverCampaignController() throws SQLException {
+    public Discover_Campaign_Controller() throws SQLException {
 
     }
 
@@ -144,8 +140,8 @@ public class DiscoverCampaignController {
 
         //String driver = "com.mysql.jdbc.Driver";
         String url = "jdbc:mysql://localhost:3306/donation_tracker";
-        String user = "root";
-        String pass = "112358abc";
+        String user = "saad";
+        String pass = "123@saad";
 
         ArrayList<Campaign> campaigns = null;
         try {
@@ -199,7 +195,7 @@ public class DiscoverCampaignController {
                 }
             }
         }
-        assert campaigns != null;
+
         ObservableList<Campaign> campaignList = FXCollections.observableArrayList(campaigns);
 
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
