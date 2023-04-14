@@ -48,7 +48,7 @@ public class Admin_Server_Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         try{
-            Server server = new Server();
+            //Server server = new Server();
         }
         catch (Exception e){
             e.printStackTrace();

@@ -15,6 +15,13 @@ public class Admin_MsgAndInbox extends Application {
         stage.setTitle("Admin Message");
         stage.setScene(scene);
         stage.show();
+
+        try{
+            Server server = new Server();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
