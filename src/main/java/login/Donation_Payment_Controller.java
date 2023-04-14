@@ -88,9 +88,9 @@ public class Donation_Payment_Controller implements Initializable {
         PreparedStatement psInsertValue = null;
 
 
-        String url = "jdbc:mysql://localhost:3306/donation_tracker";
-        String user = "root";
-        String pass = "112358abc";
+        String url = Constants.DATABASE_URL;
+        String user = Constants.DATABASE_USERNAME;
+        String pass = Constants.DATABASE_PASSWORD;
 
         if (donationvalue.equals("")) {
             Alert alert = new Alert(Alert.AlertType.ERROR);

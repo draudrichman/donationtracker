@@ -143,9 +143,9 @@ public class DiscoverCampaignController implements Initializable {
         ResultSet resultSet = null;
 
         //String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/donation_tracker";
-        String user = "root";
-        String pass = "112358abc";
+        String url = Constants.DATABASE_URL;
+        String user = Constants.DATABASE_USERNAME;
+        String pass = Constants.DATABASE_PASSWORD;
 
         ArrayList<Campaign> campaigns = null;
         try {

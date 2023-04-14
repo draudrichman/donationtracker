@@ -60,9 +60,9 @@ public class Campaign_Details_Controller implements Initializable {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String urll = "jdbc:mysql://localhost:3306/donation_tracker";
-        String user = "root";
-        String pass = "112358abc";
+        String urll = Constants.DATABASE_URL;
+        String user = Constants.DATABASE_USERNAME;
+        String pass = Constants.DATABASE_PASSWORD;
 
         try {
             connection = DriverManager.getConnection(urll, user, pass);

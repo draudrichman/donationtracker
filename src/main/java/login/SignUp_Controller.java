@@ -90,9 +90,9 @@ public class SignUp_Controller {
         ResultSet resultUserId = null;
 
 
-        String url = "jdbc:mysql://localhost:3306/donation_tracker";
-        String user = "root";
-        String pass = "112358abc";
+        String url = Constants.DATABASE_URL;
+        String user = Constants.DATABASE_USERNAME;
+        String pass = Constants.DATABASE_PASSWORD;
 
         if (username.equals("") || name.equals("") || email.equals("") || password.equals("") || confirmed_password.equals("")) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
