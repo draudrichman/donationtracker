@@ -9,6 +9,7 @@ public class Profile extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+
         FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("profile.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1080, 768);
         stage.setTitle("Profile");

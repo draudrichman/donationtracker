@@ -230,7 +230,7 @@ public class DiscoverCampaignController implements Initializable {
         if (selectedCampaign != null) {
             int campaignID = selectedCampaign.getCampaignID();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("campaignDetails.fxml"));
+            loader.setLocation(getClass().getResource("campaign_details.fxml"));
             Campaign_Details_Controller controller = new Campaign_Details_Controller(campaignID);
             loader.setController(controller);
             Parent root = loader.load();

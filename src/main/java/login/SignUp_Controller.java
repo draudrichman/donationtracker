@@ -47,12 +47,6 @@ public class SignUp_Controller {
     //Variables to contain user information.
     String username, name, email, password, confirmed_password;
 
-    //Variables to visualize the validation of the fields.
-    String successMessage = "-fx-text-fill: GREEN;";
-    String errorMessage = "-fx-text-fill: RED;";
-    String errorStyle = "-fx-border-color: RED; -fx-border-width: 2; -fx-border-radius: 5;";
-    String successStyle = "-fx-border-color: #A9A9A9; -fx-border-width: 2; -fx-border-radius: 5;";
-
     //Methods For the Buttons.
 
     //Method 1: Makes a new user by signing them up.
@@ -66,13 +60,13 @@ public class SignUp_Controller {
         confirmed_password = Confirm_Password.getText();
 
         //Creating a new Contributor/Fundraiser.
-        Users newUser = null;
+        User newUser = new User(username, name, email, password);
 
         if(fundraiserRB.isSelected()){
-            newUser = new FundRaiser(username, name, email, password);
+            newUser.setUser_type("FundRaiser");
         }
         else if(donorRB.isSelected()){
-            newUser = new Contributor(username, name, email, password);
+            newUser.setUser_type("Contributor");
         }
         else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -86,9 +80,6 @@ public class SignUp_Controller {
         PreparedStatement psInsertValue = null;
         PreparedStatement psCheckUserExist = null;
         ResultSet resultName = null;
-        ResultSet resultEmail = null;
-        ResultSet resultUserId = null;
-
 
         String url = Constants.DATABASE_URL;
         String user = Constants.DATABASE_USERNAME;
@@ -115,11 +106,6 @@ public class SignUp_Controller {
                 psCheckUserExist.setString(1, username);
                 resultName = psCheckUserExist.executeQuery();
 
-                //Storing the newUser info of given email in the resultEmail variable.
-                psCheckUserExist = connection.prepareStatement("SELECT * FROM userdetails WHERE email = ?");
-                psCheckUserExist.setString(1, email);
-                resultEmail = psCheckUserExist.executeQuery();
-
                 //Checks if the username is already taken or not. Returns true if username is taken.
                 if (resultName.isBeforeFirst()) {
 
@@ -128,14 +114,7 @@ public class SignUp_Controller {
                     alert.setContentText("Username is already taken! Choose a new username.");
                     alert.show();
                 }
-                //Checks if the email is already taken or not. Returns true if email is taken.
-                else if (resultEmail.isBeforeFirst()) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setHeaderText("You can't use this email!");
-                    alert.setContentText("Email is already taken! Choose another email.");
-                    alert.show();
-                }
-                //If the username & email is unique inserts the data into the signup table.
+                //If the username is unique inserts the data into the signup table.
                 else {
 
                     if (!confirmed_password.equals(password)) {
@@ -150,7 +129,6 @@ public class SignUp_Controller {
                         psInsertValue.setString(2, name);
                         psInsertValue.setString(3, email);
                         psInsertValue.setString(4, password);
-                        assert newUser != null;
                         psInsertValue.setString(5, Integer.toString(newUser.getReset_code()));
                         psInsertValue.setString(6, newUser.getUser_type());
                         psInsertValue.executeUpdate();
@@ -179,13 +157,6 @@ public class SignUp_Controller {
                 if (resultName != null) {
                     try {
                         resultName.close();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-                if (resultEmail != null) {
-                    try {
-                        resultEmail.close();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

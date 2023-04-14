@@ -8,7 +8,6 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Profile_Controller">
@@ -58,13 +57,13 @@
             <Font name="System Bold" size="43.0" />
          </font>
       </Label>
-      <ImageView fitHeight="300.0" fitWidth="300.0" layoutX="110.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="profileView" fitHeight="300.0" fitWidth="300.0" layoutX="110.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="478.0" layoutY="165.0" prefHeight="40.0" prefWidth="120.0" text="Username :">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="623.0" layoutY="165.0" prefHeight="40.0" prefWidth="350.0" text="Label">
+      <Label fx:id="usernameLabel" layoutX="623.0" layoutY="165.0" prefHeight="40.0" prefWidth="350.0" text="N/A">
          <font>
             <Font size="18.0" />
          </font>
@@ -94,80 +93,69 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="478.0" layoutY="525.0" prefHeight="40.0" prefWidth="120.0" text="Campaigns:">
+      <Label layoutX="478.0" layoutY="525.0" prefHeight="40.0" prefWidth="120.0" text="Org. name :">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="110.0" layoutY="545.0" prefHeight="30.0" prefWidth="120.0" text="User Id:">
+      <Label layoutX="115.0" layoutY="580.0" prefHeight="30.0" prefWidth="120.0" text="User Id :">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="110.0" layoutY="595.0" prefHeight="30.0" prefWidth="120.0" text="Reset Code:">
+      <Label fx:id="nameLabel" layoutX="623.0" layoutY="225.0" prefHeight="40.0" prefWidth="350.0" text="N/A">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="emailLabel" layoutX="623.0" layoutY="285.0" prefHeight="40.0" prefWidth="350.0" text="N/A">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="roleLabel" layoutX="623.0" layoutY="345.0" prefHeight="40.0" prefWidth="350.0" text="N/A">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="phoneLabel" layoutX="623.0" layoutY="405.0" prefHeight="40.0" prefWidth="350.0" text="N/A">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="addressLabel" layoutX="623.0" layoutY="465.0" prefHeight="40.0" prefWidth="350.0" text="N/A">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="orgNameLabel" layoutX="623.0" layoutY="525.0" prefHeight="40.0" prefWidth="350.0" text="N/A">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="userIdLabel" layoutX="270.0" layoutY="580.0" prefHeight="30.0" prefWidth="150.0" text="N/A">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="ProfilePicture" layoutX="190.0" layoutY="515.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Update Profile Picture" />
+      <Button fx:id="NewCampaign" layoutX="190.0" layoutY="675.0" mnemonicParsing="false" onAction="#goToNewCampaign" prefHeight="30.0" prefWidth="150.0" text="Create a New Campaign" />
+      <Label layoutX="478.0" layoutY="585.0" prefHeight="40.0" prefWidth="120.0" text="My Bio:">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="623.0" layoutY="225.0" prefHeight="40.0" prefWidth="350.0" text="Label">
+      <Label fx:id="aboutMeLabel" alignment="TOP_LEFT" layoutX="623.0" layoutY="592.0" prefHeight="100.0" prefWidth="350.0" text="N/A">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="623.0" layoutY="285.0" prefHeight="40.0" prefWidth="350.0" text="Label">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="623.0" layoutY="345.0" prefHeight="40.0" prefWidth="350.0" text="Label">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="623.0" layoutY="405.0" prefHeight="40.0" prefWidth="350.0" text="Label">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="623.0" layoutY="465.0" prefHeight="40.0" prefWidth="350.0" text="Label">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="623.0" layoutY="525.0" prefHeight="40.0" prefWidth="350.0" text="Label">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="265.0" layoutY="545.0" prefHeight="30.0" prefWidth="150.0" text="Label">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="265.0" layoutY="595.0" prefHeight="30.0" prefWidth="150.0" text="Label">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e7eef5" height="300.0" layoutX="110.0" layoutY="180.0" stroke="BLACK" strokeType="INSIDE" width="300.0" />
-      <Label layoutX="110.0" layoutY="645.0" prefHeight="30.0" prefWidth="120.0" text="Balance:">
+      <Label layoutX="115.0" layoutY="620.0" prefHeight="30.0" prefWidth="120.0" text="Reset Code :">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="265.0" layoutY="645.0" prefHeight="30.0" prefWidth="150.0" text="Label">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Button layoutX="188.0" layoutY="495.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Update Profile Picture" />
-      <Button fx:id="NewCampaign" layoutX="188.0" layoutY="700.0" mnemonicParsing="false" onAction="#goToNewCampaign" prefHeight="30.0" prefWidth="150.0" text="Create a New Campaign" />
-      <Label layoutX="478.0" layoutY="585.0" prefHeight="40.0" prefWidth="120.0" text="About me:">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Label alignment="TOP_LEFT" layoutX="623.0" layoutY="585.0" prefHeight="100.0" prefWidth="350.0" text="Label">
+      <Label fx:id="resetCodeLabel" layoutX="270.0" layoutY="620.0" prefHeight="30.0" prefWidth="150.0" text="N/A">
          <font>
             <Font size="18.0" />
          </font>
