@@ -7,13 +7,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Donation_Payment_Controller implements Initializable {
@@ -37,9 +38,108 @@ public class Donation_Payment_Controller implements Initializable {
     @FXML
     Button PaymentConfirmation;
 
+    @FXML
+    TextField donationamount;
+
+
+    String donationvalue, method;
+
+    @FXML
+    RadioButton MFS, Card, BankTransfer;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+
+    private int userID, campaignID;
+    public Donation_Payment_Controller(int campaignID) throws IOException {
+        userID = SessionManager.getCurrentUser();
+        this.campaignID = campaignID;
+    }
+
+    public void goToDonationConfirmation(ActionEvent actionEvent) throws IOException, SQLException {
+
+        donationvalue = donationamount.getText();
+
+        ToggleGroup toggleGroup = new ToggleGroup();
+        MFS.setToggleGroup(toggleGroup);
+        Card.setToggleGroup(toggleGroup);
+        BankTransfer.setToggleGroup(toggleGroup);
+
+
+        if (toggleGroup.getSelectedToggle() == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Payment method not selected!");
+            alert.setContentText("Please select your payment method.");
+            alert.show();
+        } else if (MFS.isSelected()) {
+            method = MFS.getText();
+        } else if (Card.isSelected()) {
+            method = Card.getText();
+        } else if (BankTransfer.isSelected()) {
+            method = BankTransfer.getText();
+        }
+
+
+        //Variables for the connection to a database.
+        Connection connection = null;
+        PreparedStatement psInsertValue = null;
+
+
+        String url = "jdbc:mysql://localhost:3306/donation_tracker";
+        String user = "root";
+        String pass = "112358abc";
+
+        if (donationvalue.equals("")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Empty field!");
+            alert.setContentText("Please enter your donation amount.");
+            alert.show();
+        } else {
+
+
+            connection = DriverManager.getConnection(url, user, pass);
+
+            psInsertValue = connection.prepareStatement("UPDATE campaign SET currentAmount = currentAmount + ? WHERE campaignID = ?");
+            psInsertValue.setDouble(1, Double.parseDouble(donationvalue));
+            psInsertValue.setInt(2, campaignID);
+            psInsertValue.executeUpdate();
+
+            psInsertValue = connection.prepareStatement("INSERT INTO donation (campaignID, userID, amount, method) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+            psInsertValue.setInt(1, campaignID);
+            psInsertValue.setInt(2, userID);
+            psInsertValue.setDouble(3, Double.parseDouble(donationvalue));
+            psInsertValue.setString(4, method);
+            psInsertValue.executeUpdate();
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText("Payment Successful!");
+            alert.setContentText("YYour donation has been successfully pledged forward");
+            alert.show();
+
+            ResultSet generatedKeys = psInsertValue.getGeneratedKeys();
+
+            if (generatedKeys.next()) {
+                int donationID = generatedKeys.getInt(1);
+
+                // Pass the donationID to the next scene or do any other necessary processing
+                // For example, you can pass the donationID as a parameter to the constructor of the next scene:
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("donation_confirmation.fxml"));
+                Donation_Confirmation_Controller controller= new Donation_Confirmation_Controller(donationID);
+                loader.setController(controller);
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.show();
+                Stage currentStage = (Stage) anchorPane.getScene().getWindow();
+                currentStage.close();
+
+
+            }
+        }
     }
 
     //All the methods for Buttons and Menu bar.
@@ -51,7 +151,7 @@ public class Donation_Payment_Controller implements Initializable {
         loader.setLocation(getClass().getResource("homepage.fxml"));
         root = loader.load();
         scene = new Scene(root);
-        stage = (Stage)anchorPane.getScene().getWindow();
+        stage = (Stage) anchorPane.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
@@ -63,7 +163,7 @@ public class Donation_Payment_Controller implements Initializable {
         loader.setLocation(getClass().getResource("profile.fxml"));
         root = loader.load();
         scene = new Scene(root);
-        stage = (Stage)anchorPane.getScene().getWindow();
+        stage = (Stage) anchorPane.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
@@ -75,7 +175,7 @@ public class Donation_Payment_Controller implements Initializable {
         loader.setLocation(getClass().getResource("update_profile.fxml"));
         root = loader.load();
         scene = new Scene(root);
-        stage = (Stage)anchorPane.getScene().getWindow();
+        stage = (Stage) anchorPane.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
@@ -87,7 +187,7 @@ public class Donation_Payment_Controller implements Initializable {
         loader.setLocation(getClass().getResource("help_and_support.fxml"));
         root = loader.load();
         scene = new Scene(root);
-        stage = (Stage)anchorPane.getScene().getWindow();
+        stage = (Stage) anchorPane.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
@@ -99,7 +199,7 @@ public class Donation_Payment_Controller implements Initializable {
         loader.setLocation(getClass().getResource("login.fxml"));
         root = loader.load();
         scene = new Scene(root);
-        stage = (Stage)anchorPane.getScene().getWindow();
+        stage = (Stage) anchorPane.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
@@ -112,13 +212,6 @@ public class Donation_Payment_Controller implements Initializable {
     }
 
     //Method 7: Exits the Program.
-    public void goToDonationConfirmation(ActionEvent actionEvent) throws IOException {
 
-        root = FXMLLoader.load(getClass().getResource("donation_confirmation.fxml"));
-        stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setTitle("Donation Payment");
-        stage.setScene(scene);
-        stage.show();
-    }
 }
+

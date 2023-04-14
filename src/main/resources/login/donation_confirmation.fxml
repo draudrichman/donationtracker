@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Donation_Confirmation_Controller">
+<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label alignment="CENTER" layoutX="425.0" layoutY="15.0" prefHeight="103.0" prefWidth="228.0" text="GivingTree" textAlignment="CENTER" textFill="#15a85c">
          <font>
@@ -26,17 +26,17 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="320.0" layoutY="385.0" text="Amount Donated: ৳50">
+      <Label fx:id="amountdonated" layoutX="320.0" layoutY="385.0" text="Amount Donated: ৳50">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="320.0" layoutY="415.0" text="Campaign Name: XYZ Nonprofit">
+      <Label fx:id="campaignname" layoutX="320.0" layoutY="415.0" text="Campaign Name: XYZ Nonprofit">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="320.0" layoutY="445.0" text="Date/Time Processed: February 23, 2023 10:30 AM">
+      <Label fx:id="timestamplabel" layoutX="320.0" layoutY="445.0" text="Date/Time Processed: February 23, 2023 10:30 AM">
          <font>
             <Font size="20.0" />
          </font>
@@ -46,7 +46,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="439.0" layoutY="620.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="Print Details" />
+      <Button layoutX="439.0" layoutY="620.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="40.0" prefWidth="200.0" text="Back to Home" />
       <MenuBar layoutY="115.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="1080.0">
          <menus>
             <Menu mnemonicParsing="false" text="Home">

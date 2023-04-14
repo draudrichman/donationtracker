@@ -81,7 +81,7 @@ public class Login_Controller {
                 connection = DriverManager.getConnection(url, user, pass);
 
                 //Storing the password in the resultPassword variable.
-                preparedStatement = connection.prepareStatement("SELECT password FROM userdetails WHERE username = ?");
+                preparedStatement = connection.prepareStatement("SELECT password, userID FROM userdetails WHERE username = ?");
                 preparedStatement.setString(1, username);
                 resultSet = preparedStatement.executeQuery();
 
@@ -96,8 +96,10 @@ public class Login_Controller {
 
                     while (resultSet.next()) {
                         String retrievedPassword = resultSet.getString("password");
+                        int retrieveduserID = resultSet.getInt("userID");
 
                         if (retrievedPassword.equals(password)) {
+                            SessionManager.setCurrentUser(retrieveduserID);
                             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("homepage.fxml")));
                             stage = (Stage) ((Node) (actionEvent.getSource())).getScene().getWindow();
                             scene = new Scene(root);

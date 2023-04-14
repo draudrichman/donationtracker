@@ -6,39 +6,18 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Box?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Campaign_Details_Controller">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label alignment="CENTER" layoutX="425.0" layoutY="15.0" prefHeight="103.0" prefWidth="228.0" text="GivingTree" textAlignment="CENTER" textFill="#15a85c">
          <font>
             <Font name="System Bold" size="43.0" />
          </font>
       </Label>
-      <Box depth="100" drawMode="LINE" height="200.0" layoutX="325.0" layoutY="355.0" width="400.0" />
-      <Label layoutX="185.0" layoutY="330.0" text="Campaign IMAGE">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <Label layoutX="191.0" layoutY="465.0" text="Campaign Name Here">
-         <font>
-            <Font name="System Bold" size="26.0" />
-         </font>
-      </Label>
-      <Label layoutX="646.0" layoutY="287.0" text="৳25 raised of ৳1,000 goal">
-         <font>
-            <Font name="System Bold" size="29.0" />
-         </font>
-      </Label>
-      <Label layoutX="237.0" layoutY="510.0" text="Campaign Description">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="DonationPayment" layoutX="713.0" layoutY="357.0" mnemonicParsing="false" onAction="#goToDonationPayment" prefHeight="53.0" prefWidth="200.0" text="Donate Now" />
       <MenuBar layoutY="115.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="1080.0">
          <menus>
             <Menu mnemonicParsing="false" text="Home">
@@ -79,5 +58,28 @@
             </Menu>
          </menus>
       </MenuBar>
+      <AnchorPane layoutX="611.0" layoutY="192.0" prefHeight="438.0" prefWidth="385.0">
+         <children>
+            <Label fx:id="goalDisplay" layoutX="30.0" layoutY="86.0" text="৳25 raised of ৳1,000 goal">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
+            <Button fx:id="DonationPayment" layoutX="30.0" layoutY="143.0" mnemonicParsing="false" onAction="#goToDonationPayment" prefHeight="43.0" prefWidth="326.0" text="Donate Now" />
+            <Button layoutX="211.0" layoutY="198.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="145.0" text="Follow" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="57.0" layoutY="192.0" prefHeight="555.0" prefWidth="500.0">
+         <children>
+            <Label fx:id="title" layoutX="112.0" layoutY="36.0" text="Campaign Name Here">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="230.0" fitWidth="403.0" layoutX="46.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true" />
+            <TextFlow fx:id="campdescription" layoutX="54.0" layoutY="310.0" prefHeight="200.0" prefWidth="385.0" />
+         </children>
+      </AnchorPane>
+      <Button mnemonicParsing="false" onAction="#back" text="Back" />
    </children>
 </AnchorPane>

@@ -5,11 +5,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -17,10 +18,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class DiscoverCampaignController {
+public class DiscoverCampaignController implements Initializable {
     @FXML
     Stage stage;
 
@@ -134,7 +134,7 @@ public class DiscoverCampaignController {
         stage.show();
     }
 
-    public void load(ActionEvent actionEvent) throws IOException {
+    public void load() throws IOException {
 
 
         //Variables for the connection to a database.
@@ -209,6 +209,44 @@ public class DiscoverCampaignController {
 
         campaignTable.setItems(campaignList);
 
+        campaignTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 1) { // check for single-click
+                Campaign campaign = campaignTable.getSelectionModel().getSelectedItem();
+                int campaignID = campaign.getCampaignID();
+                try {
+                    loadCampaignDetails(event);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        System.out.println(SessionManager.getCurrentUser());
+
     }
 
+    void loadCampaignDetails(MouseEvent event) throws IOException {
+        Campaign selectedCampaign = campaignTable.getSelectionModel().getSelectedItem();
+        if (selectedCampaign != null) {
+            int campaignID = selectedCampaign.getCampaignID();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("campaignDetails.fxml"));
+            Campaign_Details_Controller controller = new Campaign_Details_Controller(campaignID);
+            loader.setController(controller);
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) campaignTable.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

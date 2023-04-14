@@ -9,6 +9,10 @@ import java.io.IOException;
 
 public class Donation_Confirmation extends Application {
 
+    public Donation_Confirmation(int donationID) {
+
+    }
+
     public static void main(String[] args) {
         launch(args);
     }

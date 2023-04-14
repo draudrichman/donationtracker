@@ -35,8 +35,14 @@ public class Homepage_Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //System.out.println("AnchorPane: " + anchorPane); // Debug statement
 
     }
+
+    public Homepage_Controller() throws IOException {
+        System.out.println(SessionManager.getCurrentUser());
+    }
+
 
     //All the methods for Buttons and Menu bar.
 

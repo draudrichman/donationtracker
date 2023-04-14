@@ -69,4 +69,10 @@ public class Campaign {
     public void setCategory(String category) {
         this.category = category;
     }
+
+    public int getCampaignID() {
+        return campaignID;
+    }
+
+
 }

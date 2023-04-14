@@ -90,6 +90,11 @@ public class New_Campaign_Controller implements Initializable {
 
     }
 
+    private int userID;
+    public New_Campaign_Controller() throws IOException {
+        userID = SessionManager.getCurrentUser();
+    }
+
 
 
 
@@ -99,7 +104,6 @@ public class New_Campaign_Controller implements Initializable {
         campaign_name = campaignTitle.getText();
         goal_amount = goalAmount.getText();
         description = campaignDescription.getText();
-//        current_amount = "0";
         status = "Active";
 
         ToggleGroup toggleGroup = new ToggleGroup();
@@ -186,13 +190,14 @@ public class New_Campaign_Controller implements Initializable {
 
                 connection = DriverManager.getConnection(url, user, pass);
 
-                psInsertValue = connection.prepareStatement("INSERT INTO campaign (title, description, goalAmount, currentAmount, status, category) VALUES(?, ?, ?, ?, ?, ?)");
+                psInsertValue = connection.prepareStatement("INSERT INTO campaign (title, userID, description, goalAmount, currentAmount, status, category) VALUES(?, ?, ?, ?, ?, ?, ?)");
                 psInsertValue.setString(1, campaign_name);
-                psInsertValue.setString(2, description);
-                psInsertValue.setDouble(3, Double.parseDouble(goal_amount));
-                psInsertValue.setDouble(4, 0);
-                psInsertValue.setString(5, status);
-                psInsertValue.setString(6, category);
+                psInsertValue.setInt(2, userID);
+                psInsertValue.setString(3, description);
+                psInsertValue.setDouble(4, Double.parseDouble(goal_amount));
+                psInsertValue.setDouble(5, 0);
+                psInsertValue.setString(6, status);
+                psInsertValue.setString(7, category);
                 psInsertValue.executeUpdate();
 
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
