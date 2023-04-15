@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="1296.0" styleClass="gradient-background" stylesheets="@resources/adminDashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.admin.adminDashboardController">
+   <top>
+      <HBox prefHeight="50.0" prefWidth="200.0" styleClass="container" stylesheets="@resources/adminDashboard.css" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="refresh" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#Refresh" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imagefiles/refreshicon.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" prefHeight="50.0" prefWidth="224.0" text="Admin Dashboard" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="794.0" prefWidth="234.0" spacing="10.0" styleClass="container" stylesheets="@resources/adminDashboard.css" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+         <children>
+            <HBox alignment="CENTER" prefHeight="84.0" prefWidth="234.0">
+               <children>
+                  <ImageView fitHeight="58.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagefiles/adminavatar.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label alignment="CENTER" text="Admin" textFill="WHITE">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Pane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="1.0" prefWidth="220.0" styleClass="line-color" stylesheets="@resources/adminDashboard.css" />
+            <VBox prefHeight="582.0" prefWidth="234.0" spacing="10.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="69.0" prefWidth="234.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imagefiles/dashboardicon.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" text="Analytics" textFill="WHITE">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="69.0" prefWidth="234.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imagefiles/campaignicon.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Campaigns" textFill="WHITE">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="69.0" prefWidth="234.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imagefiles/donationicon.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Donations" textFill="WHITE">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="69.0" prefWidth="234.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imagefiles/user%20icon.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" text="Userbase" textFill="WHITE">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="69.0" prefWidth="234.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imagefiles/inboxicon.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" text="Messages" textFill="WHITE">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children></VBox>
+            <HBox alignment="CENTER" prefHeight="69.0" prefWidth="234.0" spacing="10.0">
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagefiles/logouticon.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" text="Log Out" textFill="WHITE">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+         </BorderPane.margin>
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@resources/adminDashboard.css">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="42.0" prefWidth="1012.0">
+                     <children>
+                        <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="120.0" text="Today" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri" size="23.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="150.0" text="Yesterday" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri" size="23.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="150.0" text="Last 7 Days" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri" size="23.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="150.0" text="Last 30 Days" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri" size="23.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="150.0" text="All Time" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri" size="23.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="165.0" prefWidth="1012.0" spacing="15.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
+                           <children>
+                              <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="227.0" text="Active Campaigns" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri" size="23.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="240.0" text="99" textFill="WHITE">
+                                       <font>
+                                          <Font name="Calibri" size="42.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
+                           <children>
+                              <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="227.0" text="Amount Raised" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri" size="23.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="240.0" text="৳10000" textFill="WHITE">
+                                       <font>
+                                          <Font name="Calibri" size="42.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
+                           <children>
+                              <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="227.0" text="No of Donations" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri" size="23.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="240.0" text="৳10000" textFill="WHITE">
+                                       <font>
+                                          <Font name="Calibri" size="42.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
+                           <children>
+                              <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="227.0" text="Avg Donation Amount" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri" size="23.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="240.0" text="৳10000" textFill="WHITE">
+                                       <font>
+                                          <Font name="Calibri" size="42.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox prefHeight="405.0" prefWidth="992.0" spacing="10.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <children>
+                  <VBox prefHeight="405.0" prefWidth="497.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="500.0" text="Label" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri" size="23.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <LineChart fx:id="lineChart" maxHeight="350.0" minHeight="350.0" prefHeight="350.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="405.0" prefWidth="497.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="500.0" text="Category" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri" size="23.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <PieChart fx:id="pieChart" maxHeight="350.0" minHeight="350.0" prefHeight="350.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
