@@ -5,16 +5,23 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Profile extends Application {
+public class Admin_MsgAndInbox extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("profile.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("admin_msg_and_inbox.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1080, 768);
-        stage.setTitle("Profile");
+        stage.setTitle("Admin Message");
         stage.setScene(scene);
         stage.show();
+
+        try{
+            Server server = new Server();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {

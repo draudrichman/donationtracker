@@ -5,13 +5,17 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Homepage_Controller">
+
+<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.User_Client_Controller">
    <children>
-      <Label alignment="CENTER" layoutX="425.0" layoutY="15.0" prefHeight="103.0" prefWidth="228.0" text="GivingTree" textAlignment="CENTER" textFill="#15a85c">
+      <Label alignment="CENTER" layoutX="425.0" layoutY="25.0" prefHeight="103.0" prefWidth="228.0" text="GivingTree" textAlignment="CENTER" textFill="#15a85c">
          <font>
             <Font name="System Bold" size="43.0" />
          </font>
@@ -56,13 +60,25 @@
             </Menu>
          </menus>
       </MenuBar>
-      <Label alignment="CENTER" layoutX="426.0" layoutY="157.0" prefHeight="52.0" prefWidth="228.0" text="Homepage">
+      <ScrollPane fx:id="scrollPane" layoutX="289.0" layoutY="183.0" prefHeight="475.0" prefWidth="500.0">
+         <content>
+            <AnchorPane fx:id="scrollAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="465.0" prefWidth="490.0">
+               <children>
+                  <VBox fx:id="vBox_message" layoutX="10.0" layoutY="10.0" prefHeight="445.0" prefWidth="470.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <TextField fx:id="messageField" layoutX="289.0" layoutY="658.0" prefHeight="40.0" prefWidth="450.0" />
+      <Button fx:id="send" layoutX="739.0" layoutY="658.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" text="Send">
          <font>
-            <Font name="System Bold Italic" size="24.0" />
+            <Font name="Consolas Bold Italic" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="usernameLabel" layoutX="289.0" layoutY="143.0" prefHeight="40.0" prefWidth="500.0" text="Admin/Help &amp; Support">
+         <font>
+            <Font name="Candara Bold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="184.0" layoutY="257.0" maxHeight="50.0" maxWidth="200.0" minHeight="50.0" minWidth="200.0" mnemonicParsing="false" onAction="#goToNewCampaign" prefHeight="50.0" prefWidth="200.0" styleClass="backgroundColor" stylesheets="@css/styles.css" text="CREATE CAMPAIGN" />
-      <Button layoutX="439.0" layoutY="257.0" minHeight="50.0" minWidth="200.0" mnemonicParsing="false" onAction="#explore" prefHeight="50.0" prefWidth="200.0" styleClass="backgroundColor" stylesheets="@css/styles.css" text="BROWSE CAMPAIGNS" />
-      <Button layoutX="683.0" layoutY="257.0" minHeight="50.0" minWidth="200.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="backgroundColor" stylesheets="@css/styles.css" text="MANAGE PROFILE" />
    </children>
 </AnchorPane>

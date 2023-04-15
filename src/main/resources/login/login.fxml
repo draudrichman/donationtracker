@@ -10,21 +10,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" styleClass="backgroundColor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Login_Controller">
+<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" styleClass="backgroundColor" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Login_Controller">
    <children>
       <VBox alignment="CENTER" layoutX="350.0" layoutY="258.0" prefHeight="386.0" prefWidth="288.0" AnchorPane.bottomAnchor="92.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="258.0">
          <children>
-            <AnchorPane prefHeight="414.0" prefWidth="288.0" style="-fx-background-radius: 15px;" styleClass="backgroundColor" stylesheets="@styles.css">
+            <AnchorPane prefHeight="414.0" prefWidth="288.0" style="-fx-background-radius: 15px;" styleClass="backgroundColor" stylesheets="@css/styles.css">
                <children>
-                  <Button fx:id="LogIn" layoutX="65.0" layoutY="236.0" maxHeight="40.0" maxWidth="200.0" minHeight="40.0" minWidth="250.0" mnemonicParsing="false" onAction="#logIn" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: E3FDF5; -fx-text-fill: #015657; -fx-background-radius: 2px;" stylesheets="@styles.css" text="Log In" />
-                  <Button fx:id="SignUp" layoutX="195.0" layoutY="289.0" maxHeight="40.0" maxWidth="120.0" minHeight="40.0" minWidth="120.0" mnemonicParsing="false" onAction="#signUp" prefHeight="40.0" prefWidth="120.0" style="-fx-background-radius: 2px; -fx-background-color: E3FDF5; -fx-text-fill: #015657;" stylesheets="@styles.css" text="Sign Up">
+                  <Button fx:id="LogIn" layoutX="65.0" layoutY="236.0" maxHeight="40.0" maxWidth="200.0" minHeight="40.0" minWidth="250.0" mnemonicParsing="false" onAction="#logIn" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: E3FDF5; -fx-text-fill: #015657; -fx-background-radius: 2px;" stylesheets="@css/styles.css" text="Log In" />
+                  <Button fx:id="SignUp" layoutX="195.0" layoutY="289.0" maxHeight="40.0" maxWidth="120.0" minHeight="40.0" minWidth="120.0" mnemonicParsing="false" onAction="#signUp" prefHeight="40.0" prefWidth="120.0" style="-fx-background-radius: 2px; -fx-background-color: E3FDF5; -fx-text-fill: #015657;" stylesheets="@css/styles.css" text="Sign Up">
                      <font>
                         <Font name="System Bold" size="27.0" />
                      </font>
                   </Button>
                   <TextField fx:id="UserName" layoutX="65.0" layoutY="139.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Username" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;" />
                   <PasswordField fx:id="Password" layoutX="65.0" layoutY="187.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Password" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;" />
-                  <Button fx:id="Reset_Password" alignment="CENTER" layoutX="65.0" layoutY="289.0" maxHeight="40.0" maxWidth="120.0" minHeight="40.0" minWidth="120.0" mnemonicParsing="false" onAction="#resetPassword" prefHeight="40.0" prefWidth="120.0" style="-fx-background-radius: 2px; -fx-text-fill: #015657; -fx-background-color: E3FDF5;" stylesheets="@styles.css" text="Forgot Password" />
+                  <Button fx:id="Reset_Password" alignment="CENTER" layoutX="65.0" layoutY="289.0" maxHeight="40.0" maxWidth="120.0" minHeight="40.0" minWidth="120.0" mnemonicParsing="false" onAction="#resetPassword" prefHeight="40.0" prefWidth="120.0" style="-fx-background-radius: 2px; -fx-text-fill: #015657; -fx-background-color: E3FDF5;" stylesheets="@css/styles.css" text="Forgot Password" />
                   <Label layoutX="133.0" layoutY="53.0" text="Log In" textFill="#015657">
                      <font>
                         <Font name="Dubai Bold" size="43.0" />

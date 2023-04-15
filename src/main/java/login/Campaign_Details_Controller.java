@@ -60,12 +60,12 @@ public class Campaign_Details_Controller implements Initializable {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        String urll = Constants.DATABASE_URL;
+        String url2 = Constants.DATABASE_URL;
         String user = Constants.DATABASE_USERNAME;
         String pass = Constants.DATABASE_PASSWORD;
 
         try {
-            connection = DriverManager.getConnection(urll, user, pass);
+            connection = DriverManager.getConnection(url2, user, pass);
 
             preparedStatement = connection.prepareStatement("SELECT * FROM campaign WHERE campaignID = ?");
             preparedStatement.setInt(1, campaignID); // set the value of the placeholder to 1
@@ -118,7 +118,7 @@ public class Campaign_Details_Controller implements Initializable {
 
     public void back(ActionEvent actionEvent) throws IOException{
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("discovercampaigns.fxml"));
+        loader.setLocation(getClass().getResource("discover_campaigns.fxml"));
         root = loader.load();
         scene = new Scene(root);
         stage = (Stage)anchorPane.getScene().getWindow();

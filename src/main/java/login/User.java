@@ -2,13 +2,12 @@ package login;
 
 import java.util.ArrayList;
 
-public class Users {
+public class User {
 
     private int user_id;
     private int reset_code;
     private String username, name, email, password, user_type;
-    private String phone, address, aboutMe;
-    private double balance;
+    private String phone, address, aboutMe, orgName, image;
 
     //Variables to store campaign details in which the Contributors are contributing.
     //And campaign details that the Fundraiser is starting.
@@ -16,8 +15,8 @@ public class Users {
     ArrayList<Campaign> campaigns;
     private int campaignCount;
 
-    //Constructors for the Users class.
-    Users(String username, String name, String email, String password){
+    //Constructors for the User class.
+    User(String username, String name, String email, String password){
 
         this.username = username;
         this.name = name;
@@ -113,12 +112,19 @@ public class Users {
         this.aboutMe = aboutMe;
     }
 
-    public double getBalance() {
-        return balance;
+    public String getOrgName() {
+        return orgName;
     }
 
-    public void setBalance(double balance) {
-        this.balance = balance;
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }

@@ -5,21 +5,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
-public class Login extends Application {
+public class User_MsgAndInbox extends Application {
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws Exception {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("user_msg_and_inbox.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1080, 768);
-        stage.setTitle("Log In");
+        stage.setTitle("User Message");
         stage.setScene(scene);
         stage.show();
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 }

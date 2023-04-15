@@ -12,18 +12,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" styleClass="backgroundColor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.SignUp_Controller">
+<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" styleClass="backgroundColor" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.SignUp_Controller">
    <children>
       <VBox layoutX="340.0" layoutY="227.0" maxHeight="500.0" maxWidth="400.0" minHeight="500.0" minWidth="400.0" prefHeight="500.0" prefWidth="400.0">
          <children>
-            <AnchorPane maxHeight="500.0" maxWidth="400.0" minHeight="500.0" minWidth="400.0" prefHeight="500.0" prefWidth="400.0" style="-fx-background-radius: 15px;" styleClass="backgroundColor" stylesheets="@styles.css">
+            <AnchorPane maxHeight="500.0" maxWidth="400.0" minHeight="500.0" minWidth="400.0" prefHeight="500.0" prefWidth="400.0" style="-fx-background-radius: 15px;" styleClass="backgroundColor" stylesheets="@css/styles.css">
                <children>
                   <TextField fx:id="UserName" layoutX="75.0" layoutY="94.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Username" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;" />
                   <TextField fx:id="Name" layoutX="75.0" layoutY="142.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Full Name" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;" />
                   <TextField fx:id="Email" layoutX="75.0" layoutY="190.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Email" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;" />
                   <PasswordField fx:id="Password" layoutX="75.0" layoutY="238.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Password" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;" />
                   <PasswordField fx:id="Confirm_Password" layoutX="75.0" layoutY="286.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Confirm Password" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;" />
-                  <RadioButton fx:id="fundraiserRB" layoutX="75.0" layoutY="335.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" stylesheets="@styles.css" text="  Fundraiser" textFill="WHITE">
+                  <RadioButton fx:id="fundraiserRB" layoutX="75.0" layoutY="335.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" stylesheets="@css/styles.css" text="  Fundraiser" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -37,7 +37,7 @@
                      </font>
                   </RadioButton>
                   <Button fx:id="SignUp" layoutX="75.0" layoutY="373.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" mnemonicParsing="false" onAction="#signUp" prefHeight="40.0" prefWidth="250.0" text="Sign Up" />
-                  <Button fx:id="Login" layoutX="75.0" layoutY="422.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" mnemonicParsing="false" onAction="#backToLoginPage" prefHeight="40.0" prefWidth="250.0" stylesheets="@styles.css" text="Log In" />
+                  <Button fx:id="Login" layoutX="75.0" layoutY="422.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" mnemonicParsing="false" onAction="#backToLoginPage" prefHeight="40.0" prefWidth="250.0" stylesheets="@css/styles.css" text="Log In" />
                   <Label layoutX="128.0" layoutY="18.0" text="Sign Up" textFill="#00563b">
                      <font>
                         <Font name="Dubai Bold" size="43.0" />

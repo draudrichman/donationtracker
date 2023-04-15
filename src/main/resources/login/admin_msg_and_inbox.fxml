@@ -5,13 +5,15 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Update_Profile_Controller">
+
+<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Admin_Server_Controller">
    <children>
       <Label alignment="CENTER" layoutX="425.0" layoutY="15.0" prefHeight="103.0" prefWidth="228.0" text="GivingTree" textAlignment="CENTER" textFill="#15a85c">
          <font>
@@ -22,12 +24,12 @@
          <menus>
             <Menu mnemonicParsing="false" text="Home">
                <items>
-                  <MenuItem fx:id="Home" mnemonicParsing="false" onAction="#goToHome" text="Home" />
+                  <MenuItem fx:id="Home" mnemonicParsing="false" text="Home" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Campaigns">
                <items>
-                  <MenuItem fx:id="Explore" mnemonicParsing="false" text="Explore" />
+                  <MenuItem fx:id="Explore" mnemonicParsing="false" onAction="#explore" text="Explore" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem fx:id="YourCampaign" mnemonicParsing="false" text="Your Campaigns" />
                   <SeparatorMenuItem mnemonicParsing="false" />
@@ -38,7 +40,7 @@
                <items>
                   <MenuItem fx:id="MyProfile" mnemonicParsing="false" onAction="#goToProfile" text="My Profile" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem fx:id="UpdateProfile" mnemonicParsing="false" text="Update Profile" />
+                  <MenuItem fx:id="UpdateProfile" mnemonicParsing="false" onAction="#goToUpdateProfile" text="Update Profile" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Help &amp; Support">
@@ -58,48 +60,25 @@
             </Menu>
          </menus>
       </MenuBar>
-      <TextField fx:id="Name" layoutX="113.0" layoutY="195.0" prefHeight="30.0" prefWidth="350.0" />
-      <Label layoutX="113.0" layoutY="165.0" text="Name :">
+      <ScrollPane fx:id="scrollPane" layoutX="289.0" layoutY="183.0" prefHeight="475.0" prefWidth="500.0">
+        <content>
+          <AnchorPane fx:id="scrollAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="465.0" prefWidth="490.0">
+               <children>
+                  <VBox fx:id="vBox_message" layoutX="10.0" layoutY="10.0" prefHeight="445.0" prefWidth="470.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <TextField fx:id="messageField" layoutX="289.0" layoutY="658.0" prefHeight="40.0" prefWidth="450.0" />
+      <Button fx:id="send" layoutX="739.0" layoutY="658.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" text="Send">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Consolas Bold Italic" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="usernameLabel" layoutX="289.0" layoutY="143.0" prefHeight="40.0" prefWidth="500.0" text="User Name">
+         <font>
+            <Font name="Candara Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="113.0" layoutY="255.0" text="Email :">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="113.0" layoutY="345.0" text="Phone :">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="Address" layoutX="618.0" layoutY="195.0" prefHeight="30.0" prefWidth="350.0" />
-      <Label layoutX="618.0" layoutY="165.0" text="Address :">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="618.0" layoutY="255.0" text="Organization Name :">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="618.0" layoutY="345.0" text="New Password :">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <PasswordField fx:id="New_Password" layoutX="618.0" layoutY="375.0" prefHeight="30.0" prefWidth="350.0" />
-      <Label layoutX="288.0" layoutY="430.0" text="New Bio:">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Button fx:id="Update" layoutX="438.0" layoutY="680.0" mnemonicParsing="false" onAction="#updateProfile" prefHeight="30.0" prefWidth="200.0" text="Update Profile" />
-      <TextField fx:id="Email" layoutX="113.0" layoutY="285.0" prefHeight="30.0" prefWidth="350.0" />
-      <TextField fx:id="Phone" layoutX="113.0" layoutY="375.0" prefHeight="30.0" prefWidth="350.0" />
-      <TextField fx:id="OrgName" layoutX="618.0" layoutY="285.0" prefHeight="30.0" prefWidth="350.0" />
-      <TextField fx:id="AboutMe" alignment="TOP_LEFT" layoutX="288.0" layoutY="460.0" prefHeight="150.0" prefWidth="500.0" />
    </children>
 </AnchorPane>
