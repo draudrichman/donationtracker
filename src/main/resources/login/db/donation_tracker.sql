@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 15, 2023 at 12:30 AM
+-- Host: localhost:3308
+-- Generation Time: Apr 16, 2023 at 02:53 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -46,10 +46,11 @@ CREATE TABLE `campaign` (
 
 INSERT INTO `campaign` (`campaignID`, `userID`, `title`, `description`, `goalAmount`, `currentAmount`, `status`, `createdAt`, `updatedAt`, `category`) VALUES
 (15, 5, 'Raising Money for Saving Koalas', 'This is a critical effort to preserve one of the world\'s most iconic and beloved animals. These adorable creatures are facing extinction due to habitat loss, bushfires, and climate change. The funds raised will go towards the rescue, rehabilitation, and long-term conservation of koalas and their habitats. By supporting this cause, we can help provide essential medical care, support wildlife sanctuaries, and fund scientific research to better understand and protect these fascinating animals. Every donation can make a difference and help ensure that future generations will have the chance to appreciate the unique and valuable contributions of koalas to our planet.', 100000, 92500, 'Active', '2023-04-14 00:00:08', '2023-04-14 09:00:23', 'Animal Wellfare'),
-(17, 5, 'Building Sustainable Homes for Low-Income Families', 'We\'re on a mission to build sustainable, energy-efficient homes for low-income families. Our homes will reduce energy costs and promote sustainable living, while providing families with a safe and comfortable place to live.', 5000000, 50000, 'Active', '2023-04-14 00:05:44', '2023-04-14 03:13:07', 'Community'),
-(18, 5, 'Education for All', 'Our mission is to provide education to underprivileged children in rural areas who lack access to quality education. With your donation, we can provide school supplies, books, and teachers to make a lasting impact on the lives of these children and help them reach their full potential. Join us in our efforts to make education accessible to all.', 40000, 237000, 'Active', '2023-04-14 00:07:39', '2023-04-14 03:35:21', 'Education'),
+(17, 5, 'Building Sustainable Homes for Low-Income Families', 'We\'re on a mission to build sustainable, energy-efficient homes for low-income families. Our homes will reduce energy costs and promote sustainable living, while providing families with a safe and comfortable place to live.', 5000000, 160000, 'Active', '2023-04-14 00:05:44', '2023-04-15 23:28:59', 'Community'),
+(18, 5, 'Education for All', 'Our mission is to provide education to underprivileged children in rural areas who lack access to quality education. With your donation, we can provide school supplies, books, and teachers to make a lasting impact on the lives of these children and help them reach their full potential. Join us in our efforts to make education accessible to all.', 40000, 303000, 'Active', '2023-04-14 00:07:39', '2023-04-15 23:28:34', 'Education'),
 (19, 5, 'Team Seas - Cleaning up the Ocean, One Pound at a Time', 'Team Seas is a collaborative effort by environmental organizations, social media influencers, and concerned individuals to clean up the ocean by removing one pound of trash at a time. The campaign aims to raise awareness about the devastating impact of plastic waste on our oceans and marine life, while also funding research and development of new technologies to combat this issue. By joining forces, Team Seas hopes to create a global movement towards a cleaner, healthier ocean for all.', 10000000, 335000, 'Active', '2023-04-14 00:08:16', '2023-04-14 04:05:05', 'Environment'),
-(20, 5, 'Help Bring Clean Water to a Rural Village', 'Join us in our mission to bring clean and safe drinking water to a rural village in Africa. Lack of access to clean water is a major health issue for the people in this community, and with your help, we can make a difference. Our team has a plan to build a new well and filtration system that will provide access to clean water for generations to come.', 420000, 138000, 'Active', '2023-04-14 00:10:08', '2023-04-14 06:54:18', 'Community');
+(20, 5, 'Help Bring Clean Water to a Rural Village', 'Join us in our mission to bring clean and safe drinking water to a rural village in Africa. Lack of access to clean water is a major health issue for the people in this community, and with your help, we can make a difference. Our team has a plan to build a new well and filtration system that will provide access to clean water for generations to come.', 420000, 138000, 'Active', '2023-04-14 00:10:08', '2023-04-14 06:54:18', 'Community'),
+(21, 4, 'Curing Cancer', 'we want to cure cancer', 50000, 7200, 'Active', '2023-04-16 00:33:01', '2023-04-16 00:33:17', 'Medical');
 
 -- --------------------------------------------------------
 
@@ -94,7 +95,11 @@ INSERT INTO `donation` (`donationID`, `campaignID`, `userID`, `amount`, `method`
 (22, 19, 5, 69000, 'Bank Transfer', '2023-04-14 04:05:05'),
 (23, 20, 5, 72000, 'MFS', '2023-04-14 06:54:18'),
 (24, 15, 4, 5000, 'Debit or Credit Card', '2023-04-14 08:53:23'),
-(25, 15, 4, 5000, 'Debit or Credit Card', '2023-04-14 09:00:23');
+(25, 15, 4, 5000, 'Debit or Credit Card', '2023-04-14 09:00:23'),
+(26, 18, 5, 58000, 'Debit or Credit Card', '2023-04-15 22:52:38'),
+(27, 18, 5, 8000, 'Debit or Credit Card', '2023-04-15 23:28:34'),
+(28, 17, 5, 110000, 'MFS', '2023-04-15 23:28:59'),
+(29, 21, 4, 7200, 'Debit or Credit Card', '2023-04-16 00:33:17');
 
 -- --------------------------------------------------------
 
@@ -165,13 +170,13 @@ ALTER TABLE `userdetails`
 -- AUTO_INCREMENT for table `campaign`
 --
 ALTER TABLE `campaign`
-  MODIFY `campaignID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `campaignID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `donation`
 --
 ALTER TABLE `donation`
-  MODIFY `donationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `donationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `userdetails`
