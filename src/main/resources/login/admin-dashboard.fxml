@@ -129,7 +129,7 @@
                      </children>
                   </HBox>
                </children></VBox>
-            <HBox alignment="CENTER" prefHeight="69.0" prefWidth="234.0" spacing="10.0">
+            <HBox fx:id="logout" alignment="CENTER" prefHeight="69.0" prefWidth="234.0" spacing="10.0">
                <children>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -185,7 +185,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="165.0" prefWidth="1012.0" spacing="15.0">
                      <children>
-                        <VBox alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
+                        <VBox fx:id="activeCampaign" alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
                            <children>
                               <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="227.0" text="Active Campaigns" textFill="WHITE">
                                  <font>
@@ -194,7 +194,7 @@
                               </Label>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="240.0" text="99" textFill="WHITE">
+                                    <Label fx:id="activeCampaignlabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="240.0" text="99" textFill="WHITE">
                                        <font>
                                           <Font name="Calibri" size="42.0" />
                                        </font>
@@ -203,7 +203,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
+                        <VBox fx:id="amountRaised" alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
                            <children>
                               <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="227.0" text="Amount Raised" textFill="WHITE">
                                  <font>
@@ -212,7 +212,7 @@
                               </Label>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="240.0" text="৳10000" textFill="WHITE">
+                                    <Label fx:id="amountRaisedLabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="240.0" text="৳10000" textFill="WHITE">
                                        <font>
                                           <Font name="Calibri" size="42.0" />
                                        </font>
@@ -221,7 +221,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
+                        <VBox fx:id="noOfDonations" alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
                            <children>
                               <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="227.0" text="No of Donations" textFill="WHITE">
                                  <font>
@@ -230,7 +230,7 @@
                               </Label>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="240.0" text="৳10000" textFill="WHITE">
+                                    <Label fx:id="noofDonationlabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="240.0" text="10000" textFill="WHITE">
                                        <font>
                                           <Font name="Calibri" size="42.0" />
                                        </font>
@@ -239,7 +239,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
+                        <VBox fx:id="avgDonation" alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
                            <children>
                               <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="227.0" text="Avg Donation Amount" textFill="WHITE">
                                  <font>
@@ -248,7 +248,7 @@
                               </Label>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="240.0" text="৳10000" textFill="WHITE">
+                                    <Label fx:id="avgDonationLabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="240.0" text="৳10000" textFill="WHITE">
                                        <font>
                                           <Font name="Calibri" size="42.0" />
                                        </font>

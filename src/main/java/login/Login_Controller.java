@@ -57,6 +57,16 @@ public class Login_Controller {
         username = UserName.getText();
         password = Password.getText();
 
+        if (Objects.equals(username, "admin") && Objects.equals(password, "admin")){
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin-dashboard.fxml")));
+            stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setTitle("Admin Dashboard");
+            stage.setScene(scene);
+            stage.show();
+            return;
+        }
+
         //Variables for the connection to a database.
         Connection connection = null;
         PreparedStatement preparedStatement = null;
