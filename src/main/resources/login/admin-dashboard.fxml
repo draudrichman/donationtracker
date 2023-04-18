@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="1296.0" styleClass="gradient-background" stylesheets="@resources/adminDashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.admin.adminDashboardController">
+<BorderPane fx:id="borderPane" maxHeight="864.0" maxWidth="1296.0" minHeight="864.0" minWidth="1296.0" prefHeight="864.0" prefWidth="1296.0" styleClass="gradient-background" stylesheets="@resources/adminDashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.admin.adminDashboardController">
    <top>
       <HBox prefHeight="50.0" prefWidth="200.0" styleClass="container" stylesheets="@resources/adminDashboard.css" BorderPane.alignment="CENTER">
          <children>
@@ -129,7 +129,7 @@
                      </children>
                   </HBox>
                </children></VBox>
-            <HBox fx:id="logout" alignment="CENTER" prefHeight="69.0" prefWidth="234.0" spacing="10.0">
+            <HBox fx:id="logouthbox" alignment="CENTER" prefHeight="69.0" prefWidth="234.0" spacing="10.0">
                <children>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -156,27 +156,22 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="42.0" prefWidth="1012.0">
                      <children>
-                        <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="120.0" text="Today" textFill="WHITE">
+                        <Label fx:id="today" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="120.0" text="Today" textFill="WHITE">
                            <font>
                               <Font name="Calibri" size="23.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="150.0" text="Yesterday" textFill="WHITE">
+                        <Label fx:id="yesterday" alignment="CENTER" prefHeight="25.0" prefWidth="150.0" text="Yesterday" textFill="WHITE">
                            <font>
                               <Font name="Calibri" size="23.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="150.0" text="Last 7 Days" textFill="WHITE">
+                        <Label fx:id="last7days" alignment="CENTER" prefHeight="25.0" prefWidth="150.0" text="Last 7 Days" textFill="WHITE">
                            <font>
                               <Font name="Calibri" size="23.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="150.0" text="Last 30 Days" textFill="WHITE">
-                           <font>
-                              <Font name="Calibri" size="23.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="150.0" text="All Time" textFill="WHITE">
+                        <Label fx:id="alltime" alignment="CENTER" prefHeight="25.0" prefWidth="150.0" text="All Time" textFill="WHITE">
                            <font>
                               <Font name="Calibri" size="23.0" />
                            </font>
@@ -185,14 +180,14 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="165.0" prefWidth="1012.0" spacing="15.0">
                      <children>
-                        <VBox fx:id="activeCampaign" alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
+                        <VBox fx:id="activeCampaignsvbox" alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
                            <children>
-                              <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="227.0" text="Active Campaigns" textFill="WHITE">
+                              <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="227.0" text="Campaigns Launched" textFill="WHITE">
                                  <font>
                                     <Font name="Calibri" size="23.0" />
                                  </font>
                               </Label>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
+                              <HBox fx:id="activeCampaignshbox" prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Label fx:id="activeCampaignlabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="240.0" text="99" textFill="WHITE">
                                        <font>
@@ -203,7 +198,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox fx:id="amountRaised" alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
+                        <VBox fx:id="amountRaisedvbox" alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
                            <children>
                               <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="227.0" text="Amount Raised" textFill="WHITE">
                                  <font>
@@ -221,7 +216,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox fx:id="noOfDonations" alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
+                        <VBox fx:id="noOfDonationsvbox" alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
                            <children>
                               <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="227.0" text="No of Donations" textFill="WHITE">
                                  <font>
@@ -239,7 +234,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox fx:id="avgDonation" alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
+                        <VBox fx:id="avgDonationvbox" alignment="CENTER" prefHeight="163.0" prefWidth="240.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
                            <children>
                               <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="227.0" text="Avg Donation Amount" textFill="WHITE">
                                  <font>
@@ -260,47 +255,51 @@
                      </children>
                   </HBox>
                </children>
-            </VBox>
-            <HBox prefHeight="405.0" prefWidth="992.0" spacing="10.0">
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="20.0" />
                </VBox.margin>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@resources/adminDashboard.css">
                <children>
-                  <VBox prefHeight="405.0" prefWidth="497.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
+                  <HBox alignment="CENTER" prefHeight="165.0" prefWidth="1012.0" spacing="15.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="500.0" text="Label" textFill="WHITE">
-                           <font>
-                              <Font name="Calibri" size="23.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <LineChart fx:id="lineChart" maxHeight="350.0" minHeight="350.0" prefHeight="350.0">
-                          <xAxis>
-                            <CategoryAxis side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis side="LEFT" />
-                          </yAxis>
-                        </LineChart>
+                        <VBox prefHeight="405.0" prefWidth="497.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
+                           <children>
+                              <Label fx:id="linegraphLabel" alignment="CENTER" prefHeight="27.0" prefWidth="500.0" text="Label" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri" size="23.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <LineChart fx:id="lineChart" maxHeight="350.0" minHeight="350.0" prefHeight="350.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </LineChart>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="405.0" prefWidth="497.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
+                           <children>
+                              <Label fx:id="piegraphLabel" alignment="CENTER" prefHeight="27.0" prefWidth="500.0" text="Category" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri" size="23.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <PieChart fx:id="pieChart" maxHeight="350.0" minHeight="350.0" prefHeight="350.0" />
+                           </children>
+                        </VBox>
                      </children>
-                  </VBox>
-                  <VBox prefHeight="405.0" prefWidth="497.0" styleClass="container" stylesheets="@resources/adminDashboard.css">
-                     <children>
-                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="500.0" text="Category" textFill="WHITE">
-                           <font>
-                              <Font name="Calibri" size="23.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <PieChart fx:id="pieChart" maxHeight="350.0" minHeight="350.0" prefHeight="350.0" />
-                     </children>
-                  </VBox>
+                  </HBox>
                </children>
-            </HBox>
+            </VBox>
          </children>
       </VBox>
    </center>
