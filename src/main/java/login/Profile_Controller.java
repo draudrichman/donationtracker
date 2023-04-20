@@ -94,13 +94,11 @@ public class Profile_Controller implements Initializable {
                 user1.setUser_type(role);
                 user1.setOrgName(orgName);
                 user1.setAddress(address);
-                user1.setReset_code(resetCode);
                 user1.setPhone(phone);
                 user1.setAboutMe(aboutMe);
                 user1.setImage(image);
 
                 userIdLabel.setText(String.valueOf(user1.getUser_id()));
-                resetCodeLabel.setText(String.valueOf(user1.getReset_code()));
                 usernameLabel.setText(user1.getUsername());
                 nameLabel.setText(user1.getName());
                 emailLabel.setText(user1.getEmail());

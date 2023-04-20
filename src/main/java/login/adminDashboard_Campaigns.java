@@ -1,4 +1,4 @@
-package login.admin;
+package login;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +8,7 @@ import login.Login;
 
 import java.io.IOException;
 
-public class adminDashboard extends Application {
+public class adminDashboard_Campaigns extends Application {
 
     public static void main(String[] args) {
         launch(args);
@@ -16,7 +16,7 @@ public class adminDashboard extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("admin-dashboard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("admin-dashboard-campaigns.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1296, 864);
         stage.setTitle("Admin Dashboard");
         stage.setScene(scene);

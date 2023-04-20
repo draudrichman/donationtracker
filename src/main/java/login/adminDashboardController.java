@@ -1,7 +1,8 @@
-package login.admin;
+package login;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -542,17 +543,49 @@ public class adminDashboardController implements Initializable {
         pieChart.setData(pieChartData);
     }
 
-//    @FXML
-//    public void Logout() throws IOException {
-//        FXMLLoader loader = new FXMLLoader();
-//        loader.setLocation(getClass().getResource("/login.fxml"));
-//        Parent root = loader.load();
-//        Scene scene = new Scene(root);
-//        Stage stage = (Stage)logout.getScene().getWindow();
-//        stage.setScene(scene);
-//        stage.show();
-//    }
+    @FXML
+    public void Logout(ActionEvent actionEvent) throws IOException {
 
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));
+        stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Log In");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void CampaignTransition(ActionEvent actionEvent) throws IOException {
+
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin-dashboard-campaigns.fxml")));
+        stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Admin - Campaigns");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void UserBaseTransition(ActionEvent actionEvent) throws IOException {
+
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin-dashboard-userbase.fxml")));
+        stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Admin - UserBase");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void DonationsTransition(ActionEvent actionEvent) throws IOException {
+
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin-dashboard-donations.fxml")));
+        stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Admin - Donations");
+        stage.setScene(scene);
+        stage.show();
+    }
 
 
 

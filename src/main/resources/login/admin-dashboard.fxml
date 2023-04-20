@@ -5,6 +5,7 @@
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="864.0" maxWidth="1296.0" minHeight="864.0" minWidth="1296.0" prefHeight="864.0" prefWidth="1296.0" styleClass="gradient-background" stylesheets="@resources/adminDashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.admin.adminDashboardController">
+<BorderPane fx:id="borderPane" maxHeight="864.0" maxWidth="1296.0" minHeight="864.0" minWidth="1296.0" prefHeight="864.0" prefWidth="1296.0" styleClass="gradient-background" stylesheets="@resources/adminDashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.adminDashboardController">
    <top>
       <HBox prefHeight="50.0" prefWidth="200.0" styleClass="container" stylesheets="@resources/adminDashboard.css" BorderPane.alignment="CENTER">
          <children>
@@ -65,11 +66,11 @@
                               <Image url="@imagefiles/dashboardicon.png" />
                            </image>
                         </ImageView>
-                        <Label alignment="CENTER" text="Analytics" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#CampaignTransition" prefHeight="65.0" prefWidth="122.0" styleClass="transparent-button" stylesheets="@resources/adminDashboard.css" text="Analytics" textFill="WHITE">
                            <font>
-                              <Font size="23.0" />
+                              <Font size="22.0" />
                            </font>
-                        </Label>
+                        </Button>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="69.0" prefWidth="234.0" spacing="10.0">
@@ -79,11 +80,11 @@
                               <Image url="@imagefiles/campaignicon.png" />
                            </image>
                         </ImageView>
-                        <Label text="Campaigns" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#CampaignTransition" prefHeight="65.0" prefWidth="141.0" styleClass="transparent-button" stylesheets="@resources/adminDashboard.css" text="Campaigns" textFill="WHITE">
                            <font>
-                              <Font size="23.0" />
+                              <Font size="22.0" />
                            </font>
-                        </Label>
+                        </Button>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="69.0" prefWidth="234.0" spacing="10.0">
@@ -93,11 +94,11 @@
                               <Image url="@imagefiles/donationicon.png" />
                            </image>
                         </ImageView>
-                        <Label text="Donations" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#DonationsTransition" prefHeight="65.0" prefWidth="130.0" styleClass="transparent-button" stylesheets="@resources/adminDashboard.css" text="Donations" textFill="WHITE">
                            <font>
-                              <Font size="23.0" />
+                              <Font size="22.0" />
                            </font>
-                        </Label>
+                        </Button>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="69.0" prefWidth="234.0" spacing="10.0">
@@ -107,11 +108,11 @@
                               <Image url="@imagefiles/user%20icon.png" />
                            </image>
                         </ImageView>
-                        <Label alignment="CENTER" text="Userbase" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#UserBaseTransition" prefHeight="65.0" prefWidth="122.0" styleClass="transparent-button" stylesheets="@resources/adminDashboard.css" text="Userbase" textFill="WHITE">
                            <font>
-                              <Font size="23.0" />
+                              <Font size="22.0" />
                            </font>
-                        </Label>
+                        </Button>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="69.0" prefWidth="234.0" spacing="10.0">
@@ -121,11 +122,11 @@
                               <Image url="@imagefiles/inboxicon.png" />
                            </image>
                         </ImageView>
-                        <Label alignment="CENTER" text="Messages" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="127.0" styleClass="transparent-button" stylesheets="@resources/adminDashboard.css" text="Messages" textFill="WHITE">
                            <font>
-                              <Font size="23.0" />
+                              <Font size="22.0" />
                            </font>
-                        </Label>
+                        </Button>
                      </children>
                   </HBox>
                </children></VBox>
@@ -136,11 +137,11 @@
                         <Image url="@imagefiles/logouticon.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" text="Log Out" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#Logout" prefHeight="65.0" prefWidth="122.0" styleClass="transparent-button" stylesheets="@resources/adminDashboard.css" text="Log Out" textFill="WHITE">
                      <font>
-                        <Font size="23.0" />
+                        <Font size="22.0" />
                      </font>
-                  </Label>
+                  </Button>
                </children>
             </HBox>
          </children>

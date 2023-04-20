@@ -124,13 +124,12 @@ public class SignUp_Controller {
                         alert.show();
                     }
                     else {
-                        psInsertValue = connection.prepareStatement("INSERT INTO userdetails (userName, fullName, email, password, resetCode, userType) VALUES(?, ?, ?, ?, ?, ?)");
+                        psInsertValue = connection.prepareStatement("INSERT INTO userdetails (userName, fullName, email, password, userType) VALUES(?, ?, ?, ?, ?)");
                         psInsertValue.setString(1, username);
                         psInsertValue.setString(2, name);
                         psInsertValue.setString(3, email);
                         psInsertValue.setString(4, password);
-                        psInsertValue.setString(5, Integer.toString(newUser.getReset_code()));
-                        psInsertValue.setString(6, newUser.getUser_type());
+                        psInsertValue.setString(5, newUser.getUser_type());
                         psInsertValue.executeUpdate();
 
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
