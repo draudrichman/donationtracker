@@ -1,43 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" styleClass="backgroundColor" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Login_Controller">
-   <children>
-      <VBox alignment="CENTER" layoutX="350.0" layoutY="258.0" prefHeight="386.0" prefWidth="288.0" AnchorPane.bottomAnchor="92.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="258.0">
+<BorderPane fx:id="borderPane" maxHeight="864.0" maxWidth="1296.0" minHeight="864.0" minWidth="1296.0" prefHeight="864.0" prefWidth="1296.0" styleClass="backgroundColor" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Login_Controller">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+         </BorderPane.margin>
          <children>
-            <AnchorPane prefHeight="414.0" prefWidth="288.0" style="-fx-background-radius: 15px;" styleClass="backgroundColor" stylesheets="@css/styles.css">
+            <VBox alignment="TOP_CENTER" prefHeight="820.0" prefWidth="1266.0" stylesheets="@resources/adminDashboard.css">
                <children>
-                  <Button fx:id="LogIn" layoutX="65.0" layoutY="236.0" maxHeight="40.0" maxWidth="200.0" minHeight="40.0" minWidth="250.0" mnemonicParsing="false" onAction="#logIn" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: E3FDF5; -fx-text-fill: #015657; -fx-background-radius: 2px;" stylesheets="@css/styles.css" text="Log In" />
-                  <Button fx:id="SignUp" layoutX="195.0" layoutY="289.0" maxHeight="40.0" maxWidth="120.0" minHeight="40.0" minWidth="120.0" mnemonicParsing="false" onAction="#signUp" prefHeight="40.0" prefWidth="120.0" style="-fx-background-radius: 2px; -fx-background-color: E3FDF5; -fx-text-fill: #015657;" stylesheets="@css/styles.css" text="Sign Up">
-                     <font>
-                        <Font name="System Bold" size="27.0" />
-                     </font>
-                  </Button>
-                  <TextField fx:id="UserName" layoutX="65.0" layoutY="139.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Username" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;" />
-                  <PasswordField fx:id="Password" layoutX="65.0" layoutY="187.0" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Password" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;" />
-                  <Button fx:id="Reset_Password" alignment="CENTER" layoutX="65.0" layoutY="289.0" maxHeight="40.0" maxWidth="120.0" minHeight="40.0" minWidth="120.0" mnemonicParsing="false" onAction="#resetPassword" prefHeight="40.0" prefWidth="120.0" style="-fx-background-radius: 2px; -fx-text-fill: #015657; -fx-background-color: E3FDF5;" stylesheets="@css/styles.css" text="Forgot Password" />
-                  <Label layoutX="133.0" layoutY="53.0" text="Log In" textFill="#015657">
-                     <font>
-                        <Font name="Dubai Bold" size="43.0" />
-                     </font>
-                  </Label>
+                  <ImageView fitHeight="375.0" fitWidth="336.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagefiles/givingtreelogo.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="-20.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <HBox alignment="CENTER" prefHeight="409.0" prefWidth="1266.0" spacing="15.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="409.0" prefWidth="376.0" style="-fx-background-radius: 15px;" styleClass="backgroundColor" stylesheets="@css/styles.css">
+                           <children>
+                              <Label text="Log In" textFill="#015657">
+                                 <font>
+                                    <Font name="Dubai Bold" size="43.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="UserName" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Username" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <PasswordField fx:id="Password" maxHeight="40.0" maxWidth="250.0" minHeight="40.0" minWidth="250.0" prefHeight="40.0" prefWidth="250.0" promptText="Password" style="-fx-background-radius: 2px; -fx-background-color: #EEFDF9;">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </PasswordField>
+                              <Button fx:id="LogIn" maxHeight="40.0" maxWidth="200.0" minHeight="40.0" minWidth="250.0" mnemonicParsing="false" onAction="#logIn" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: E3FDF5; -fx-text-fill: #015657; -fx-background-radius: 2px;" stylesheets="@css/styles.css" text="Log In">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="Reset_Password" alignment="CENTER" maxHeight="40.0" maxWidth="120.0" minHeight="40.0" minWidth="120.0" mnemonicParsing="false" onAction="#resetPassword" prefHeight="40.0" prefWidth="120.0" style="-fx-background-radius: 2px; -fx-text-fill: #015657; -fx-background-color: E3FDF5;" stylesheets="@css/styles.css" text="Forgot Password">
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="SignUp" maxHeight="40.0" maxWidth="120.0" minHeight="40.0" minWidth="120.0" mnemonicParsing="false" onAction="#signUp" prefHeight="40.0" prefWidth="120.0" style="-fx-background-radius: 2px; -fx-background-color: E3FDF5; -fx-text-fill: #015657;" stylesheets="@css/styles.css" text="Sign Up">
+                                       <font>
+                                          <Font name="System Bold" size="27.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
                </children>
-            </AnchorPane>
+            </VBox>
          </children>
       </VBox>
-      <ImageView fitHeight="312.0" fitWidth="336.0" layoutX="384.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@imagefiles/givingtreelogo.png" />
-         </image>
-      </ImageView>
-   </children>
-</AnchorPane>
+   </center>
+</BorderPane>
