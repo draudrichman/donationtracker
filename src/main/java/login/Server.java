@@ -1,38 +1,80 @@
 package login;
 
-import java.io.IOException;
+import javafx.scene.layout.VBox;
+
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.HashMap;
 
 public class Server {
 
     private ServerSocket serverSocket;
-    public HashMap<String, NetworkUtil> clientMap; // HashMap of client's name and socket information
+    private Socket socket;
+    private BufferedReader bufferedReader;
+    private BufferedWriter bufferedWriter;
+    private NetworkUtil networkUtil;
 
-    Server() {
-        clientMap = new HashMap<>();
-        try {
+    public Server(ServerSocket serverSocket) {
 
-            serverSocket = new ServerSocket(33333);
-            new WriteThreadServer(clientMap, "Admin");
-
-            while (true) {
-                Socket clientSocket = serverSocket.accept();
-                serve(clientSocket);
+            try {
+                this.serverSocket = serverSocket;
+                this.socket = serverSocket.accept();
+                this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+                //networkUtil = new NetworkUtil(socket);
             }
-        } catch (Exception e) {
-            System.out.println("Server starts:" + e);
+            catch (IOException e){
+                e.printStackTrace();
+                closeEveryThing(socket, bufferedReader, bufferedWriter);
+            }
+
+    }
+
+    public void receiveMsgFromClient(VBox vBox){
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (socket.isConnected()) {
+                    try {
+                        String messageFromClient = bufferedReader.readLine();
+                        Admin_Server_Controller.addLabel(messageFromClient, vBox);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        closeEveryThing(socket, bufferedReader, bufferedWriter);
+                        break;
+                    }
+                }
+            }
+        }).start();
+    }
+
+    public void sendMsgToClient(String messageToClient){
+        try {
+            bufferedWriter.write(messageToClient);
+            bufferedWriter.newLine();
+            bufferedWriter.flush();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+            closeEveryThing(socket, bufferedReader, bufferedWriter);
         }
     }
 
-    public void serve(Socket clientSocket) throws IOException, ClassNotFoundException {
-        NetworkUtil networkUtil = new NetworkUtil(clientSocket);
-
-        String clientName = (String) networkUtil.read();
-
-        clientMap.put(clientName, networkUtil);
-        new ReadThread(networkUtil);
+    public void closeEveryThing(Socket socket, BufferedReader bufferedReader, BufferedWriter bufferedWriter){
+        try {
+            if(bufferedReader != null){
+                bufferedReader.close();
+            }
+            if(bufferedWriter != null){
+                bufferedWriter.close();
+            }
+            if(socket != null){
+                socket.close();
+            }
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
     }
-
 }

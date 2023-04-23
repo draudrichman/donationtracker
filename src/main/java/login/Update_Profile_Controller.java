@@ -73,8 +73,6 @@ public class Update_Profile_Controller implements Initializable {
         //Variables for the connection to a database.
         Connection connection = null;
         PreparedStatement psInsertValue = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
 
         String url = Constants.DATABASE_URL;
         String user = Constants.DATABASE_USERNAME;

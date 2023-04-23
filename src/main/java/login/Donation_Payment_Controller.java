@@ -116,7 +116,7 @@ public class Donation_Payment_Controller implements Initializable {
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText("Payment Successful!");
-            alert.setContentText("YYour donation has been successfully pledged forward");
+            alert.setContentText("Your donation has been successfully pledged forward");
             alert.show();
 
             ResultSet generatedKeys = psInsertValue.getGeneratedKeys();

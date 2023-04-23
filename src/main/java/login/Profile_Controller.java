@@ -15,9 +15,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.sql.*;
 import java.util.Objects;
@@ -42,7 +44,7 @@ public class Profile_Controller implements Initializable {
     MenuItem Home, Explore, YourCampaign, DonatedCampaign, MyProfile, UpdateProfile, HelpAndSupport, LogOut, Exit;
 
     @FXML
-    Button NewCampaign, ProfilePicture;;
+    Button NewCampaign, updateProfilePicture;;
 
     @FXML
     Label userIdLabel, resetCodeLabel, usernameLabel, nameLabel, emailLabel, roleLabel, phoneLabel, addressLabel, orgNameLabel, aboutMeLabel;
@@ -53,12 +55,15 @@ public class Profile_Controller implements Initializable {
     Image profilePicture;
 
     private final int userID = SessionManager.getCurrentUser();
+    private String USERNAME;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println(userID);
+
         Connection connection = null;
         PreparedStatement preparedStatement = null;
+        PreparedStatement psInsertValue = null;
         ResultSet resultSet = null;
 
         String url2 = Constants.DATABASE_URL;
@@ -98,6 +103,8 @@ public class Profile_Controller implements Initializable {
                 user1.setAboutMe(aboutMe);
                 user1.setImage(image);
 
+                USERNAME = user1.getUsername();
+
                 userIdLabel.setText(String.valueOf(user1.getUser_id()));
                 usernameLabel.setText(user1.getUsername());
                 nameLabel.setText(user1.getName());
@@ -112,12 +119,17 @@ public class Profile_Controller implements Initializable {
                     profilePicture = new Image("D:\\Intelli J\\donationtracker-master2\\src\\main\\resources\\login\\imagefiles\\defaultAvatar.png");
                 }
                 else {
-                    profilePicture = new Image("D:\\Intelli J\\donationtracker-master2\\src\\main\\resources\\login\\imagefiles\\defaultAvatar.png");
+                    profilePicture = new Image(image);
                 }
-
                 profileView.setImage(profilePicture);
-
             }
+
+            String imagePath = "D:\\Intelli J\\donationtracker-master2\\src\\main\\resources\\login\\imagefiles\\defaultAvatar.png";
+
+            psInsertValue = connection.prepareStatement("UPDATE userdetails SET image = ? WHERE userID = ?");
+            psInsertValue.setString(1, imagePath);
+            psInsertValue.setString(2, String.valueOf(userID));
+            psInsertValue.executeUpdate();
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -132,6 +144,13 @@ public class Profile_Controller implements Initializable {
                 }
             }
             if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (psInsertValue != null) {
                 try {
                     preparedStatement.close();
                 } catch (Exception e) {
@@ -214,6 +233,109 @@ public class Profile_Controller implements Initializable {
         stage.setTitle("Log In");
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void updateProfile(){
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        PreparedStatement psInsertValue = null;
+        ResultSet resultSet = null;
+
+        String url2 = Constants.DATABASE_URL;
+        String user = Constants.DATABASE_USERNAME;
+        String pass = Constants.DATABASE_PASSWORD;
+
+        try {
+
+            connection = DriverManager.getConnection(url2, user, pass);
+
+            FileChooser fileChooser = new FileChooser();
+            File chosenFile = fileChooser.showOpenDialog(null);
+            String imagePath = null;
+            String newImagePath = null;
+
+            if (chosenFile != null) {
+                imagePath = chosenFile.getAbsolutePath();
+                System.out.println(imagePath);
+
+                try {
+                    InputStream is = new FileInputStream(imagePath);
+                    OutputStream os = new FileOutputStream("D:\\Intelli J\\donationtracker-master2\\src\\main\\resources\\login\\profilepictures\\" + USERNAME + ".png");
+                    byte[] buffer = new byte[1024];
+                    int length;
+                    while ((length = is.read(buffer)) > 0) {
+                        os.write(buffer, 0, length);
+                    }
+                    is.close();
+                    os.close();
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+
+                newImagePath = "D:\\Intelli J\\donationtracker-master2\\src\\main\\resources\\login\\profilepictures\\" + USERNAME + ".png";
+            }
+            else {
+                preparedStatement = connection.prepareStatement("SELECT image FROM userdetails WHERE userID = ?");
+                preparedStatement.setInt(1, userID);
+                resultSet = preparedStatement.executeQuery();
+
+                while (resultSet.next()) {
+                    imagePath = resultSet.getString("image");
+                }
+
+                newImagePath = imagePath;
+            }
+
+            //Storing the image path in the image variable.
+            psInsertValue = connection.prepareStatement("UPDATE userdetails SET image = ? WHERE userID = ?");
+            psInsertValue.setString(1, newImagePath);
+            psInsertValue.setString(2, String.valueOf(userID));
+            psInsertValue.executeUpdate();
+
+            preparedStatement = connection.prepareStatement("SELECT image FROM userdetails WHERE userID = ?");
+            preparedStatement.setInt(1, userID);
+            resultSet = preparedStatement.executeQuery();
+
+            //Checks if the user exist or not. Returns false if the user does not exist.
+
+            while (resultSet.next()) {
+
+                String image = resultSet.getString("image");
+
+                profilePicture = new Image(image);
+                profileView.setImage(profilePicture);
+
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            //Closing all the connections to the database.
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
 }
