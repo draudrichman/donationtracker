@@ -98,7 +98,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="115.0" layoutY="580.0" prefHeight="30.0" prefWidth="120.0" text="User Id :">
+      <Label layoutX="113.0" layoutY="565.0" prefHeight="30.0" prefWidth="120.0" text="User Id :">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -133,13 +133,13 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="userIdLabel" layoutX="270.0" layoutY="580.0" prefHeight="30.0" prefWidth="150.0" text="N/A">
+      <Label fx:id="userIdLabel" layoutX="268.0" layoutY="565.0" prefHeight="30.0" prefWidth="150.0" text="N/A">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <Button fx:id="updateProfilePicture" layoutX="190.0" layoutY="515.0" mnemonicParsing="false" onAction="#updateProfile" prefHeight="30.0" prefWidth="150.0" text="Update Profile Picture" />
-      <Button fx:id="NewCampaign" layoutX="190.0" layoutY="675.0" mnemonicParsing="false" onAction="#goToNewCampaign" prefHeight="30.0" prefWidth="150.0" text="Create a New Campaign" />
+      <Button fx:id="NewCampaign" layoutX="77.0" layoutY="677.0" mnemonicParsing="false" onAction="#goToNewCampaign" prefHeight="30.0" prefWidth="150.0" text="Create a New Campaign" />
       <Label layoutX="478.0" layoutY="585.0" prefHeight="40.0" prefWidth="120.0" text="My Bio:">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -150,15 +150,16 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="115.0" layoutY="620.0" prefHeight="30.0" prefWidth="120.0" text="Reset Code :">
+      <Label layoutX="113.0" layoutY="605.0" prefHeight="30.0" prefWidth="120.0" text="Reset Code :">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="resetCodeLabel" layoutX="270.0" layoutY="620.0" prefHeight="30.0" prefWidth="150.0" text="N/A">
+      <Label fx:id="resetCodeLabel" layoutX="268.0" layoutY="605.0" prefHeight="30.0" prefWidth="150.0" text="N/A">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+      <Button fx:id="NewCampaign1" layoutX="309.0" layoutY="677.0" mnemonicParsing="false" onAction="#goToUpdateProfile" prefHeight="30.0" prefWidth="150.0" text="Update Profile" />
    </children>
 </AnchorPane>

@@ -116,7 +116,7 @@ public class Profile_Controller implements Initializable {
                 aboutMeLabel.setText(user1.getAboutMe());
 
                 if(user1.getImage().equals("")){
-                    profilePicture = new Image("D:\\Intelli J\\donationtracker-master2\\src\\main\\resources\\login\\imagefiles\\defaultAvatar.png");
+                    profilePicture = new Image("D:\\Intelli J\\donationtracker-master2\\src\\main\\resources\\login\\profilepictures\\defaultAvatar.png");
                 }
                 else {
                     profilePicture = new Image(image);
@@ -124,7 +124,7 @@ public class Profile_Controller implements Initializable {
                 profileView.setImage(profilePicture);
             }
 
-            String imagePath = "D:\\Intelli J\\donationtracker-master2\\src\\main\\resources\\login\\imagefiles\\defaultAvatar.png";
+            String imagePath = "D:\\Intelli J\\donationtracker-master2\\src\\main\\resources\\login\\profilepictures\\defaultAvatar.png";
 
             psInsertValue = connection.prepareStatement("UPDATE userdetails SET image = ? WHERE userID = ?");
             psInsertValue.setString(1, imagePath);

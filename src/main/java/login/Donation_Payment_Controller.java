@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -31,6 +32,9 @@ public class Donation_Payment_Controller implements Initializable {
 
     @FXML
     AnchorPane anchorPane;
+
+    @FXML
+    BorderPane borderPane;
 
     @FXML
     MenuItem Home, Explore, YourCampaign, DonatedCampaign, MyProfile, UpdateProfile, HelpAndSupport, LogOut, Exit;
@@ -211,7 +215,16 @@ public class Donation_Payment_Controller implements Initializable {
         stage.close();
     }
 
-    //Method 7: Exits the Program.
+    public void explore() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("discover_campaigns.fxml"));
+        root = loader.load();
+        scene = new Scene(root);
+        stage = (Stage)borderPane.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }
 

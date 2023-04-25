@@ -45,7 +45,7 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Help &amp; Support">
                <items>
-                  <MenuItem fx:id="HelpAndSupport" mnemonicParsing="false" text="Help &amp; Support" />
+                  <MenuItem fx:id="HelpAndSupport" mnemonicParsing="false" onAction="#goToHelpAndSupport" text="Help &amp; Support" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Log Out">

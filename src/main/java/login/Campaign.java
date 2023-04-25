@@ -10,6 +10,8 @@ public class Campaign {
     private String description;
     private String status;
 
+    private String image;
+
     //Constructor for the Campaign class.
     public Campaign(int campaignID, String title, String description, double goalAmount, double currentAmount, String status, String category) {
         this.campaignID = campaignID;
@@ -74,5 +76,11 @@ public class Campaign {
         return campaignID;
     }
 
+    public String getImage() {
+        return image;
+    }
 
+    public void setImage(String image) {
+        this.image = image;
+    }
 }

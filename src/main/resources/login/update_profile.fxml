@@ -96,7 +96,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="Update" layoutX="438.0" layoutY="680.0" mnemonicParsing="false" onAction="#updateProfile" prefHeight="30.0" prefWidth="200.0" text="Update Profile" />
+      <Button fx:id="Update" layoutX="438.0" layoutY="680.0" mnemonicParsing="false" onAction="#updateProfile" prefHeight="30.0" prefWidth="200.0" text="Confirm Update" />
       <TextField fx:id="Email" layoutX="113.0" layoutY="285.0" prefHeight="30.0" prefWidth="350.0" />
       <TextField fx:id="Phone" layoutX="113.0" layoutY="375.0" prefHeight="30.0" prefWidth="350.0" />
       <TextField fx:id="OrgName" layoutX="618.0" layoutY="285.0" prefHeight="30.0" prefWidth="350.0" />

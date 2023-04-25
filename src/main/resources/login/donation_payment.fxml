@@ -9,8 +9,8 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Box?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
@@ -20,12 +20,7 @@
             <Font name="System Bold" size="43.0" />
          </font>
       </Label>
-      <Box depth="100" drawMode="LINE" height="200.0" layoutX="315.0" layoutY="355.0" width="400.0" />
-      <Label layoutX="175.0" layoutY="330.0" text="Campaign IMAGE">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
+      <ImageView fitHeight="200.0" fitWidth="400.0" layoutX="115.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="123.0" layoutY="469.0" text="You're supporting">
          <font>
             <Font name="System Bold" size="20.0" />

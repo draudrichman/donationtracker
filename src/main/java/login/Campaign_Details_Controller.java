@@ -10,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -48,6 +50,12 @@ public class Campaign_Details_Controller implements Initializable {
     @FXML
     TextFlow campdescription;
 
+    @FXML
+    ImageView campaignView;
+
+    @FXML
+    Image campaignPicture;
+
     private final int campaignID;
 
     public Campaign_Details_Controller(int campaignID) {
@@ -56,8 +64,10 @@ public class Campaign_Details_Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         Connection connection = null;
         PreparedStatement preparedStatement = null;
+        PreparedStatement psInsertValue = null;
         ResultSet resultSet = null;
 
         String url2 = Constants.DATABASE_URL;
@@ -79,8 +89,10 @@ public class Campaign_Details_Controller implements Initializable {
                 double currentAmount = resultSet.getDouble("currentAmount");
                 String status = resultSet.getString("status");
                 String category = resultSet.getString("category");
+                String image = resultSet.getString("image");
 
                 Campaign campaign = new Campaign(id, name, description, goalAmount, currentAmount, status, category);
+                campaign.setImage(image);
                 System.out.println(campaign.getTitle());
                 System.out.println(campaign.getDescription());
                 System.out.println(campaign.getGoalAmount());
@@ -90,6 +102,10 @@ public class Campaign_Details_Controller implements Initializable {
                 Text text = new Text(campaign.getDescription());
                 campdescription.getChildren().add(text);
                 goalDisplay.setText(String.valueOf("৳" + campaign.getCurrentAmount()) + " raised of ৳" + String.valueOf(campaign.getGoalAmount()));
+
+                campaignPicture = new Image(image);
+                campaignView.setImage(campaignPicture);
+
             }
 
             resultSet.close();

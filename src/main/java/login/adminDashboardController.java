@@ -587,7 +587,15 @@ public class adminDashboardController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    public void Message(ActionEvent actionEvent) throws IOException {
 
-
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin_msg_and_inbox.fxml")));
+        stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Admin - Donations");
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }

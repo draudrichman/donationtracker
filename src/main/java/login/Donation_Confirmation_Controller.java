@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -30,6 +31,9 @@ public class Donation_Confirmation_Controller implements Initializable {
 
     @FXML
     AnchorPane anchorPane;
+
+    @FXML
+    BorderPane borderPane;
 
     @FXML
     MenuItem Home, Explore, YourCampaign, DonatedCampaign, MyProfile, UpdateProfile, HelpAndSupport, LogOut, Exit;
@@ -150,5 +154,16 @@ public class Donation_Confirmation_Controller implements Initializable {
 
         stage = (Stage) anchorPane.getScene().getWindow();
         stage.close();
+    }
+
+    public void explore() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("discover_campaigns.fxml"));
+        root = loader.load();
+        scene = new Scene(root);
+        stage = (Stage)borderPane.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 }

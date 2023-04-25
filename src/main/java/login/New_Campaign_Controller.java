@@ -8,10 +8,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.sql.*;
 import java.util.Objects;
@@ -71,16 +73,27 @@ public class New_Campaign_Controller implements Initializable {
     @FXML
     TextArea campaignDescription;
 
-//    @FXML
-//    PasswordField Confirm_Password;
+    @FXML
+    Label selectImageLabel;
 
     @FXML
-    Button createCampaign;
+    Button createCampaign, SelectImageButton;
 
     //Variables to contain campaign information.
     String campaign_name, description, category, status;
 
     String goal_amount, current_amount;
+
+    static int campaignPicture;
+
+    String campaignImagePath;
+
+    private int userID;
+
+    public New_Campaign_Controller() throws IOException {
+
+        userID = SessionManager.getCurrentUser();
+    }
 
     //Methods for the buttons.
 
@@ -89,136 +102,6 @@ public class New_Campaign_Controller implements Initializable {
 
 
     }
-
-    private int userID;
-    public New_Campaign_Controller() throws IOException {
-        userID = SessionManager.getCurrentUser();
-    }
-
-
-
-
-    public void createCampaign(ActionEvent actionEvent) throws IOException, SQLException {
-
-        //Extracting text from the Text fields.
-        campaign_name = campaignTitle.getText();
-        goal_amount = goalAmount.getText();
-        description = campaignDescription.getText();
-        status = "Active";
-
-        ToggleGroup toggleGroup = new ToggleGroup();
-        other.setToggleGroup(toggleGroup);
-        Emergencies.setToggleGroup(toggleGroup);
-        Funeral.setToggleGroup(toggleGroup);
-        ArtandCulture.setToggleGroup(toggleGroup);
-        Sports.setToggleGroup(toggleGroup);
-        Environment.setToggleGroup(toggleGroup);
-        Hunger.setToggleGroup(toggleGroup);
-        Community.setToggleGroup(toggleGroup);
-        Medical.setToggleGroup(toggleGroup);
-        Disaster.setToggleGroup(toggleGroup);
-        AnimalWelfare.setToggleGroup(toggleGroup);
-        Education.setToggleGroup(toggleGroup);
-
-
-        if (toggleGroup.getSelectedToggle() == null){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Category not selected!");
-            alert.setContentText("Please select the type of newUser you want to signup as!");
-            alert.show();
-        }
-        else if(other.isSelected()){
-            category = other.getText();
-        }
-        else if(AnimalWelfare.isSelected()){
-            category = AnimalWelfare.getText();
-        }
-        else if(Hunger.isSelected()){
-            category = Hunger.getText();
-        }
-        else if(Education.isSelected()){
-            category = Education.getText();
-        }
-        else if(Emergencies.isSelected()){
-            category = Emergencies.getText();
-        }
-        else if(Environment.isSelected()){
-            category = Environment.getText();
-        }
-        else if(ArtandCulture.isSelected()){
-            category = ArtandCulture.getText();
-        }
-        else if(Funeral.isSelected()){
-            category = Funeral.getText();
-        }
-        else if(Sports.isSelected()){
-            category = Sports.getText();
-        }
-        else if(Community.isSelected()){
-            category = Community.getText();
-        }
-        else if(Disaster.isSelected()){
-            category = Disaster.getText();
-        }
-        else if(Medical.isSelected()){
-            category = Medical.getText();
-        }
-        else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Category not selected!");
-            alert.setContentText("Please select the type of newUser you want to signup as!");
-            alert.show();
-        }
-
-        //Variables for the connection to a database.
-        Connection connection = null;
-        PreparedStatement psInsertValue = null;
-
-
-        String url = Constants.DATABASE_URL;
-        String user = Constants.DATABASE_USERNAME;
-        String pass = Constants.DATABASE_PASSWORD;
-
-        if (campaign_name.equals("") || goal_amount.equals("") || description.equals("") || category.equals("")){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Empty fields!");
-            alert.setContentText("Please fill up all the information");
-            alert.show();
-        }
-        else {
-
-
-                connection = DriverManager.getConnection(url, user, pass);
-
-                psInsertValue = connection.prepareStatement("INSERT INTO campaign (title, userID, description, goalAmount, currentAmount, status, category) VALUES(?, ?, ?, ?, ?, ?, ?)");
-                psInsertValue.setString(1, campaign_name);
-                psInsertValue.setInt(2, userID);
-                psInsertValue.setString(3, description);
-                psInsertValue.setDouble(4, Double.parseDouble(goal_amount));
-                psInsertValue.setDouble(5, 0);
-                psInsertValue.setString(6, status);
-                psInsertValue.setString(7, category);
-                psInsertValue.executeUpdate();
-
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setHeaderText("Signup Successful!");
-                alert.setContentText("Your account has been created successfully!");
-                alert.show();
-
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("homepage.fxml"));
-            root = loader.load();
-            scene = new Scene(root);
-            stage = (Stage)anchorPane.getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        }
-
-    }
-
-
-
-
 
     //All the methods for Buttons and Menu bar.
 
@@ -287,6 +170,167 @@ public class New_Campaign_Controller implements Initializable {
 
         stage = (Stage) anchorPane.getScene().getWindow();
         stage.close();
+    }
+
+    public void selectCampaignImage() {
+
+        try {
+
+            FileChooser fileChooser = new FileChooser();
+            File chosenFile = fileChooser.showOpenDialog(null);
+            String imagePath;
+
+            if (chosenFile != null) {
+                imagePath = chosenFile.getAbsolutePath();
+                System.out.println(imagePath);
+
+                try {
+                    InputStream is = new FileInputStream(imagePath);
+                    OutputStream os = new FileOutputStream("D:\\Intelli J\\donationtracker-master2\\src\\main\\resources\\login\\campaignpictures\\" + String.valueOf(campaignPicture) + ".png");
+                    campaignPicture++;
+                    byte[] buffer = new byte[1024];
+                    int length;
+                    while ((length = is.read(buffer)) > 0) {
+                        os.write(buffer, 0, length);
+                    }
+                    is.close();
+                    os.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                campaignImagePath = "D:\\Intelli J\\donationtracker-master2\\src\\main\\resources\\login\\campaignpictures\\" + campaignPicture + ".png";
+                selectImageLabel.setText(campaignImagePath);
+            }
+            else {
+
+                campaignImagePath = "D:\\Intelli J\\donationtracker-master2\\src\\main\\resources\\login\\campaignpictures\\defaultBackground.jpg";
+                selectImageLabel.setText(campaignImagePath);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    //Method 8: Crates New Campaign.
+    public void createCampaign(ActionEvent actionEvent) throws IOException, SQLException {
+
+        //Extracting text from the Text fields.
+        campaign_name = campaignTitle.getText();
+        goal_amount = goalAmount.getText();
+        description = campaignDescription.getText();
+        status = "Active";
+
+        ToggleGroup toggleGroup = new ToggleGroup();
+        other.setToggleGroup(toggleGroup);
+        Emergencies.setToggleGroup(toggleGroup);
+        Funeral.setToggleGroup(toggleGroup);
+        ArtandCulture.setToggleGroup(toggleGroup);
+        Sports.setToggleGroup(toggleGroup);
+        Environment.setToggleGroup(toggleGroup);
+        Hunger.setToggleGroup(toggleGroup);
+        Community.setToggleGroup(toggleGroup);
+        Medical.setToggleGroup(toggleGroup);
+        Disaster.setToggleGroup(toggleGroup);
+        AnimalWelfare.setToggleGroup(toggleGroup);
+        Education.setToggleGroup(toggleGroup);
+
+
+        if (toggleGroup.getSelectedToggle() == null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Category not selected!");
+            alert.setContentText("Please select the type of newUser you want to signup as!");
+            alert.show();
+        }
+        else if(other.isSelected()){
+            category = other.getText();
+        }
+        else if(AnimalWelfare.isSelected()){
+            category = AnimalWelfare.getText();
+        }
+        else if(Hunger.isSelected()){
+            category = Hunger.getText();
+        }
+        else if(Education.isSelected()){
+            category = Education.getText();
+        }
+        else if(Emergencies.isSelected()){
+            category = Emergencies.getText();
+        }
+        else if(Environment.isSelected()){
+            category = Environment.getText();
+        }
+        else if(ArtandCulture.isSelected()){
+            category = ArtandCulture.getText();
+        }
+        else if(Funeral.isSelected()){
+            category = Funeral.getText();
+        }
+        else if(Sports.isSelected()){
+            category = Sports.getText();
+        }
+        else if(Community.isSelected()){
+            category = Community.getText();
+        }
+        else if(Disaster.isSelected()){
+            category = Disaster.getText();
+        }
+        else if(Medical.isSelected()){
+            category = Medical.getText();
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Category not selected!");
+            alert.setContentText("Please select the type of campaign you want to create!");
+            alert.show();
+        }
+
+        //Variables for the connection to a database.
+        Connection connection = null;
+        PreparedStatement psInsertValue = null;
+
+
+        String url = Constants.DATABASE_URL;
+        String user = Constants.DATABASE_USERNAME;
+        String pass = Constants.DATABASE_PASSWORD;
+
+        if (campaign_name.equals("") || goal_amount.equals("") || description.equals("") || category.equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Empty fields!");
+            alert.setContentText("Please fill up all the information");
+            alert.show();
+        }
+        else {
+
+            connection = DriverManager.getConnection(url, user, pass);
+
+            psInsertValue = connection.prepareStatement("INSERT INTO campaign (title, userID, description, goalAmount, currentAmount, status, category, image) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+            psInsertValue.setString(1, campaign_name);
+            psInsertValue.setInt(2, userID);
+            psInsertValue.setString(3, description);
+            psInsertValue.setDouble(4, Double.parseDouble(goal_amount));
+            psInsertValue.setDouble(5, 0);
+            psInsertValue.setString(6, status);
+            psInsertValue.setString(7, category);
+            psInsertValue.setString(8, campaignImagePath);
+            psInsertValue.executeUpdate();
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText("Campaign Creation Successful!");
+            alert.setContentText("Your campaign has been created successfully!");
+            alert.show();
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("homepage.fxml"));
+            root = loader.load();
+            scene = new Scene(root);
+            stage = (Stage)anchorPane.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
+
     }
 
 }

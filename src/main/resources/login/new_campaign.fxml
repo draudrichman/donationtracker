@@ -73,7 +73,8 @@
                   <RadioButton fx:id="AnimalWelfare" layoutX="283.0" layoutY="84.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="114.0" stylesheets="@css/styles.css" text="Animal Wellfare">
                      <toggleGroup>
                         <ToggleGroup fx:id="campCat" />
-                     </toggleGroup></RadioButton>
+                     </toggleGroup>
+                  </RadioButton>
                   <RadioButton fx:id="Community" layoutX="283.0" layoutY="129.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="95.0" stylesheets="@css/styles.css" text="Community" toggleGroup="$campCat" />
                   <RadioButton fx:id="Education" layoutX="410.0" layoutY="84.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="81.0" stylesheets="@css/styles.css" text="Education" toggleGroup="$campCat" />
                   <RadioButton fx:id="Hunger" layoutX="388.0" layoutY="129.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" stylesheets="@css/styles.css" text="Hunger &amp; Poverty" toggleGroup="$campCat" />
@@ -107,7 +108,13 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Button fx:id="createCampaign" layoutX="578.0" layoutY="802.0" mnemonicParsing="false" onAction="#createCampaign" text="Complete fundraiser" />
+                  <Button fx:id="createCampaign" layoutX="588.0" layoutY="912.0" mnemonicParsing="false" onAction="#createCampaign" prefHeight="30.0" prefWidth="135.0" text="Complete fundraiser" />
+                  <Button fx:id="SelectImageButton" layoutX="284.0" layoutY="806.0" mnemonicParsing="false" onAction="#selectCampaignImage" prefHeight="30.0" prefWidth="135.0" text="Select an image" />
+                  <Label fx:id="selectImageLabel" layoutX="284.0" layoutY="770.0" prefHeight="30.0" prefWidth="431.0" text="No image Selected">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </content>
