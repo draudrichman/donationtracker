@@ -13,6 +13,16 @@ public class Server {
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
 
+    private String clientUsername;
+
+    public String getUsername() {
+        return clientUsername;
+    }
+
+    public void setUsername(String username) {
+        this.clientUsername = username;
+    }
+
     public Server(ServerSocket serverSocket) {
 
             try {
@@ -20,6 +30,8 @@ public class Server {
                 this.socket = serverSocket.accept();
                 this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+
+                clientUsername = bufferedReader.readLine();
             }
             catch (IOException e){
                 e.printStackTrace();

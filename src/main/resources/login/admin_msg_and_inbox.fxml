@@ -24,8 +24,8 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <TextField fx:id="messageField" layoutX="289.0" layoutY="658.0" prefHeight="40.0" prefWidth="450.0" />
-      <Button fx:id="send" layoutX="739.0" layoutY="658.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" text="Send">
+      <TextField fx:id="messageField" layoutX="289.0" layoutY="658.0" prefHeight="40.0" prefWidth="430.0" />
+      <Button fx:id="send" layoutX="719.0" layoutY="658.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="70.0" text="Send">
          <font>
             <Font name="Consolas Bold Italic" size="14.0" />
          </font>

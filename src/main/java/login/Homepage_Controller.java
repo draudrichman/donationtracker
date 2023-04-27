@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
@@ -16,6 +17,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.util.EventObject;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -43,6 +45,9 @@ public class Homepage_Controller implements Initializable {
 
     @FXML
     Menu profile;
+
+    @FXML
+    Button helpDesk;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -155,4 +160,14 @@ public class Homepage_Controller implements Initializable {
         }
     }
 
+
+    public void contactAdmin(ActionEvent actionEvent) throws IOException {
+
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("user_msg_and_inbox.fxml")));
+        stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Client Message");
+        stage.setScene(scene);
+        stage.show();
+    }
 }

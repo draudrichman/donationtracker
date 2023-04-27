@@ -107,7 +107,7 @@
                   </ImageView>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Button maxHeight="25.0" maxWidth="400.0" minHeight="10.0" minWidth="168.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: transparent;" text="Help Desk" />
+                        <Button fx:id="helpDesk" maxHeight="25.0" maxWidth="400.0" minHeight="10.0" minWidth="168.0" mnemonicParsing="false" onAction="#contactAdmin" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: transparent;" text="Help Desk" />
                         <Button maxHeight="25.0" maxWidth="400.0" minHeight="10.0" minWidth="168.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: transparent;" text="About Us" />
                         <Button maxHeight="25.0" maxWidth="400.0" minHeight="10.0" minWidth="168.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: transparent;" text="Terms &amp; Conditions" />
                      </children>
