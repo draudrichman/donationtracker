@@ -8,8 +8,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -51,11 +54,79 @@ public class Donation_Payment_Controller implements Initializable {
     @FXML
     RadioButton MFS, Card, BankTransfer;
 
+    String url = Constants.DATABASE_URL;
+    String username = Constants.DATABASE_USERNAME;
+    String password = Constants.DATABASE_PASSWORD;
+
+    @FXML
+    Menu profile;
+
+    @FXML
+    ImageView campaignView;
+
+    @FXML
+    Image campaignPicture;
+
+    @FXML
+    Label title;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        try {
+            gettingUsername();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        PreparedStatement psInsertValue = null;
+        ResultSet resultSet = null;
+
+        String url2 = Constants.DATABASE_URL;
+        String user = Constants.DATABASE_USERNAME;
+        String pass = Constants.DATABASE_PASSWORD;
+
+        try {
+            connection = DriverManager.getConnection(url2, user, pass);
+
+            preparedStatement = connection.prepareStatement("SELECT * FROM campaign WHERE campaignID = ?");
+            preparedStatement.setInt(1, campaignID); // set the value of the placeholder to 1
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                int id = resultSet.getInt("campaignID");
+                String name = resultSet.getString("title");
+                String description = resultSet.getString("description");
+                double goalAmount = resultSet.getDouble("goalAmount");
+                double currentAmount = resultSet.getDouble("currentAmount");
+                String status = resultSet.getString("status");
+                String category = resultSet.getString("category");
+                String image = resultSet.getString("image");
+
+                Campaign campaign = new Campaign(id, name, description, goalAmount, currentAmount, status, category);
+                campaign.setImage(image);
+                System.out.println(campaign.getTitle());
+                System.out.println(campaign.getDescription());
+                System.out.println(campaign.getGoalAmount());
+                System.out.println(campaign.getCurrentAmount());
+
+                title.setText(campaign.getTitle());
+                campaignPicture = new Image(image);
+                campaignView.setImage(campaignPicture);
+
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
+
 
     private int userID, campaignID;
     public Donation_Payment_Controller(int campaignID) throws IOException {
@@ -138,7 +209,7 @@ public class Donation_Payment_Controller implements Initializable {
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.show();
-                Stage currentStage = (Stage) anchorPane.getScene().getWindow();
+                Stage currentStage = (Stage) borderPane.getScene().getWindow();
                 currentStage.close();
 
 
@@ -161,58 +232,85 @@ public class Donation_Payment_Controller implements Initializable {
     }
 
     //Method 2: Takes to the Profile Page.
+
+
     public void goToProfile() throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("profile.fxml"));
         root = loader.load();
         scene = new Scene(root);
-        stage = (Stage) anchorPane.getScene().getWindow();
+        stage = (Stage)borderPane.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
 
-    //Method 3: Takes to the Update Profile Page.
+    public void goToHomepage() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("homepage.fxml"));
+        root = loader.load();
+        scene = new Scene(root);
+        stage = (Stage)borderPane.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    //Method 2: Takes to the Update Profile Page.
     public void goToUpdateProfile() throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("update_profile.fxml"));
         root = loader.load();
         scene = new Scene(root);
-        stage = (Stage) anchorPane.getScene().getWindow();
+        stage = (Stage)borderPane.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
 
-    //Method 4: Takes to the Help & Support Page.
+    //Method 3: Takes to the Help & Support Page.
     public void goToHelpAndSupport() throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("help_and_support.fxml"));
         root = loader.load();
         scene = new Scene(root);
-        stage = (Stage) anchorPane.getScene().getWindow();
+        stage = (Stage)borderPane.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
 
-    //Method 5: Logs out from the user account.
+    public void goTomycampaign() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("mycampaigns.fxml"));
+        root = loader.load();
+        scene = new Scene(root);
+        stage = (Stage)borderPane.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void goTomydonatedcampaigns() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("mydonatedcampaigns.fxml"));
+        root = loader.load();
+        scene = new Scene(root);
+        stage = (Stage)borderPane.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    //Method 4: Logs out from the user account.
     public void logout() throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("login.fxml"));
         root = loader.load();
         scene = new Scene(root);
-        stage = (Stage) anchorPane.getScene().getWindow();
+        stage = (Stage)borderPane.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
-    }
-
-    //Method 6: Exits the Program.
-    public void exit() throws IOException {
-
-        stage = (Stage) anchorPane.getScene().getWindow();
-        stage.close();
     }
 
     public void explore() throws IOException {
@@ -222,6 +320,44 @@ public class Donation_Payment_Controller implements Initializable {
         root = loader.load();
         scene = new Scene(root);
         stage = (Stage)borderPane.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void goToNewCampaign(ActionEvent actionEvent) throws IOException {
+
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("new_campaign.fxml")));
+        stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Log In");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void gettingUsername() throws SQLException {
+        String query = "SELECT fullName FROM userdetails WHERE userID = ?";
+        try (Connection connection = DriverManager.getConnection(url, username, password);
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, SessionManager.getCurrentUser());
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                String username = resultSet.getString("fullName");
+                System.out.println("Username: " + username);
+                profile.setText("Hello, " + username);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void contactAdmin(ActionEvent actionEvent) throws IOException {
+
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("user_msg_and_inbox.fxml")));
+        stage = (Stage) ((Node)(actionEvent.getSource())).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Client Message");
         stage.setScene(scene);
         stage.show();
     }

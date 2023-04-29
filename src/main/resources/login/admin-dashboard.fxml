@@ -105,20 +105,6 @@
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@imagefiles/user%20icon.png" />
-                           </image>
-                        </ImageView>
-                        <Button mnemonicParsing="false" onAction="#UserBaseTransition" prefHeight="65.0" prefWidth="122.0" styleClass="transparent-button" stylesheets="@resources/adminDashboard.css" text="Userbase" textFill="WHITE">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="69.0" prefWidth="234.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
                               <Image url="@imagefiles/inboxicon.png" />
                            </image>
                         </ImageView>

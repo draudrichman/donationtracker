@@ -1,124 +1,206 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="720.0" maxWidth="1080.0" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.New_Campaign_Controller">
-   <children>
-      <Label alignment="CENTER" layoutX="425.0" layoutY="15.0" prefHeight="103.0" prefWidth="228.0" text="GivingTree" textAlignment="CENTER" textFill="#15a85c">
-         <font>
-            <Font name="System Bold" size="43.0" />
-         </font>
-      </Label>
-      <MenuBar layoutY="115.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="1080.0">
-         <menus>
-            <Menu mnemonicParsing="false" text="Home">
-               <items>
-                  <MenuItem fx:id="Home" mnemonicParsing="false" onAction="#goToHome" text="Home" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Campaigns">
-               <items>
-                  <MenuItem fx:id="Explore" mnemonicParsing="false" text="Explore" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem fx:id="YourCampaign" mnemonicParsing="false" text="Your Campaigns" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem fx:id="DonatedCampaign" mnemonicParsing="false" text="Campaigns you donated to" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Profile">
-               <items>
-                  <MenuItem fx:id="MyProfile" mnemonicParsing="false" onAction="#goToProfile" text="My Profile" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem fx:id="UpdateProfile" mnemonicParsing="false" onAction="#goToUpdateProfile" text="Update Profile" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Help &amp; Support">
-               <items>
-                  <MenuItem fx:id="HelpAndSupport" mnemonicParsing="false" onAction="#goToHelpAndSupport" text="Help &amp; Support" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Log Out">
-               <items>
-                  <MenuItem fx:id="LogOut" mnemonicParsing="false" onAction="#logout" text="Log Out" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Exit">
-               <items>
-                  <MenuItem fx:id="Exit" mnemonicParsing="false" onAction="#exit" text="Exit" />
-               </items>
-            </Menu>
-         </menus>
-      </MenuBar>
-      <ScrollPane layoutY="143.0" prefHeight="580.0" prefWidth="1080.0">
-         <content>
-            <AnchorPane prefHeight="992.0" prefWidth="1065.0">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="1296.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.New_Campaign_Controller">
+   <top>
+      <HBox alignment="CENTER" prefHeight="108.0" prefWidth="1296.0" styleClass="backgroundColor" stylesheets="@css/styles.css" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="121.0" fitWidth="121.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imagefiles/onlytree.png" />
+               </image>
+            </ImageView>
+            <VBox alignment="BOTTOM_LEFT" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label layoutX="283.0" layoutY="34.0" text="What best describes your campaign?">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <RadioButton fx:id="AnimalWelfare" layoutX="283.0" layoutY="84.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="114.0" stylesheets="@css/styles.css" text="Animal Wellfare">
+                  <ImageView fitHeight="54.0" fitWidth="187.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagefiles/givingtreelogotext.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </VBox>
+            <HBox alignment="BOTTOM_CENTER" prefHeight="121.0" prefWidth="699.0">
+               <children>
+                  <MenuBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="504.0" stylesheets="@css/styles.css">
+                     <menus>
+                        <Menu mnemonicParsing="false" text="Home">
+                           <items>
+                              <MenuItem fx:id="Home" mnemonicParsing="false" onAction="#goToHomepage" text="Home" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Campaigns">
+                           <items>
+                              <MenuItem fx:id="Explore" mnemonicParsing="false" onAction="#explore" text="Explore" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem fx:id="YourCampaign" mnemonicParsing="false" onAction="#goTomycampaign" text="Your Campaigns" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem fx:id="DonatedCampaign" mnemonicParsing="false" onAction="#goTomydonatedcampaigns" text="Campaigns you donated to" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help &amp; Support">
+                           <items>
+                              <MenuItem fx:id="HelpAndSupport" mnemonicParsing="false" onAction="#goToHelpAndSupport" text="Help &amp; Support" />
+                           </items>
+                        </Menu>
+                     </menus>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </MenuBar>
+               </children>
+            </HBox>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="121.0" prefWidth="247.0">
+               <children>
+                  <MenuBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="283.0">
+                     <menus>
+                        <Menu fx:id="profile" mnemonicParsing="false" text="Profile">
+                           <items>
+                              <MenuItem fx:id="MyProfile" mnemonicParsing="false" onAction="#goToProfile" text="My Profile" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem fx:id="LogoutMenuItem" mnemonicParsing="false" onAction="#logout" text="Logout" />
+                           </items>
+                        </Menu>
+                     </menus>
+                  </MenuBar>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <VBox prefHeight="114.0" prefWidth="1296.0" styleClass="backgroundColor" stylesheets="@css/styles.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="89.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagefiles/givingtreelogo.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Button fx:id="helpDesk" maxHeight="25.0" maxWidth="400.0" minHeight="10.0" minWidth="168.0" mnemonicParsing="false" onAction="#contactAdmin" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: transparent;" text="Help Desk" />
+                        <Button maxHeight="25.0" maxWidth="400.0" minHeight="10.0" minWidth="168.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: transparent;" text="About Us" />
+                        <Button maxHeight="25.0" maxWidth="400.0" minHeight="10.0" minWidth="168.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: transparent;" text="Terms &amp; Conditions" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="backgroundColor2" stylesheets="@css/styles.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="What best describes your campaign?">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="74.0" prefWidth="1296.0">
+               <children>
+                  <RadioButton fx:id="AnimalWelfare" mnemonicParsing="false" prefHeight="33.0" prefWidth="114.0" stylesheets="@css/styles.css" text="Animal Wellfare">
                      <toggleGroup>
-                        <ToggleGroup fx:id="campCat" />
+                        <ToggleGroup fx:id="campCat2" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="Community" layoutX="283.0" layoutY="129.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="95.0" stylesheets="@css/styles.css" text="Community" toggleGroup="$campCat" />
-                  <RadioButton fx:id="Education" layoutX="410.0" layoutY="84.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="81.0" stylesheets="@css/styles.css" text="Education" toggleGroup="$campCat" />
-                  <RadioButton fx:id="Hunger" layoutX="388.0" layoutY="129.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" stylesheets="@css/styles.css" text="Hunger &amp; Poverty" toggleGroup="$campCat" />
-                  <RadioButton fx:id="Environment" layoutX="527.0" layoutY="129.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" stylesheets="@css/styles.css" text="Environment" toggleGroup="$campCat" />
-                  <RadioButton fx:id="Disaster" layoutX="507.0" layoutY="84.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="104.0" stylesheets="@css/styles.css" text="Disaster Relief" toggleGroup="$campCat" />
-                  <RadioButton fx:id="Medical" layoutX="628.0" layoutY="84.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="72.0" stylesheets="@css/styles.css" text="Medical" toggleGroup="$campCat" />
-                  <RadioButton fx:id="ArtandCulture" layoutX="283.0" layoutY="174.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" stylesheets="@css/styles.css" text="Art &amp; Culture" toggleGroup="$campCat" />
-                  <RadioButton fx:id="Emergencies" layoutX="543.0" layoutY="174.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="95.0" stylesheets="@css/styles.css" text="Emergencies" toggleGroup="$campCat" />
-                  <RadioButton fx:id="Funeral" layoutX="394.0" layoutY="174.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="135.0" stylesheets="@css/styles.css" text="Funeral &amp; Memorial" toggleGroup="$campCat" />
-                  <RadioButton fx:id="Sports" layoutX="641.0" layoutY="129.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="64.0" stylesheets="@css/styles.css" text="Sports" toggleGroup="$campCat" />
-                  <RadioButton fx:id="other" layoutX="651.0" layoutY="174.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="64.0" stylesheets="@css/styles.css" text="Other" toggleGroup="$campCat" />
-                  <TextField fx:id="campaignTitle" layoutX="283.0" layoutY="263.0" prefHeight="36.0" prefWidth="431.0" />
-                  <Label layoutX="283.0" layoutY="226.0" text="Give your campaign a title">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="283.0" layoutY="413.0" text="Tell Your Story">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <TextArea fx:id="campaignDescription" layoutX="284.0" layoutY="456.0" prefHeight="249.0" prefWidth="431.0" />
-                  <TextField fx:id="goalAmount" layoutX="283.0" layoutY="354.0" prefHeight="36.0" prefWidth="431.0">
-                     <font>
-                        <Font name="System Bold" size="25.0" />
-                     </font>
-                  </TextField>
-                  <Label layoutX="283.0" layoutY="318.0" text="Your starting goal">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="createCampaign" layoutX="588.0" layoutY="912.0" mnemonicParsing="false" onAction="#createCampaign" prefHeight="30.0" prefWidth="135.0" text="Complete fundraiser" />
-                  <Button fx:id="SelectImageButton" layoutX="284.0" layoutY="806.0" mnemonicParsing="false" onAction="#selectCampaignImage" prefHeight="30.0" prefWidth="135.0" text="Select an image" />
-                  <Label fx:id="selectImageLabel" layoutX="284.0" layoutY="770.0" prefHeight="30.0" prefWidth="431.0" text="No image Selected">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
+                  <RadioButton fx:id="Education" mnemonicParsing="false" prefHeight="33.0" prefWidth="81.0" stylesheets="@css/styles.css" text="Education" toggleGroup="$campCat2" />
+                  <RadioButton fx:id="Disaster" mnemonicParsing="false" prefHeight="33.0" prefWidth="104.0" stylesheets="@css/styles.css" text="Disaster Relief" toggleGroup="$campCat2" />
+                  <RadioButton fx:id="Medical" mnemonicParsing="false" prefHeight="33.0" prefWidth="72.0" stylesheets="@css/styles.css" text="Medical" toggleGroup="$campCat2" />
                </children>
-            </AnchorPane>
-         </content>
-      </ScrollPane>
-      <Button mnemonicParsing="false" onAction="#goToHome" text="Back" />
-   </children>
-</AnchorPane>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="1296.0">
+               <children>
+                  <RadioButton fx:id="ArtandCulture" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" stylesheets="@css/styles.css" text="Art &amp; Culture" toggleGroup="$campCat2" />
+                  <RadioButton fx:id="Funeral" mnemonicParsing="false" prefHeight="33.0" prefWidth="135.0" stylesheets="@css/styles.css" text="Funeral &amp; Memorial" toggleGroup="$campCat2" />
+                  <RadioButton fx:id="Emergencies" mnemonicParsing="false" prefHeight="33.0" prefWidth="95.0" stylesheets="@css/styles.css" text="Emergencies" toggleGroup="$campCat2" />
+                  <RadioButton fx:id="other" mnemonicParsing="false" prefHeight="33.0" prefWidth="64.0" stylesheets="@css/styles.css" text="Other" toggleGroup="$campCat2" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="74.0" prefWidth="1296.0">
+               <children>
+                  <RadioButton fx:id="Community" mnemonicParsing="false" prefHeight="33.0" prefWidth="95.0" stylesheets="@css/styles.css" text="Community" toggleGroup="$campCat2" />
+                  <RadioButton fx:id="Hunger" mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" stylesheets="@css/styles.css" text="Hunger &amp; Poverty" toggleGroup="$campCat2" />
+                  <RadioButton fx:id="Environment" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" stylesheets="@css/styles.css" text="Environment" toggleGroup="$campCat2" />
+                  <RadioButton fx:id="Sports" mnemonicParsing="false" prefHeight="33.0" prefWidth="64.0" stylesheets="@css/styles.css" text="Sports" toggleGroup="$campCat2" />
+               </children>
+            </HBox>
+            <Label text="Give your campaign a title">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="campaignTitle" maxHeight="35.0" maxWidth="800.0" minHeight="35.0" minWidth="800.0" prefHeight="35.0" prefWidth="800.0">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Your starting goal">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="goalAmount" maxHeight="35.0" maxWidth="800.0" minHeight="35.0" minWidth="800.0" prefHeight="35.0" prefWidth="800.0">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="300.0" right="300.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Tell Your Story">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="campaignDescription" maxWidth="800.0" minWidth="800.0" prefHeight="249.0" prefWidth="800.0" wrapText="true">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" />
+               </VBox.margin>
+            </TextArea>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="selectImageLabel" prefHeight="20.0" prefWidth="119.0" text="No image Selected">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="SelectImageButton" maxWidth="135.0" minWidth="135.0" mnemonicParsing="false" onAction="#selectCampaignImage" prefHeight="30.0" prefWidth="135.0" styleClass="backgroundColor" stylesheets="@css/styles.css" text="Select an image" />
+                     </children>
+                  </VBox>
+                  <Button fx:id="createCampaign" maxWidth="135.0" minWidth="135.0" mnemonicParsing="false" onAction="#createCampaign" prefHeight="30.0" prefWidth="135.0" styleClass="backgroundColor" stylesheets="@css/styles.css" text="Complete fundraiser">
+                     <HBox.margin>
+                        <Insets left="400.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

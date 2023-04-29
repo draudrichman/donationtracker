@@ -39,16 +39,16 @@
                      <menus>
                         <Menu mnemonicParsing="false" text="Home">
                            <items>
-                              <MenuItem fx:id="Home" mnemonicParsing="false" text="Home" />
+                              <MenuItem fx:id="Home" mnemonicParsing="false" onAction="#goToHomepage" text="Home" />
                            </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Campaigns">
                            <items>
                               <MenuItem fx:id="Explore" mnemonicParsing="false" onAction="#explore" text="Explore" />
                               <SeparatorMenuItem mnemonicParsing="false" />
-                              <MenuItem fx:id="YourCampaign" mnemonicParsing="false" text="Your Campaigns" />
+                              <MenuItem fx:id="YourCampaign" mnemonicParsing="false" onAction="#goTomycampaign" text="Your Campaigns" />
                               <SeparatorMenuItem mnemonicParsing="false" />
-                              <MenuItem fx:id="DonatedCampaign" mnemonicParsing="false" text="Campaigns you donated to" />
+                              <MenuItem fx:id="DonatedCampaign" mnemonicParsing="false" onAction="#goTomydonatedcampaigns" text="Campaigns you donated to" />
                            </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Help &amp; Support">
@@ -92,6 +92,15 @@
                   <Image url="@imagefiles/homepagecover%20(1).png" />
                </image>
             </ImageView>
+            <HBox alignment="CENTER" prefHeight="156.0" prefWidth="1297.0">
+               <children>
+                  <Button maxWidth="200.0" minWidth="200.0" mnemonicParsing="false" onAction="#explore" prefWidth="200.0" styleClass="backgroundColor" stylesheets="@css/styles.css" text="Discover Campaigns" />
+                  <Button maxWidth="200.0" minWidth="200.0" mnemonicParsing="false" onAction="#goToNewCampaign" prefWidth="200.0" styleClass="backgroundColor" stylesheets="@css/styles.css" text="Start a Campaign">
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Button>
+               </children></HBox>
          </children>
       </VBox>
    </center>

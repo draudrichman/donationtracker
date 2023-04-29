@@ -86,3 +86,41 @@
 
 
 
+
+.table-view {
+  -fx-background-color: transparent;
+}
+
+.table-row-cell {
+  -fx-background-color: transparent;
+      -fx-min-height: 40px;
+
+}
+
+.table-row-cell:odd {
+  -fx-background-color: #a4ebc5;
+}
+
+.table-row-cell:selected {
+  -fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #00C9FF 0%, #92FE9D 100%);
+}
+
+.table-cell {
+  -fx-alignment: center;
+  -fx-font-size: 14px;
+  -fx-padding: 10px;
+  -fx-border-color: transparent;
+}
+
+.table-column {
+  -fx-alignment: CENTER;
+  -fx-font-size: 14px;
+  -fx-padding: 10px;
+  -fx-border-color: transparent;
+}
+
+
+.text-flow {
+    -fx-font-size: 20px; /* change the value as needed */
+    -fx-alignment: center;
+}

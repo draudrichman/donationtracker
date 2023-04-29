@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class DiscoverCampaignController implements Initializable {
+public class MycampaignsController implements Initializable {
 
     @FXML
     Stage stage;
@@ -215,7 +215,8 @@ public class DiscoverCampaignController implements Initializable {
             connection = DriverManager.getConnection(url, user, pass);
 
             //Storing the password in the resultPassword variable.
-            preparedStatement = connection.prepareStatement("SELECT * FROM campaign");
+            preparedStatement = connection.prepareStatement("SELECT * FROM campaign WHERE userID = ?");
+            preparedStatement.setInt(1, SessionManager.getCurrentUser());
             resultSet = preparedStatement.executeQuery();
 
             campaigns = new ArrayList<>();

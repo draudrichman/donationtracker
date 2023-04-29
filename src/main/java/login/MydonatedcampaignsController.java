@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class DiscoverCampaignController implements Initializable {
+public class MydonatedcampaignsController implements Initializable {
 
     @FXML
     Stage stage;
@@ -215,7 +215,8 @@ public class DiscoverCampaignController implements Initializable {
             connection = DriverManager.getConnection(url, user, pass);
 
             //Storing the password in the resultPassword variable.
-            preparedStatement = connection.prepareStatement("SELECT * FROM campaign");
+            preparedStatement = connection.prepareStatement("SELECT campaign.campaignID, campaign.title, campaign.description, campaign.goalAmount, SUM(donation.amount) as totalDonation, campaign.status, campaign.category FROM campaign INNER JOIN donation ON campaign.campaignID = donation.campaignID WHERE donation.userID = ? GROUP BY campaign.campaignID");
+            preparedStatement.setInt(1, SessionManager.getCurrentUser());
             resultSet = preparedStatement.executeQuery();
 
             campaigns = new ArrayList<>();
@@ -224,7 +225,7 @@ public class DiscoverCampaignController implements Initializable {
                 String name = resultSet.getString("title");
                 String description = resultSet.getString("description");
                 double goalAmount = resultSet.getDouble("goalAmount");
-                double currentAmount = resultSet.getDouble("currentAmount");
+                double currentAmount = resultSet.getDouble("totalDonation");
                 String status = resultSet.getString("status");
                 String category = resultSet.getString("category");
 
@@ -266,7 +267,6 @@ public class DiscoverCampaignController implements Initializable {
 
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
-        goalAmountColumn.setCellValueFactory(new PropertyValueFactory<>("goalAmount"));
         currentAmountColumn.setCellValueFactory(new PropertyValueFactory<>("currentAmount"));
 
 

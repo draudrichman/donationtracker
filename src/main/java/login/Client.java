@@ -15,7 +15,7 @@ public class Client {
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
 
-    final private int userID = SessionManager.getCurrentUser();
+    final public int userID = SessionManager.getCurrentUser();
 
     private String clientName;
 

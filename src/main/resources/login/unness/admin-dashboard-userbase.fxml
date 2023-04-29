@@ -15,13 +15,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane fx:id="borderPane" maxHeight="864.0" maxWidth="1296.0" minHeight="864.0" minWidth="1296.0" prefHeight="864.0" prefWidth="1296.0" styleClass="gradient-background" stylesheets="@resources/adminDashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.adminDashboard_UserbaseController">
+<BorderPane fx:id="borderPane" maxHeight="864.0" maxWidth="1296.0" minHeight="864.0" minWidth="1296.0" prefHeight="864.0" prefWidth="1296.0" styleClass="gradient-background" stylesheets="@../resources/adminDashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.adminDashboard_UserbaseController">
    <top>
-      <HBox prefHeight="50.0" prefWidth="200.0" styleClass="container" stylesheets="@resources/adminDashboard.css" BorderPane.alignment="CENTER">
+      <HBox prefHeight="50.0" prefWidth="200.0" styleClass="container" stylesheets="@../resources/adminDashboard.css" BorderPane.alignment="CENTER">
          <children>
             <ImageView fx:id="refresh" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#Refresh" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@imagefiles/refreshicon.png" />
+                  <Image url="@../imagefiles/refreshicon.png" />
                </image>
             </ImageView>
             <Label alignment="CENTER" prefHeight="50.0" prefWidth="224.0" text="Admin Dashboard" textFill="WHITE">
@@ -33,7 +33,7 @@
       </HBox>
    </top>
    <left>
-      <VBox alignment="TOP_CENTER" prefHeight="794.0" prefWidth="234.0" spacing="10.0" styleClass="container" stylesheets="@resources/adminDashboard.css" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="794.0" prefWidth="234.0" spacing="10.0" styleClass="container" stylesheets="@../resources/adminDashboard.css" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </BorderPane.margin>
@@ -42,7 +42,7 @@
                <children>
                   <ImageView fitHeight="58.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@imagefiles/adminavatar.png" />
+                        <Image url="@../imagefiles/adminavatar.png" />
                      </image>
                   </ImageView>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
@@ -56,17 +56,17 @@
                   </VBox>
                </children>
             </HBox>
-            <Pane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="1.0" prefWidth="220.0" styleClass="line-color" stylesheets="@resources/adminDashboard.css" />
+            <Pane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="1.0" prefWidth="220.0" styleClass="line-color" stylesheets="@../resources/adminDashboard.css" />
             <VBox prefHeight="582.0" prefWidth="234.0" spacing="10.0">
                <children>
                   <HBox alignment="CENTER" prefHeight="69.0" prefWidth="234.0" spacing="10.0">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@imagefiles/dashboardicon.png" />
+                              <Image url="@../imagefiles/dashboardicon.png" />
                            </image>
                         </ImageView>
-                        <Button mnemonicParsing="false" onAction="#AnalyticsTransition" prefHeight="65.0" prefWidth="122.0" styleClass="transparent-button" stylesheets="@resources/adminDashboard.css" text="Analytics" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#AnalyticsTransition" prefHeight="65.0" prefWidth="122.0" styleClass="transparent-button" stylesheets="@../resources/adminDashboard.css" text="Analytics" textFill="WHITE">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -77,10 +77,10 @@
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@imagefiles/campaignicon.png" />
+                              <Image url="@../imagefiles/campaignicon.png" />
                            </image>
                         </ImageView>
-                        <Button mnemonicParsing="false" onAction="#CampaignTransition" prefHeight="65.0" prefWidth="141.0" styleClass="transparent-button" stylesheets="@resources/adminDashboard.css" text="Campaigns" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#CampaignTransition" prefHeight="65.0" prefWidth="141.0" styleClass="transparent-button" stylesheets="@../resources/adminDashboard.css" text="Campaigns" textFill="WHITE">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -91,10 +91,10 @@
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@imagefiles/donationicon.png" />
+                              <Image url="@../imagefiles/donationicon.png" />
                            </image>
                         </ImageView>
-                        <Button mnemonicParsing="false" onAction="#DonationsTransition" prefHeight="65.0" prefWidth="130.0" styleClass="transparent-button" stylesheets="@resources/adminDashboard.css" text="Donations" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#DonationsTransition" prefHeight="65.0" prefWidth="130.0" styleClass="transparent-button" stylesheets="@../resources/adminDashboard.css" text="Donations" textFill="WHITE">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -105,24 +105,10 @@
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@imagefiles/user%20icon.png" />
+                              <Image url="@../imagefiles/inboxicon.png" />
                            </image>
                         </ImageView>
-                        <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="122.0" styleClass="transparent-button" stylesheets="@resources/adminDashboard.css" text="Userbase" textFill="WHITE">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="69.0" prefWidth="234.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imagefiles/inboxicon.png" />
-                           </image>
-                        </ImageView>
-                        <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="127.0" styleClass="transparent-button" stylesheets="@resources/adminDashboard.css" text="Messages" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="127.0" styleClass="transparent-button" stylesheets="@../resources/adminDashboard.css" text="Messages" textFill="WHITE">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -135,10 +121,10 @@
                <children>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@imagefiles/logouticon.png" />
+                        <Image url="@../imagefiles/logouticon.png" />
                      </image>
                   </ImageView>
-                  <Button mnemonicParsing="false" onAction="#Logout" prefHeight="65.0" prefWidth="122.0" styleClass="transparent-button" stylesheets="@resources/adminDashboard.css" text="Log Out" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#Logout" prefHeight="65.0" prefWidth="122.0" styleClass="transparent-button" stylesheets="@../resources/adminDashboard.css" text="Log Out" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -166,7 +152,7 @@
                         </HBox>
                         <HBox prefHeight="179.0" prefWidth="1042.0">
                            <children>
-                              <TextFlow fx:id="Description" prefHeight="178.0" prefWidth="932.0" styleClass="textflow" stylesheets="@resources/adminDashboard.css" />
+                              <TextFlow fx:id="Description" prefHeight="178.0" prefWidth="932.0" styleClass="textflow" stylesheets="@../resources/adminDashboard.css" />
                               <VBox prefHeight="178.0" prefWidth="208.0">
                                  <children>
                                     <Label alignment="CENTER" prefHeight="106.0" prefWidth="161.0" text="SET STATUS" />
@@ -182,11 +168,11 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="599.0" prefWidth="975.0">
                <children>
-                  <ScrollPane prefHeight="592.0" prefWidth="1067.0" stylesheets="@resources/adminDashboard.css">
+                  <ScrollPane prefHeight="592.0" prefWidth="1067.0" stylesheets="@../resources/adminDashboard.css">
                      <content>
-                        <VBox prefHeight="595.0" prefWidth="1027.0" styleClass="gradient-background" stylesheets="@resources/adminDashboard.css">
+                        <VBox prefHeight="595.0" prefWidth="1027.0" styleClass="gradient-background" stylesheets="@../resources/adminDashboard.css">
                            <children>
-                              <TableView fx:id="campaignTable" prefHeight="595.0" prefWidth="1157.0" stylesheets="@resources/adminDashboard.css">
+                              <TableView fx:id="campaignTable" prefHeight="595.0" prefWidth="1157.0" stylesheets="@../resources/adminDashboard.css">
                                  <columns>
                                     <TableColumn fx:id="titleColumn" prefWidth="480.0" text="Title" />
                                     <TableColumn fx:id="categoryColumn" minWidth="0.0" prefWidth="156.0" text="Category" />

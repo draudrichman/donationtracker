@@ -63,7 +63,6 @@ public class Homepage_Controller implements Initializable {
         System.out.println(SessionManager.getCurrentUser());
     }
 
-
     //All the methods for Buttons and Menu bar.
 
     //Method 1: Takes to the Profile Page.
@@ -78,6 +77,16 @@ public class Homepage_Controller implements Initializable {
         stage.show();
     }
 
+    public void goToHomepage() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("homepage.fxml"));
+        root = loader.load();
+        scene = new Scene(root);
+        stage = (Stage)borderPane.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
     //Method 2: Takes to the Update Profile Page.
     public void goToUpdateProfile() throws IOException {
 
@@ -102,6 +111,28 @@ public class Homepage_Controller implements Initializable {
         stage.show();
     }
 
+    public void goTomycampaign() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("mycampaigns.fxml"));
+        root = loader.load();
+        scene = new Scene(root);
+        stage = (Stage)borderPane.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void goTomydonatedcampaigns() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("mydonatedcampaigns.fxml"));
+        root = loader.load();
+        scene = new Scene(root);
+        stage = (Stage)borderPane.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
     //Method 4: Logs out from the user account.
     public void logout() throws IOException {
 
@@ -114,14 +145,6 @@ public class Homepage_Controller implements Initializable {
         stage.show();
     }
 
-    //Method 5: Exits the Program.
-    public void exit() throws IOException {
-
-        stage = (Stage) borderPane.getScene().getWindow();
-        stage.close();
-    }
-
-    //Method 6: Logs out from the user account.
     public void explore() throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
